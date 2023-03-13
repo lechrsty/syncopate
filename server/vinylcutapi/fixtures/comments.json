@@ -1,0 +1,32 @@
+[ 
+    {
+        "model": "vinylcutapi.comment",
+        "pk": 1,
+        "fields": {
+            "review": 1,
+            "member": 2,
+            "body": "I feel like this record really taps into that authentic sweet soul sound in a way that a lot of other contemporary artists fall short of achieving.",
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.comment",
+        "pk": 2,
+        "fields": {
+            "review": 1,
+            "member": 3,
+            "body": "This joint is tasty",
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.comment",
+        "pk": 3,
+        "fields": {
+            "review": 2,
+            "member": 1,
+            "body": "Not a big fan of this one",
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    }
+]

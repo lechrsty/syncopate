@@ -1,0 +1,49 @@
+[
+    {
+        "model": "vinylcutapi.review",
+        "pk": 1,
+        "fields": {
+            "member": 1,
+            "title": "Gone the Promises of Yesterday",
+            "artist": "24 Carat Black",
+            "description": "Gone the Promises of Yesterday is the debut review by American soul group 24 Carat Black, released in 1973. The review is known for its lush string arrangements and socially conscious lyrics.",
+            "genre": 27,
+            "rating": 5,
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "created_on": "2022-10-21T21:15:55.764Z",
+            "approved": true
+
+        }
+    },
+    {
+        "model": "vinylcutapi.review",
+        "pk": 2,
+        "fields": {
+            "member": 2,
+            "title": "Gone the Promises of Yesterday!",
+            "artist": "24 Carat Black",
+            "description": "Gone the Promises of Yesterday is the debut review by American soul group 24 Carat Black, released in 1973. The review is known for its lush string arrangements and socially conscious lyrics!",
+            "genre": 27,
+            "rating": 4,
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "created_on": "2022-10-21T21:15:55.764Z",
+            "approved": true
+
+        }
+    },
+    {
+        "model": "vinylcutapi.review",
+        "pk": 3,
+        "fields": {
+            "member": 3,
+            "title": "Gone the Promises of Yesterday?",
+            "artist": "24 Carat Black",
+            "description": "Gone the Promises of Yesterday is the debut review by American soul group 24 Carat Black, released in 1973. The review is known for its lush string arrangements and socially conscious lyrics?",
+            "genre": 27,
+            "rating": 3,
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "created_on": "2022-10-21T21:15:55.764Z",
+            "approved": true
+        }
+    }
+]

@@ -1,0 +1,324 @@
+[
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 1,
+        "fields": {
+            "type": "Alternative Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 2,
+        "fields": {
+            "type": "Blues"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 3,
+        "fields": {
+            "type": "Classical"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 4,
+        "fields": {
+            "type": "Country"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 5,
+        "fields": {
+            "type": "Dance"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 6,
+        "fields": {
+            "type": "Disco"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 7,
+        "fields": {
+            "type": "Electronic"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 8,
+        "fields": {
+            "type": "Folk"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 9,
+        "fields": {
+            "type": "Funk"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 10,
+        "fields": {
+            "type": "Gospel"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 11,
+        "fields": {
+            "type": "Grunge"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 12,
+        "fields": {
+            "type": "Hard Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 13,
+        "fields": {
+            "type": "Heavy Metal"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 14,
+        "fields": {
+            "type": "Hip-Hop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 15,
+        "fields": {
+            "type": "Indie Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 16,
+        "fields": {
+            "type": "Jazz"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 17,
+        "fields": {
+            "type": "Krautrock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 18,
+        "fields": {
+            "type": "Motown"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 19,
+        "fields": {
+            "type": "New Wave"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 20,
+        "fields": {
+            "type": "Goth Rock"
+        }
+	},
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 21,
+        "fields": {
+            "type": "Pop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 22,
+        "fields": {
+            "type": "Punk Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 23,
+        "fields": {
+            "type": "R&B"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 24,
+        "fields": {
+            "type": "Reggae"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 25,
+        "fields": {
+            "type": "Post-punk"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 26,
+        "fields": {
+            "type": "Shoegaze"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 27,
+        "fields": {
+            "type": "Soul"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 28,
+        "fields": {
+            "type": "Synth-pop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 29,
+        "fields": {
+            "type": "Thrash Metal"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 30,
+        "fields": {
+            "type": "Trip-hop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 31,
+        "fields": {
+            "type": "World"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 32,
+        "fields": {
+            "type": "Ambient"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 33,
+        "fields": {
+            "type": "Bluegrass"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 34,
+        "fields": {
+            "type": "Bedroom Pop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 39,
+        "fields": {
+            "type": "Country Pop"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 40,
+        "fields": {
+            "type": "Death Metal"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 41,
+        "fields": {
+            "type": "Glam Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 42,
+        "fields": {
+            "type": "Psychedelic Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 43,
+        "fields": {
+            "type": "Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 44,
+        "fields": {
+            "type": "House"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 45,
+        "fields": {
+            "type": "Industrial"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 46,
+        "fields": {
+            "type": "Progressive Rock"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 47,
+        "fields": {
+            "type": "Instrumental"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 48,
+        "fields": {
+            "type": "Neo-Soul"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 49,
+        "fields": {
+            "type": "Cumbia"
+        }
+    },
+    {
+        "model": "vinylcutapi.genre",
+        "pk": 50,
+        "fields": {
+            "type": "Black Metal"
+        }
+    }
+]

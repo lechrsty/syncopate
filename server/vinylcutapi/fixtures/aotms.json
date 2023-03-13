@@ -1,0 +1,56 @@
+[
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 1,
+        "fields": {
+            "taste": 1,
+            "album": 9,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 2,
+        "fields": {
+            "taste": 2,
+            "album": 14,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 3,
+        "fields": {
+            "taste": 3,
+            "album": 22,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 2,
+        "fields": {
+            "taste": 4,
+            "album": 27,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 3,
+        "fields": {
+            "taste": 5,
+            "album": 30,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    },
+    {
+        "model": "vinylcutapi.aotm",
+        "pk": 3,
+        "fields": {
+            "taste": 6,
+            "album": 34,
+            "created_on": "2022-10-21T21:19:25.057Z"
+        }
+    }
+]
