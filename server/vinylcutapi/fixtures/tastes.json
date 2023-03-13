@@ -1,0 +1,44 @@
+[
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 1,
+        "fields": {
+            "type": "Classics"
+        }
+    },
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 2,
+        "fields": {
+            "type": "Essentials"
+        }
+    },
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 3,
+        "fields": {
+            "type": "World"
+        }
+    },
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 4,
+        "fields": {
+            "type": "Hip Hop"
+        }
+    },
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 5,
+        "fields": {
+            "type": "High Voltage"
+        }
+    },
+    {
+        "model": "vinylcutapi.taste",
+        "pk": 6,
+        "fields": {
+            "type": "New Releases"
+        }
+    }
+]

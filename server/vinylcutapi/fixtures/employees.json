@@ -1,0 +1,29 @@
+[
+    {
+        "model": "vinylcutapi.employee",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "bio": "As a record store owner and collector, I am immersed in the world of vinyl on a daily basis. I curate a diverse selection of records for my customers, and enjoy discovering new artists and labels. When not running my store, I enjoy attending record fairs and conventions.", 
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png"
+        }
+    },
+    {
+        "model": "vinylcutapi.employee",
+        "pk": 2,
+        "fields": {
+            "user": 4,
+            "bio": "I enjoy sharing my passion for records with others through writing and social media. I collect records from different eras and genres, and love to research the stories behind them. In my spare time, I enjoy attending record release parties and organizing listening clubs.", 
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png"
+        }
+    },
+    {
+        "model": "vinylcutapi.employee",
+        "pk": 3,
+        "fields": {
+            "user": 6,
+            "bio": "I am always on the hunt for rare vinyl and obscure releases. I love digging through crates at record stores and flea markets, and expanding my collection. When not listening to music, I enjoy reading about the history of different genres and artists.", 
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png"
+        }
+    }
+]

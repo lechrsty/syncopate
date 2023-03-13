@@ -1,0 +1,37 @@
+[
+    {
+        "model": "vinylcutapi.rating",
+        "pk": 1,
+        "fields": {
+            "rating": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.rating",
+        "pk": 2,
+        "fields": {
+            "rating": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.rating",
+        "pk": 3,
+        "fields": {
+            "rating": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.rating",
+        "pk": 4,
+        "fields": {
+            "rating": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.rating",
+        "pk": 5,
+        "fields": {
+            "rating": 5
+        }
+    }
+]

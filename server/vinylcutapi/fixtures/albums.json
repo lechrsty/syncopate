@@ -1,0 +1,446 @@
+[
+    {
+        "model": "vinylcutapi.album",
+        "pk": 1,
+        "fields": {
+            "title": "Gone the Promises of Yesterday",
+            "artist": "24 Carat Black",
+            "description": "Gone the Promises of Yesterday is the debut album by American soul group 24 Carat Black, released in 1973. The album is known for its lush string arrangements and socially conscious lyrics.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 2,
+        "fields": {
+            "title": "Thrust",
+            "artist": "Herbie Hancock",
+            "description": "Thrust is a jazz-funk album by Herbie Hancock, released in 1974. It features the hit single 'Butterfly' ",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 3,
+        "fields": {
+            "title": "The Howlin' Wolf Album",
+            "artist": "Howlin' Wolf",
+            "description": "The Howlin' Wolf Album is a blues album by Howlin' Wolf, released in 1969. It features covers of several Willie Dixon songs, as well as original compositions by Howlin' Wolf.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 2,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 4,
+        "fields": {
+            "title": "There's No Place Like America Today",
+            "artist": "Curtis Mayfield",
+            "description": "There's No Place Like America Today is a soul album by Curtis Mayfield, released in 1975. The album's themes include poverty, drug addiction, and social injustice.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 5,
+        "fields": {
+            "title": "Places and Spaces",
+            "artist": "Donald Byrd",
+            "description": "Places and Spaces is a jazz-funk album by Donald Byrd, released in 1975. It features the hit single 'Change (Makes You Want to Hustle)' ",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 6,
+        "fields": {
+            "title": "There's a Riot Goin' On",
+            "artist": "Sly & The Family Stone",
+            "description": "There's a Riot Goin' On is a funk album by Sly & The Family Stone, released in 1978",    
+            "image_url": "tiana@robinson.com",
+            "genre": 27,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 7,
+        "fields": {
+            "title": "Bitches Brew",
+            "artist": "Miles Davis",
+            "description": "Bitches Brew is a jazz fusion album by Miles Davis, released in 1970. It is considered one of Davis's most influential and experimental albums, incorporating elements of rock, funk, and world music.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 8,
+        "fields": {
+            "title": "Funk Reaction",
+            "artist": "Lonnie Smith",
+            "description": "Funk Reaction is a jazz-funk album by organist Lonnie Smith, released in 1977. The album features grooving instrumentals with a heavy emphasis on rhythm and funk.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 9,
+        "fields": {
+            "title": "Muddy Waters, Bo Diddley, Howlin' Wolf",
+            "artist": "The Super Super Blues Band",
+            "description": "Muddy Waters, Bo Diddley, Howlin' Wolf is a blues album featuring three legendary bluesmen. The album was recorded live in 1968 and showcases the trio's incredible musical chemistry.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 2,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 10,
+        "fields": {
+            "title": "The Meters",
+            "artist": "The Meters",
+            "description": "The Meters is the debut album by the funk band of the same name, released in 1969. The album is known for its tight grooves and innovative use of rhythm and instrumentation.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 11,
+        "fields": {
+            "title": "Sylvers II",
+            "artist": "The Sylvers",
+            "description": "Sylvers II is a soul and funk album by The Sylvers, released in 1973. The album features the hit single 'Cotton Candy', as well as a mix of upbeat funk and soulful ballads.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 1
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 12,
+        "fields": {
+            "title": "Space 1.8",
+            "artist": "Nala Sinephro",
+            "description": "Space 1.8 is the debut album of British jazz artist Nala Sinephro. The album is a journey through the cosmos, blending elements of spiritual jazz, ambient music, and electronic music.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 13,
+        "fields": {
+            "title": "Five Leaves Left",
+            "artist": "Nick Drake",
+            "description": "Five Leaves Left is the debut album by British singer-songwriter Nick Drake, released in 1969. The album features Drake's haunting vocals and intricate fingerpicking guitar style, and is often cited as one of the greatest folk albums of all time.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 8,
+            "taste": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 14,
+        "fields": {
+            "title": "Time of The Last Persecution",
+            "artist": "Bill Fay",
+            "description": "Time of The Last Persecution is the second album by British singer-songwriter Bill Fay, released in 1971. The album features Fay's poetic and politically charged lyrics, set against a backdrop of psychedelic folk and orchestral arrangements.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 8,
+            "taste": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 15,
+        "fields": {
+            "title": "Fred Neil",
+            "artist": "Fred Neil",
+            "description": "Fred Neil is the self-titled second album by American folk singer-songwriter Fred Neil, released in 1967. The album features Neil's deep, soulful voice and his unique blend of folk, blues, and country influences.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 8,
+            "taste": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 16,
+        "fields": {
+            "title": "Masana Temples",
+            "artist": "Kikagaku Moyo",
+            "description": "Masana Temples is the fourth studio album by Japanese psychedelic rock band Kikagaku Moyo, released in 2018. The album showcases the band's unique blend of traditional Japanese music and psychedelic rock, with influences from folk, jazz, and krautrock. The album has been praised for its dreamy and otherworldly sound, and has been described as a journey through a mystical landscape.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 42,
+            "taste": 2
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 17,
+        "fields": {
+            "title": "Mulatu of Ethiopia",
+            "artist": "Mulatu Astatke",
+            "description": "Mulatu of Ethiopia is a seminal album by Ethiopian musician Mulatu Astatke. Released in 1972, the album features a fusion of Ethiopian music and American jazz and funk, and has become a cornerstone of the Ethio-jazz genre.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 18,
+        "fields": {
+            "title": "Abya Yala",
+            "artist": "Combo Chimbita",
+            "description": "Abya Yala is the second album by Colombian-American band Combo Chimbita, released in 2019. The album features a blend of psychedelic rock, cumbia, and other Latin American styles, and has been praised for its energetic and inventive approach to traditional music.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 49,
+            "taste": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 20,
+        "fields": {
+            "title": "Gal Costa",
+            "artist": "Gal Costa",
+            "description": "Gal Costa is the debut album by Brazilian singer Gal Costa, released in 1969. The album features a mix of bossa nova, samba, and other Brazilian styles, and helped to establish Costa as a major figure in Brazilian music.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 16,
+            "taste": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 21,
+        "fields": {
+            "title": "Atomic Bomb",
+            "artist": "William Onyeabor",
+            "description": "Atomic Bomb is the third studio album by Nigerian musician William Onyeabor, released in 1978. The album features a fusion of funk, disco, and African rhythms, with lyrics that touch on themes of social and political issues.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 9,
+            "taste": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 22,
+        "fields": {
+            "title": "Racional (Vol. 1)",
+            "artist": "Tim Maia",
+            "description": "Racional (Vol. 1) is the seventh studio album by Brazilian soul singer Tim Maia, released in 1975. The album has a distinct sound that incorporates elements of funk, soul, and psychedelic rock, as well as Maia's unique vocal style. Lyrically, the album focuses on Maia's newfound religious beliefs and his advocacy for a simpler, more natural way of life.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 3
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 23,
+        "fields": {
+            "title": "Enter the Wu-Tang (36 Chambers)",
+            "artist": "Wu-Tang Clan",
+            "description": "Enter the Wu-Tang (36 Chambers) is the debut studio album by American hip-hop group Wu-Tang Clan, released in 1993. The album is widely regarded as one of the greatest hip-hop albums of all time, and features the hit singles 'C.R.E.A.M.' and 'Protect Ya Neck'.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 14,
+            "taste": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 24,
+        "fields": {
+            "title": "ATLiens",
+            "artist": "Outkast",
+            "description": "ATLiens is the second studio album by American hip-hop duo Outkast, released in 1996. The album features the hit singles 'Elevators (Me & You)' and 'ATLiens', and is widely regarded as one of the greatest hip-hop albums of all time.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 14,
+            "taste": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 25,
+        "fields": {
+            "title": "Labcabincalifornia",
+            "artist": "The Pharcyde",
+            "description": "Labcabincalifornia is the second studio album by American hip-hop group The Pharcyde, released in 1995. The album features the hit single 'Runnin'', and is widely regarded as one of the greatest hip-hop albums of the 1990s.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 14,
+            "taste": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 26,
+        "fields": {
+            "title": "The House is Burning",
+            "artist": "Isaiah Rashad",
+            "description": "The House is Burning is the third studio album by American rapper Isaiah Rashad, released in 2021. The album is a reflection on Rashad's struggles with addiction and depression, and features collaborations with artists such as Jay Rock, SZA, and Lil Uzi Vert.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 14,
+            "taste": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 27,
+        "fields": {
+        "title": "Cheat Codes",
+        "artist": "Danger Mouse & Black Thought",
+        "description": "Cheat Codes is a collaborative studio album by Danger Mouse and Black Thought. The album features appearances from a variety of artists and includes themes of personal growth and societal issues.",
+        "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+        "genre": 14,
+        "taste": 4
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 28,
+        "fields": {
+            "title": "Raw Power",
+            "artist": "Iggy & the Stooges",
+            "description": "Raw Power is the third studio album by American rock band Iggy and the Stooges. It was released on February 7, 1973, by Columbia Records. Raw Power is often considered one of the greatest albums of all time and is known for its influential heavy metal and punk sound.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 43,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 29,
+        "fields": {
+            "title": "Joy as an Act of Resistance",
+            "artist": "IDLES",
+            "description": "Joy as an Act of Resistance is the second studio album by British punk rock band IDLES. It was released on August 31, 2018, by Partisan Records. The album has been critically acclaimed for its poignant lyrics about modern-day society and the raw, aggressive sound.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 22,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 30,
+        "fields": {
+            "title": "Disharmonium - Undreamable Abysses",
+            "artist": "Blut Aus Nord",
+            "description": "Disharmonium - Undreamable Abysses is a black metal album by French band Blut Aus Nord. It was released on September 30, 2003, by Candlelight Records. The album is known for its experimental and atmospheric sound, blending black metal with industrial and electronic music.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 50,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 31,
+        "fields": {
+            "title": "Bad Brains",
+            "artist": "Bad Brains",
+            "description": "Bad Brains is the debut studio album by American punk rock band Bad Brains. It was released on April 5, 1982, by ROIR. The album is known for its hardcore punk sound and reggae influences, as well as its socially conscious lyrics.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 22,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 32,
+        "fields": {
+            "title": "A Foul Form",
+            "artist": "Thee Oh Sees",
+            "description": "A Foul Form is a garage rock album by American band Thee Oh Sees. It was released on May 22, 2007, by Narnack Records. The album is known for its raw, lo-fi sound and catchy riffs, and is considered a landmark in the garage rock revival of the 2000s.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 22,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 33,
+        "fields": {
+            "title": "Mala Suerte",
+            "artist": "Mala Suerte",
+            "description": "Mala Suerte is the eponymous debut album of the punk rock band Mala Suerte. It was released in 2004 and features ten tracks of high-energy, no-frills punk rock.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 22,
+            "taste": 5
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 34,
+        "fields": {
+            "title": "BLK VINTAGE",
+            "artist": "BLK ODYSSEY",
+            "description": "BLK Vintage is the debut album by Blk Odyssey, released in 2020. The album is a fusion of R&B, soul, and funk, and is heavily influenced by the sounds of the 70s.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 23,
+            "taste": 6
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 35,
+        "fields": {
+            "title": "Niger Vol 2.",
+            "artist": "Mdou Moctar",
+            "description": "Niger Vol 2. is the fifth album by Mdou Moctar, released in 2019. The album is a mix of traditional Tuareg music and psychedelic rock, and features Moctar's signature guitar playing.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 42,
+            "taste": 6
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 36,
+        "fields": {
+            "title": "II",
+            "artist": "Pure Adult",
+            "description": "II is the second album by Pure Adult, released in 2019. The album is a mix of post-punk, electronic, and shoegaze, and features heavy use of drum machines and synthesizers.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 22,
+            "taste": 6
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 37,
+        "fields": {
+            "title": "Comet",
+            "artist": "Nick Hakim",
+            "description": "Comet is the debut album by American musician Nick Hakim, released in 2017. The album features a mix of soul, funk, and psychedelic rock, and showcases Hakim's unique voice and songwriting.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 23,
+            "taste": 6
+        }
+    },
+    {
+        "model": "vinylcutapi.album",
+        "pk": 37,
+        "fields": {
+            "title": "Thee Sacred Souls",
+            "artist": "Thee Sacred Souls",
+            "description": "Thee Sacred Souls is the debut album by American soul band Thee Sacred Souls, released in 2020. The album features a mix of original songs and covers, and showcases the band's tight musicianship and vintage sound.",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1678720263/Tim-Maia-Racional-Vol-1-1975_wbr0tq.jpg",
+            "genre": 27,
+            "taste": 6
+        }
+    }
+]
