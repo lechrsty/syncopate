@@ -3,42 +3,48 @@
         "model": "vinylcutapi.taste",
         "pk": 1,
         "fields": {
-            "type": "Classics"
+            "type": "Classics",
+            "description": "The best Jazz, Blues, & Soul. Lasting albums rescued from the dustbins of history & restored to their full glory."
         }
     },
     {
         "model": "vinylcutapi.taste",
         "pk": 2,
         "fields": {
-            "type": "Essentials"
+            "type": "Essentials",
+            "description": "Must-haves for your collection. The best of indie rock, metal, rap, folk, country, and even Ethiopian funk."
         }
     },
     {
         "model": "vinylcutapi.taste",
         "pk": 3,
         "fields": {
-            "type": "World"
+            "type": "World",
+            "description": "Highlighting records from all over the world; genre-hopping and sure to satisfy the eclectic listener."
         }
     },
     {
         "model": "vinylcutapi.taste",
         "pk": 4,
         "fields": {
-            "type": "Hip Hop"
+            "type": "Hip Hop",
+            "description": "Featuring the hottest and freshest tracks from the best in the game. From old school to trap bangers, discover emerging artists and underground gems alongside chart-topping hits."
         }
     },
     {
         "model": "vinylcutapi.taste",
         "pk": 5,
         "fields": {
-            "type": "High Voltage"
+            "type": "High Voltage",
+            "description": "For fans of loud and heavy rock, featuring the best of classic and contemporary metal, hard rock, punk, and more."
         }
     },
     {
         "model": "vinylcutapi.taste",
         "pk": 6,
         "fields": {
-            "type": "New Releases"
+            "type": "New Releases",
+            "description": "The latest and greatest releases across all genres. Stay up-to-date with the newest music and emerging artists."
         }
     }
 ]

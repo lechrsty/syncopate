@@ -3,14 +3,14 @@ from django.urls import path
 from django.conf.urls import include
 from vinylcutapi.views import login_user, register_user
 from rest_framework import routers
-from vinylcutapi.views import AlbumView, MemberView, AOTMView
+from vinylcutapi.views import AlbumView, MemberView, AOTMView, TasteView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'albums', AlbumView, 'album')
 router.register(r'members', MemberView, 'member')
 router.register(r'aotms', AOTMView, 'aotm')
-
+router.register(r'tastes', TasteView, 'taste')
 
 
 urlpatterns = [
