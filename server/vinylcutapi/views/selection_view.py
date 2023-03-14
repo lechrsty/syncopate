@@ -20,7 +20,7 @@ class SelectionView(ViewSet):
             serializer = SelectionSerializer(selections, many=True)
             return Response(serializer.data)
 
-class GenreSerializer(serializers.ModelSerializer):
+class GenreSelectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Genre
@@ -28,7 +28,7 @@ class GenreSerializer(serializers.ModelSerializer):
 
 class AlbumSelectionSerializer(serializers.ModelSerializer):
 
-    genre = GenreSerializer(many=False)
+    genre = GenreSelectionSerializer(many=False)
 
     class Meta:
         model = Album

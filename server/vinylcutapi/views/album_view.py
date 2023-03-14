@@ -29,14 +29,14 @@ class AlbumView(ViewSet):
             return Response(serializer.data)
 
 
-class AlbumGenreSerializer(serializers.ModelSerializer):
+class GenreAlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ('type', )
 
 class AlbumSerializer(serializers.ModelSerializer):
 
-    genre = AlbumGenreSerializer(many=False)
+    genre = GenreAlbumSerializer(many=False)
 
     class Meta:
         model = Album

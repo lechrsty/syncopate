@@ -27,14 +27,14 @@ class AOTMView(ViewSet):
         serializer = AOTMSerializer(aotm)
         return Response(serializer.data)
 
-class GenreSerializer(serializers.ModelSerializer):
+class GenreAOTMSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ('type', )
 
 class AlbumAOTMSerializer(serializers.ModelSerializer):
 
-    genre = GenreSerializer(many=False)
+    genre = GenreAOTMSerializer(many=False)
 
     class Meta:
         model = Album
