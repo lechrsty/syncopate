@@ -28,7 +28,7 @@
     },
     {
         "model": "vinylcutapi.aotm",
-        "pk": 2,
+        "pk": 4,
         "fields": {
             "taste": 4,
             "album": 27,
@@ -37,7 +37,7 @@
     },
     {
         "model": "vinylcutapi.aotm",
-        "pk": 3,
+        "pk": 5,
         "fields": {
             "taste": 5,
             "album": 30,
@@ -46,7 +46,7 @@
     },
     {
         "model": "vinylcutapi.aotm",
-        "pk": 3,
+        "pk": 6,
         "fields": {
             "taste": 6,
             "album": 34,
