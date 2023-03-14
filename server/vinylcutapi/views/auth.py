@@ -31,7 +31,8 @@ def login_user(request):
         data = {
             'valid': True,
             'token': token.key,
-            'staff': authenticated_user.is_staff
+            'staff': authenticated_user.is_staff,
+            'user': token.user.id
         }
         return Response(data)
     else:
@@ -49,6 +50,7 @@ def register_user(request):
     '''
     account_type = request.data.get('account_type', None)
     email = request.data.get('email', None)
+    username = request.data.get('username', None)
     first_name = request.data.get('first_name', None)
     last_name = request.data.get('last_name', None)
     password = request.data.get('password', None)
@@ -59,32 +61,12 @@ def register_user(request):
         and last_name is not None \
         and password is not None:
 
-        # if account_type == 'member':
-        #     address = request.data.get('address', None)
-        #     if address is None:
-        #         return Response(
-        #             {'message': 'You must provide an address for a member'},
-        #             status=status.HTTP_400_BAD_REQUEST
-        #         )
-        # elif account_type == 'employee':
-        #     specialty = request.data.get('specialty', None)
-        #     if specialty is None:
-        #         return Response(
-        #             {'message': 'You must provide a specialty for an employee'},
-        #             status=status.HTTP_400_BAD_REQUEST
-        #         )
-        # else:
-        #     return Response(
-        #         {'message': 'Invalid account type. Valid values are \'member\' or \'employee\''},
-        #         status=status.HTTP_400_BAD_REQUEST
-        #     )
-
         try:
             # Create a new user by invoking the `create_user` helper method
             # on Django's built-in User model
             new_user = User.objects.create_user(
-                username=request.data['email'],
                 email=request.data['email'],
+                username=request.data['email'],
                 password=request.data['password'],
                 first_name=request.data['first_name'],
                 last_name=request.data['last_name']
@@ -99,22 +81,27 @@ def register_user(request):
 
         if account_type == 'member':
             account = Member.objects.create(
-                address=request.data['address'],
-                user=new_user
+                user=new_user,
+                bio = request.data['bio'],
+                image_url = request.data['image_url'],
+                taste = request.data['taste']
             )
         elif account_type == 'employee':
             new_user.is_staff = True
             new_user.save()
 
             account = Employee.objects.create(
-                user=new_user
+                user=new_user,
+                bio = request.data['bio'],
+                image_url = request.data['image_url']
             )
 
 
         # Use the REST Framework's token generator on the new user account
         token = Token.objects.create(user=account.user)
         # Return the token to the client
-        data = { 'token': token.key, 'staff': new_user.is_staff }
+        data = { 'token': token.key, 'staff': new_user.is_staff, 'user': token.user.id
+}
         return Response(data)
 
     return Response({'message': 'You must provide email, password, first_name, last_name and account_type'}, status=status.HTTP_400_BAD_REQUEST)
