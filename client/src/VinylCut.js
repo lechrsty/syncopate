@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { ApplicationViews } from "./ApplicationViews";
-import { NavBar } from "./nav/NavBar";
-import { Login } from "./auth/Login";
-import { Register } from "./auth/Register";
-import { EmployeeViews } from "./EmployeeViews";
-import { EmployeeNavBar } from "./nav/EmployeeNavBar";
+import { ApplicationViews } from "./views/ApplicationViews";
+import { NavBar } from "./components/nav/NavBar";
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
+import { EmployeeViews } from "./views/EmployeeViews";
+import { EmployeeNavBar } from "./components/nav/EmployeeNavBar";
 import "./VinylCut.css";
-import { isStaff } from "../utils/isStaff";
-import { EmployeeRegister } from "./auth/EmployeeRegister";
+import { isStaff } from "./utils/isStaff";
+import { EmployeeRegister } from "./components/auth/EmployeeRegister";
 
 export const VinylCut = () => {
 
