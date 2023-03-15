@@ -30,4 +30,3 @@ export const Review = ({ review }) => (
         </CardContent>
     </Card>
 )
-
