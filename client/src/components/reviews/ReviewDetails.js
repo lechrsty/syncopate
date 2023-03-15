@@ -43,7 +43,7 @@ export const ReviewDetails = () => {
             ?
             <>
               <Button className="button" variant="contained"  onClick={() => {
-                navigate(`/reviews/editReview/${review.id}`)
+                navigate(`/reviews/edit/${review.id}`)
               }}>Edit</Button>
               <Button className="button" variant="contained" onClick={()=>{
                 deleteReview(review.id)
