@@ -32,7 +32,7 @@ class AlbumView(ViewSet):
 class GenreAlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('type', )
+        fields = ('id', 'type', )
 
 class AlbumSerializer(serializers.ModelSerializer):
 

@@ -155,7 +155,6 @@ class GenreReviewSerializer(serializers.ModelSerializer):
         model = Genre
         fields = ('id', 'type', )
 
-
 class RatingReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
