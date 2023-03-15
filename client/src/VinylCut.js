@@ -1,49 +1,26 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { ApplicationViews } from "./views/ApplicationViews";
-import { NavBar } from "./components/nav/NavBar";
+import { Route, Routes } from "react-router-dom"
+import { NavBar } from "./components/nav/MemberNav"
+import { ApplicationViews } from "./views/ApplicationViews"
+import { Authorized } from "./views/Authorized"
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
-import { EmployeeViews } from "./views/EmployeeViews";
-import { EmployeeNavBar } from "./components/nav/EmployeeNavBar";
-import "./VinylCut.css";
-import { isStaff } from "./utils/isStaff";
 import { EmployeeRegister } from "./components/auth/EmployeeRegister";
+import "./VinylCut.css"
 
 export const VinylCut = () => {
+	return <Routes>
+		<Route path="/login" element={<Login />} />
+		<Route path="/registerMember" element={<Register />} />
+		<Route path="/registerEmployee" element={<EmployeeRegister />} />
 
-  return (
-    <>
-      <Route
-        render={() => {
-          if (localStorage.getItem("vinylcut")) {
-            if (isStaff()) {
-              return <>
-                  <EmployeeNavBar />
-                  <EmployeeViews />
-                </>
-            }
-            else {
-              return <>
-                  <NavBar />
-                  <ApplicationViews />
-                </>
-            }
-          } else {
-            return <Redirect to="/login" />;
-          }
-        }}
-      />
+		<Route path="*" element={
+			<Authorized>
+				<>
+					<NavBar />
+					<ApplicationViews />
+				</>
+			</Authorized>
 
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
-      <Route path="/registeremployee">
-        <EmployeeRegister />
-      </Route>
-    </>
-  )
+		} />
+	</Routes>
 }

@@ -1,26 +1,18 @@
-import React from "react"
-import { Route } from "react-router-dom"
-
+import { EmployeeViews } from "./EmployeeViews"
+import { MemberViews } from "./MemberViews"
 
 export const ApplicationViews = () => {
 
-    return (
-        <>
-            {/* <Route exact path="/">
-                <TicketList />
-            </Route>
+    const localVinylCutUser = localStorage.getItem("vinylcut")
+    const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
-            <Route exact path="/tickets">
-                <TicketList />
-            </Route>
+    if (vinylCutUserObject.staff) {
+        // Return employee views
+        return <EmployeeViews />
+    }
+    else {
+        // Return member views
+        return <MemberViews />
 
-            <Route exact path="/tickets/:ticketId(\d+)">
-                <Ticket />
-            </Route>
-
-            <Route path="/tickets/create">
-                <TicketForm />
-            </Route> */}
-        </>
-    )
+    }
 }
