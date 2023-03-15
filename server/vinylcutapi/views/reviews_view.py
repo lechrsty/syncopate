@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from vinylcutapi.models import Review, Genre, Member, Rating
+from vinylcutapi.models import Review, Genre, Member, Rating, Comment
 from rest_framework.decorators import action
 
 
@@ -27,12 +27,6 @@ class ReviewView(ViewSet):
         serialized = ReviewSerializer(reviews, many=True)
 
         return Response(serialized.data, status=status.HTTP_200_OK)
-
-    # def retrieve(self, request, pk):
-
-    #     review = Review.objects.get(pk=pk)
-    #     serializer = ReviewSerializer(review)
-    #     return Response(serializer.data)
 
     def retrieve(self, request, pk):
         """Handles get requests to /reviews/pk
@@ -101,6 +95,38 @@ class ReviewView(ViewSet):
         review = Review.objects.get(pk=pk)
         review.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['post'], detail=True)
+    # pk here is the pk of the Review
+    def comment(self, request, pk):
+        member = Member.objects.get(user=request.auth.user)
+        review = Review.objects.get(pk=pk)
+        comment = Comment.objects.create(
+            body=request.data['body'],
+            member=member,
+            review=review
+        )
+
+        return Response({'message': 'Comment Added'}, status=status.HTTP_201_CREATED)
+
+    @action(methods=['delete'], detail=True)
+    def delete_comment(self, request, pk):
+        """pk is the pk of the comment, not the review
+        """
+        comment = Comment.objects.get(pk=pk)
+        comment.delete()
+        return Response({'message': 'Comment Deleted'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['get'], detail=False)
+    def logged_in_member_posts(self, request):
+        """pk is the pk of the comment, not the review
+        """
+        member_instance = Member.objects.get(user=request.auth.user)
+        reviews = Review.objects.all()
+        reviews = reviews.filter(member=member_instance)
+        serialized = ReviewSerializer(reviews, many=True)
+        return Response(serialized.data, status=status.HTTP_200_OK)
+
 
 class GenreReviewSerializer(serializers.ModelSerializer):
     class Meta:
