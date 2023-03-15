@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
 import { VinylCut } from "./VinylCut"
+import { createRoot } from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
 
-ReactDOM.render(
-  <React.StrictMode>
+const container = document.getElementById("root")
+const root = createRoot(container)
+root.render(
     <BrowserRouter>
-      <VinylCut />
+        <VinylCut />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+)
+

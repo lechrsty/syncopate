@@ -1,17 +1,17 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 
-export const EmployeeViews = () => {
+export const MemberViews = ({ token, setToken }) => {
 	return (
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>Welcome to your Dashboard</h1>
+                    <h1>Vinyl Cut</h1>
+                    <div>Welcome to the club!</div>
 
                     <Outlet />
                 </>
             }>
 
-                
             </Route>
         </Routes>
     )
