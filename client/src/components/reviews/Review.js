@@ -11,19 +11,21 @@ export const Review = ({ review }) => (
     <Card key={`review--${review.id}`} className="review" sx={{ maxWidth: 300 }}>
         <CardContent>
             <Stack spacing={2}>
-                <Link className="card-link"
-                    href={`/reviews/${review.id}`}>
-                    <Typography variant="h6">{review.title}</Typography></Link>
-                <Typography> {review?.artist} </Typography>
-                <Typography> {review?.description} </Typography>
                 <CardMedia
                     sx={{ height: 140 }}
                     image={review?.image_url}
                     title="image"
                 />
+                <Link className="card-link"
+                    href={`/reviews/${review.id}`}>
+                    <Typography variant="h6">{review.title}</Typography></Link>
+                <Typography> {review?.artist} </Typography>
+                <Typography> {review?.description} </Typography>
                 <Typography> {review?.content} </Typography>
                 <Typography paragraph color="text.primary"> {review?.member?.username}</Typography>
-                <Typography paragraph color="text.secondary"> Genre: {review.genre.type}</Typography>
+                <Typography paragraph color="text.secondary"> Genre: {review?.genre?.type}</Typography>
+                <Typography paragraph color="text.secondary"> {review?.rating}/5</Typography>
+
             </Stack>
         </CardContent>
     </Card>
