@@ -131,7 +131,12 @@ class ReviewView(ViewSet):
 class GenreReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('type', )
+        fields = ('id', 'type', )
+    
+class RatingReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = ('id', 'rating', )
 
 class MemberReviewSerializer(serializers.ModelSerializer):
     class Meta:
@@ -142,6 +147,8 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     genre = GenreReviewSerializer(many=False)
     member = MemberReviewSerializer(many=False)
+    rating = RatingReviewSerializer(many=False)
+
 
     class Meta:
         model = Review
