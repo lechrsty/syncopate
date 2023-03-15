@@ -118,7 +118,7 @@ class ReviewView(ViewSet):
         return Response({'message': 'Comment Deleted'}, status=status.HTTP_204_NO_CONTENT)
 
     @action(methods=['get'], detail=False)
-    def logged_in_member_posts(self, request):
+    def mine(self, request):
         """pk is the pk of the comment, not the review
         """
         member_instance = Member.objects.get(user=request.auth.user)
