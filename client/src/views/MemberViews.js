@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { ReviewList } from "../components/reviews/ReviewList"
+import { ReviewDetails } from "../components/reviews/ReviewDetails"
 
 export const MemberViews = () => {
 	return (
@@ -13,7 +14,11 @@ export const MemberViews = () => {
                 </>
             }>
 
-            <Route path="reviews" element={ <ReviewList /> } />
+            <Route path="/reviews">
+                <Route index element={ <ReviewList /> } />
+                <Route path=":reviewId" element={<ReviewDetails />} />
+            </Route>
+
 
 
             </Route>
