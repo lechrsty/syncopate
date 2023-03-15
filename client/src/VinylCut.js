@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import { useState } from "react"
 import { NavBar } from "./components/nav/MemberNav"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
@@ -8,6 +9,8 @@ import { EmployeeRegister } from "./components/auth/EmployeeRegister";
 import "./VinylCut.css"
 
 export const VinylCut = () => {
+
+
 	return <Routes>
 		<Route path="/login" element={<Login />} />
 		<Route path="/registerMember" element={<Register />} />

@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { ReviewList } from "../components/reviews/ReviewList"
 
-export const MemberViews = ({ token, setToken }) => {
+export const MemberViews = () => {
 	return (
         <Routes>
             <Route path="/" element={
@@ -11,6 +12,9 @@ export const MemberViews = ({ token, setToken }) => {
                     <Outlet />
                 </>
             }>
+
+            <Route path="reviews" element={ <ReviewList /> } />
+
 
             </Route>
         </Routes>
