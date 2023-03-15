@@ -23,7 +23,7 @@ export const Review = ({ review }) => (
                 <Typography> {review?.description} </Typography>
                 <Typography> {review?.content} </Typography>
                 <Typography paragraph color="text.primary"> {review?.member?.username}</Typography>
-                <Typography paragraph color="text.secondary"> Genre: {review?.genre?.type}</Typography>
+                <Typography paragraph color="text.secondary"> {review?.genre?.type}</Typography>
                 <Typography paragraph color="text.secondary"> {review?.rating}/5</Typography>
 
             </Stack>

@@ -67,17 +67,39 @@ class ReviewView(ViewSet):
         serialized = ReviewSerializer(new_review, many=False)
         return Response(serialized.data, status=status.HTTP_201_CREATED)
 
+    # def update(self, request, pk):
+    #     """Handles PUT requests to /reviews/pk
+    #     Returns nothing with a 204."""
+
+    #     review = Review.objects.get(pk=pk)
+
+    #     genre_id = request.data["genre"]["id"]
+    #     rating_id = request.data["rating"]["id"]
+
+    #     genre = Genre.objects.get(pk=genre_id)
+    #     rating = Rating.objects.get(pk=rating_id)
+
+    #     review.title = request.data['title']
+    #     review.artist = request.data['artist']
+    #     review.description = request.data['description']
+    #     review.genre=genre
+    #     review.rating=rating
+    #     review.image_url = request.data['image_url']
+    #     review.save()
+
+    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
+
     def update(self, request, pk):
         """Handles PUT requests to /reviews/pk
         Returns nothing with a 204."""
 
         review = Review.objects.get(pk=pk)
 
-        genre_id = request.data["genre"]["id"]
-        rating_id = request.data["rating"]["id"]
+        genre_id = request.data.get("genre", {}).get("id")
+        rating_id = request.data.get("rating", {}).get("id")
 
-        genre = Genre.objects.get(pk=genre_id)
-        rating = Rating.objects.get(pk=rating_id)
+        genre = Genre.objects.get(pk=genre_id) if genre_id else None
+        rating = Rating.objects.get(pk=rating_id) if rating_id else None
 
         review.title = request.data['title']
         review.artist = request.data['artist']
@@ -132,7 +154,7 @@ class GenreReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ('id', 'type', )
-    
+
 class RatingReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
