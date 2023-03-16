@@ -1,15 +1,15 @@
+import * as React from 'react'
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import * as React from 'react'
+import { getSingleReview, updateReview } from "../../managers/ReviewManager"
+import { getGenres } from "../../managers/GenreManager"
+import { getRatings } from "../../managers/RatingManager"
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
-import { getSingleReview, updateReview } from "../../managers/ReviewManager"
 import "./Review.css"
-import { getGenres } from "../../managers/GenreManager"
-import { getRatings } from "../../managers/RatingManager"
 
 
 export const EditReview = () => {
@@ -37,7 +37,7 @@ export const EditReview = () => {
         () => { getGenres().then(setGenreDropdown) }, []
     )
 
-    // Initialize and set state for Ratings
+    // Initialize and set state for Rating
     const [ratingDropdown, setRatingDropdown] = useState([])
 
     useEffect(
