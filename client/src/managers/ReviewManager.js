@@ -22,7 +22,7 @@ export const getSingleReview = (id) => {
     .then((res) => res.json())
 }
 
-export const getReviewByMember = (id) => {
+export const getReviewsByMember = (id) => {
     const auth = localStorage.getItem("vinylcut")
     const token = JSON.parse(auth).token
 
@@ -46,14 +46,16 @@ export const getReviewsByLoggedInMember = () => {
     .then((res) => res.json())
 }
 
-export const addReview = (review) => {
+export const createReview = (review) => {
     const auth = localStorage.getItem("vinylcut")
     const token = JSON.parse(auth).token
     const newReview = {
         title: review.title,
-        category: parseInt(review.category_id),
+        artist: review.artist,
+        description: review.description,
+        genre: parseInt(review.genre),
+        rating: parseInt(review.rating),
         image_url: review.image_url,
-        content: review.content,
         approved : 1
     }
     return fetch("http://localhost:8000/reviews", {
