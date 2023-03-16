@@ -149,16 +149,15 @@ class ReviewView(ViewSet):
         serialized = ReviewSerializer(reviews, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+class RatingReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = ('id', 'rating', )
 
 class GenreReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ('id', 'type', )
-
-class RatingReviewSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rating
-        fields = ('id', 'rating', )
 
 class MemberReviewSerializer(serializers.ModelSerializer):
     class Meta:
@@ -167,11 +166,12 @@ class MemberReviewSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
 
-    genre = GenreReviewSerializer(many=False)
     member = MemberReviewSerializer(many=False)
+    genre = GenreReviewSerializer(many=False)
     rating = RatingReviewSerializer(many=False)
 
 
     class Meta:
         model = Review
         fields = ('id', 'member', 'title', 'artist', 'description', 'genre', 'rating', 'created_on', 'image_url', 'is_member', )
+        

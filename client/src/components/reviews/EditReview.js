@@ -22,8 +22,8 @@ export const EditReview = () => {
         title: "",
         artist: "",
         description: "",
-        genre: 0,
-        rating: 0,
+        genre: null,
+        rating: null,
     })
 
     useEffect(
@@ -102,17 +102,20 @@ export const EditReview = () => {
                         <fieldset>
                             <div className="form-group">
                                 <label htmlFor="genre">Genre </label>
-                                <select className="form-style" onChange={(evt) => {
-                                    const copy = { ...review }
-                                    copy.genre = parseInt(evt.target.value)
-                                    setReview(copy)
-                                }}>
-                                    <option defaultValue="">{review?.genre?.type}</option>
-                                    {
-                                        genreDropdown.map((genre) =>
-                                            <option key={`genre--${genre?.id}`} value={genre?.id}>{genre?.type}</option>
-                                        )
-                                    }
+                                <select
+                                    className="form-style"
+                                    onChange={(evt) => {
+                                        const copy = { ...review };
+                                        copy.genre = { id: parseInt(evt.target.value) };
+                                        setReview(copy);
+                                    }}
+                                >
+                                    <option value="">{review?.genre?.type}</option>
+                                    {genreDropdown.map((genre) => (
+                                        <option key={`genre--${genre.id}`} value={genre.id}>
+                                            {genre.type}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </fieldset>
@@ -120,17 +123,23 @@ export const EditReview = () => {
                         <fieldset>
                             <div className="form-group">
                                 <label htmlFor="rating">Rating </label>
-                                <select className="form-style" onChange={(evt) => {
-                                    const copy = { ...review }
-                                    copy.rating = parseInt(evt.target.value)
-                                    setReview(copy)
-                                }}>
-                                    <option defaultValue="">{review?.rating}</option>
-                                    {
-                                        ratingDropdown.map((rating) =>
-                                            <option key={`rating--${rating?.id}`} value={rating?.id}>{rating?.rating}</option>
-                                        )
-                                    }
+                                <select
+                                    className="form-style"
+                                    value={review?.rating?.id}
+                                    onChange={(evt) => {
+                                        const copy = { ...review };
+                                        copy.rating = { id: parseInt(evt.target.value) };
+                                        setReview(copy);
+                                    }}
+                                >
+                                    <option value="" disabled={!review?.rating}>
+                                        {review?.rating?.rating}
+                                    </option>
+                                    {ratingDropdown.map((rating) => (
+                                        <option key={`rating--${rating?.id}`} value={rating?.id}>
+                                            {rating?.rating}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </fieldset>
