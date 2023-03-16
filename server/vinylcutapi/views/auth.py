@@ -28,11 +28,19 @@ def login_user(request):
     if authenticated_user is not None:
         token = Token.objects.get(user=authenticated_user)
 
+        # Get the member associated with the authenticated user
+        try:
+            member = Member.objects.get(user=authenticated_user)
+            member_id = member.id
+        except Member.DoesNotExist:
+            member_id = None
+
         data = {
             'valid': True,
             'token': token.key,
             'staff': authenticated_user.is_staff,
-            'user': token.user.id
+            'user': token.user.id,
+            'member': member_id
         }
         return Response(data)
     else:
