@@ -147,7 +147,6 @@ class ReviewSerializer(serializers.ModelSerializer):
     genre = GenreReviewSerializer(many=False)
     rating = RatingReviewSerializer(many=False)
 
-
     class Meta:
         model = Review
         fields = ('id', 'member', 'title', 'artist', 'description', 'genre', 'rating', 'created_on', 'image_url', 'is_member', )
