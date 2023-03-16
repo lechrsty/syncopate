@@ -6,6 +6,8 @@ import { CreateReview } from "../components/reviews/CreateReview"
 import { LoggedInProfile } from "../components/profiles/LoggedInProfile"
 import { MemberProfile } from "../components/profiles/MemberProfile"
 import { Home } from "../components/home/Home"
+import { CommentListContainer } from "../components/comments/CommentContainer"
+
 
 export const MemberViews = () => {
 	return (
@@ -25,6 +27,8 @@ export const MemberViews = () => {
                 <Route path=":reviewId" element={<ReviewDetails />} />
                 <Route path="edit/:reviewId" element={<EditReview />} />
                 <Route path="create" element={<CreateReview />} />
+                <Route path=":reviewId/comments" element={< CommentListContainer />} />
+
             </Route>
 
 
