@@ -27,7 +27,7 @@ class CommentView(ViewSet):
 class MemberCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ('username', 'image_url')
+        fields = ('id', 'username', 'image_url')
 
 
 class CommentSerializer(serializers.ModelSerializer):

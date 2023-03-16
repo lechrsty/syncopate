@@ -16,7 +16,7 @@ export const LoggedInProfile = ( ) => {
             <div style={{ margin: "0rem 3rem" }}>
             <section>
                 {
-                    reviews.map(review => {
+                    reviews.reverse().map(review => {
                         return <Review review={review} key={`review--${review.id}`} />
                     })
                 }
