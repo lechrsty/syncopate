@@ -63,7 +63,7 @@ export const CreateReview = () => {
         } else {
             createReview(review)
                 .then(() => {
-                    navigate('/')
+                    navigate('/reviews')
                 });
         }
     }

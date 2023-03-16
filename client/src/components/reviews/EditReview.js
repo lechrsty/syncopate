@@ -54,7 +54,7 @@ export const EditReview = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         updateReview(reviewId, review)
-            .then(() => navigate('/reviews'))
+            .then(() => navigate(`/reviews/${review?.id}`))
     }
 
 

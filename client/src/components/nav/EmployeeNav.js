@@ -2,18 +2,14 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 
-export const EmployeeNav = () => {
+export const NavBar = () => {
     return (
         <ul className="navbar">
+            
             <li className="navbar__item">
-                <Link className="navbar__link" to="/patients">Patients</Link>
+                <Link className="navbar__link" to="/profile">Profile</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/providers">Providers</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/appointments">Appointment</Link>
-            </li>
+
             <li className="navbar__item">
                 <Link className="navbar__link" to="#"
                     onClick={
@@ -24,6 +20,7 @@ export const EmployeeNav = () => {
                     Logout
                 </Link>
             </li>
+
         </ul>
     )
 }

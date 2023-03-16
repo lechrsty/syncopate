@@ -10,9 +10,9 @@ import Link from '@mui/material/Link'
 export const Review = ({ review }) => (
     <Card key={`review--${review.id}`} className="review" sx={{ maxWidth: 300 }}>
         <CardContent>
-            <Stack spacing={2}>
+            <Stack spacing={1}>
                 <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{ height: 200 }}
                     image={review?.image_url}
                     title="image"
                 />

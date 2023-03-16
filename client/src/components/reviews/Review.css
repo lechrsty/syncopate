@@ -8,15 +8,6 @@
     color: black;
 }
 
-.review__username-link {
-    color: blue;
-    text-decoration: underline;
-}
-
-.review__username {
-    color: green;
-}
-
 .review {
     margin: 20px;
     padding: 20px;
