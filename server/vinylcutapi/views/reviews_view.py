@@ -140,7 +140,7 @@ class GenreReviewSerializer(serializers.ModelSerializer):
 class MemberReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ('username','image_url', )
+        fields = ('id', 'username','image_url', )
 
 class ReviewSerializer(serializers.ModelSerializer):
     member = MemberReviewSerializer(many=False)
