@@ -32,7 +32,7 @@ export const Album = ({ album, onDelete }) => {
                     <Typography> {album?.description} </Typography>
                     <Typography paragraph color="text.secondary"> {album?.genre?.type}</Typography>
                     <Button className="button" variant="contained" onClick={() => {
-                        navigate(`/albums/edit/${album.id}`)
+                        navigate(`/edit/${album.id}`)
                     }}>Edit</Button>
                     <Button className="button" variant="contained"
                         onClick={handleDelete}

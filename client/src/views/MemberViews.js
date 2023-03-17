@@ -10,7 +10,7 @@ import { MemberDashboard } from "../components/dashboards/MemberDashboard"
 
 
 export const MemberViews = () => {
-    
+
 	return (
         <Routes>
             <Route path="/" element={
@@ -29,9 +29,7 @@ export const MemberViews = () => {
                 <Route path="edit/:reviewId" element={<EditReview />} />
                 <Route path="create" element={<CreateReview />} />
                 <Route path=":reviewId/comments" element={< CommentListContainer />} />
-
             </Route>
-
 
             <Route path="/profile">
                 <Route index element={ <LoggedInProfile /> } />

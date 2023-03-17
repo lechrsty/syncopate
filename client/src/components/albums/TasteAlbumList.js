@@ -28,7 +28,7 @@ export const TasteAlbumList = ({ tasteId }) => {
                     className="button"
                     variant="contained"
                     onClick={() => {
-                        navigate(`/albums/create`)
+                        navigate(`/upload`)
                     }}
                 >
                     Drop an Album
