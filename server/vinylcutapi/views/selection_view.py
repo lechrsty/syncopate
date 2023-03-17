@@ -24,7 +24,7 @@ class GenreSelectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Genre
-        fields = ('type', )
+        fields = ('id', 'type', )
 
 class AlbumSelectionSerializer(serializers.ModelSerializer):
 
@@ -32,7 +32,7 @@ class AlbumSelectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Album
-        fields = ('title', 'artist', 'description', 'image_url', 'genre', )
+        fields = ('id', 'title', 'artist', 'description', 'image_url', 'genre', )
 
 class MemberSelectionSerializer(serializers.ModelSerializer):
     

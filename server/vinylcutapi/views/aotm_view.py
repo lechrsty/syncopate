@@ -38,13 +38,13 @@ class AlbumAOTMSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Album
-        fields = ('title', 'artist', 'description', 'image_url', 'genre', )
+        fields = ('id', 'title', 'artist', 'description', 'image_url', 'genre', )
 
 class TasteAOTMSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Taste
-        fields = ('type', )
+        fields = ('id', 'type', )
 
 class AOTMSerializer(serializers.ModelSerializer):
 

@@ -19,8 +19,10 @@ export const VinylCut = () => {
 		<Route path="*" element={
 			<Authorized>
 				<>
-					<NavBar />
-					<ApplicationViews />
+					<div className="container">
+						<NavBar />
+						<ApplicationViews />
+					</div>
 				</>
 			</Authorized>
 
