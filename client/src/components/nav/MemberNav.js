@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 
-export const NavBar = () => {
+export const MemberNav = () => {
     const navigate = useNavigate()
 
     const localVinylCutUser = localStorage.getItem("vinylcut")

@@ -5,11 +5,12 @@ import { EditReview } from "../components/reviews/EditReview"
 import { CreateReview } from "../components/reviews/CreateReview"
 import { LoggedInProfile } from "../components/profiles/LoggedInProfile"
 import { MemberProfile } from "../components/profiles/MemberProfile"
-import { Home } from "../components/home/Home"
 import { CommentListContainer } from "../components/comments/CommentContainer"
+import { MemberDashboard } from "../components/dashboards/MemberDashboard"
 
 
 export const MemberViews = () => {
+    
 	return (
         <Routes>
             <Route path="/" element={
@@ -19,7 +20,7 @@ export const MemberViews = () => {
             }>
 
             <Route path="/home">
-                <Route index element={ <Home /> } />
+                <Route index element={ <MemberDashboard /> } />
             </Route>
 
             <Route path="/reviews">

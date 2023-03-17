@@ -30,7 +30,6 @@ export const Review = ({ review, onDelete }) => {
                         <Typography variant="h6">{review.title}</Typography></Link>
                     <Typography> {review?.artist} </Typography>
                     <Typography> {review?.description} </Typography>
-                    <Typography> {review?.content} </Typography>
                     <Typography paragraph color="text.primary"> {review?.member?.username}</Typography>
                     <Typography paragraph color="text.secondary"> {review?.genre?.type}</Typography>
                     <Typography paragraph color="text.secondary"> {review?.rating?.rating}</Typography>

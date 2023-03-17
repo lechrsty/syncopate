@@ -1,15 +1,16 @@
 import { Route, Routes } from "react-router-dom"
-import { useState } from "react"
-import { NavBar } from "./components/nav/MemberNav"
+import { useState, useEffect } from "react"
+import { MemberNav } from "./components/nav/MemberNav"
+import { EmployeeNav } from "./components/nav/EmployeeNav"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { EmployeeRegister } from "./components/auth/EmployeeRegister";
 import "./VinylCut.css"
+import { NavBar } from "./components/nav/NavBar"
 
 export const VinylCut = () => {
-
 
 	return <Routes>
 		<Route path="/login" element={<Login />} />
@@ -20,7 +21,7 @@ export const VinylCut = () => {
 			<Authorized>
 				<>
 					<div className="container">
-						<NavBar />
+						<NavBar/>
 						<ApplicationViews />
 					</div>
 				</>

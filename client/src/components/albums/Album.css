@@ -1,0 +1,63 @@
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-body {
+    color: black;
+}
+
+.album {
+    margin: 20px;
+    padding: 20px;
+}
+
+.button {
+    border-radius: 4px;
+    height: 40px;
+    width: 150px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    background-color: #ffeba7;
+    color: #102770;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    margin: 5px;
+
+}
+
+.album-list-container {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    align-content: center;
+    /* display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 20px;
+    grid-row-gap: 10rem; */
+    margin: 100px;
+}
+
+.albumForm {
+    align-content: center;
+    margin: 50px;
+    text-align: center;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.create-album-list-container {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    align-content: center;
+    margin: 100px;
+}

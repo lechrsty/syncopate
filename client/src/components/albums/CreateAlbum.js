@@ -2,26 +2,26 @@ import * as React from 'react'
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { getGenres } from '../../managers/GenreManager'
-import { getRatings } from '../../managers/RatingManager'
-import { createReview } from "../../managers/ReviewManager"
+import { getTastes } from '../../managers/TasteManager'
+import { createAlbum } from "../../managers/AlbumManager"
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
-import "./Review.css"
+import "./Album.css"
 
-export const CreateReview = () => {
+export const CreateAlbum = () => {
 
     const navigate = useNavigate()
 
-    // Initialize and set state for Review
-    const [review, setReview] = useState({
+    // Initialize and set state for Album
+    const [album, setAlbum] = useState({
         title: "",
         artist: "",
         description: "",
         genre: null,
-        rating: null,
+        taste: null,
         image_url: ""
     })
 
@@ -32,54 +32,53 @@ export const CreateReview = () => {
         () => { getGenres().then(setGenreDropdown) }, []
     )
 
-    // Initialize and set state for Rating
-    const [ratingDropdown, setRatingDropdown] = useState([])
+    // Initialize and set state for Taste dropdown
+    const [tasteDropdown, setTasteDropdown] = useState([])
 
     useEffect(
-        () => { getRatings().then(setRatingDropdown) }, []
+        () => { getTastes().then(setTasteDropdown) }, []
     )
 
     const handleInputChange = (event) => {
-        const copyOfReview = { ...review };
-        copyOfReview[event.target.id] = event.target.value;
-        setReview(copyOfReview);
-    };
-
+        const copyOfAlbum = { ...album }
+        copyOfAlbum[event.target.id] = event.target.value
+        setAlbum(copyOfAlbum)
+    }
 
     const handleSubmit = (event) => {
 
         event.preventDefault();
 
-        if (review.title === "") {
+        if (album.title === "") {
             alert("You need a title.")
-        } else if (review.artist === "") {
-            alert("It's that obscure that you can't tell us who, huh?")
-        } else if (review.description === "") {
-            alert("Head empty no thoughts?")
-        } else if (review.rating === "") {
-            alert("You forgot to rate it!")
-        } else if (review.genre === "") {
-            alert("Give the genre your best shot.")
+        } else if (album.artist === "") {
+            alert("You need an artist.")
+        } else if (album.description === "") {
+            alert("You need a description.")
+        } else if (album.genre === "") {
+            alert("You need to select a genre.")
+        } else if (album.taste === "") {
+            alert("You need to select a taste.")
         } else {
-            createReview(review)
+            createAlbum(album)
                 .then(() => {
-                    navigate('/reviews')
+                    navigate('/home')
                 });
         }
     }
 
     return (
-        <article className="create-review-list-container">
-            <Card className="reviewForm" sx={{ maxWidth: 800, padding: 5 }}>
+        <article className="create-album-list-container">
+            <Card className="albumForm" sx={{ maxWidth: 800, padding: 5 }}>
                 <CardContent>
                     <Stack spacing={2}>
-                        <Typography variant="h5">Drop a Review</Typography>
+                        <Typography variant="h5">Drop a Album</Typography>
 
                         <fieldset>
                             <div className="form-group">
                                 <input type="text" name="title" id="title" required autoFocus className="form-control"
                                     placeholder="Album"
-                                    defaultValue={review.title}
+                                    defaultValue={album.title}
                                     onChange={handleInputChange} />
                             </div>
                         </fieldset>
@@ -88,7 +87,7 @@ export const CreateReview = () => {
                             <div className="form-group">
                                 <input type="text" name="artist" id="artist" required autoFocus className="form-control"
                                     placeholder="Artist"
-                                    defaultValue={review.artist}
+                                    defaultValue={album.artist}
                                     onChange={handleInputChange} />
                             </div>
                         </fieldset>
@@ -97,7 +96,7 @@ export const CreateReview = () => {
                             <div className="form-group">
                                 <input type="text" name="description" id="description" required autoFocus className="form-control"
                                     placeholder="A gut-wrenchingly honest opinion?"
-                                    defaultValue={review.description}
+                                    defaultValue={album.description}
                                     onChange={handleInputChange} />
                             </div>
                         </fieldset>
@@ -106,7 +105,7 @@ export const CreateReview = () => {
                             <div className="form-group">
                                 <input type="text" name="image_url" id="image_url" required autoFocus className="form-control"
                                     placeholder="Album image URL"
-                                    defaultValue={review.image_url}
+                                    defaultValue={album.image_url}
                                     onChange={handleInputChange} />
                             </div>
                         </fieldset>
@@ -126,11 +125,11 @@ export const CreateReview = () => {
 
                         <fieldset>
                             <div className="form-group">
-                                <select name="rating" id="rating" onChange={(handleInputChange)} >
-                                    <option value="0" className="form-style">Rate it</option>
-                                    {ratingDropdown.map(rating => (
-                                        <option key={`rating--${rating.id}`} value={rating?.id}>
-                                            {rating?.rating}
+                                <select name="taste" id="taste" onChange={(handleInputChange)} >
+                                    <option value="0" className="form-style">Taste Category</option>
+                                    {tasteDropdown.map(taste => (
+                                        <option key={`taste--${taste.id}`} value={taste?.id}>
+                                            {taste?.type}
                                         </option>
                                     ))}
                                 </select>
@@ -139,7 +138,7 @@ export const CreateReview = () => {
 
                         <Button variant="contained" type="submit"
                             onClick={handleSubmit}
-                            className="button">Submit Review
+                            className="button">Submit Album
                         </Button>
                     </Stack>
                 </CardContent>
