@@ -6,7 +6,10 @@ export const Register = () => {
     const [member, setMember] = useState(
             { 
                 "account_type": "member",
-                "taste": null 
+                "taste": null,
+                "choice_one": null,
+                "choice_two": null,
+                "choice_three": null,
             }
         )
 

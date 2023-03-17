@@ -92,7 +92,11 @@ def register_user(request):
                 user=new_user,
                 bio = request.data['bio'],
                 image_url = request.data['image_url'],
-                taste = request.data['taste']
+                taste = request.data['taste'],
+                choice_one = request.data['choice_one'],
+                choice_two = request.data['choice_two'],
+                choice_three = request.data['choice_three']
+
             )
         elif account_type == 'employee':
             new_user.is_staff = True
