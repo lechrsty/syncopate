@@ -34,10 +34,17 @@ class GenreAlbumSerializer(serializers.ModelSerializer):
         model = Genre
         fields = ('id', 'type', )
 
+class TasteAlbumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Taste
+        fields = ('id', 'type', 'description', )
+
 class AlbumSerializer(serializers.ModelSerializer):
 
     genre = GenreAlbumSerializer(many=False)
+    taste = TasteAlbumSerializer(many=False)
+
 
     class Meta:
         model = Album
-        fields = ('id', 'title', 'artist', 'description', 'image_url', 'genre', )
+        fields = ('id', 'title', 'artist', 'description', 'image_url', 'genre', 'taste', )

@@ -6,5 +6,4 @@ from .genre import Genre
 from .member import Member
 from .rating import Rating
 from .review import Review
-from .selection import Selection
 from .taste import Taste
