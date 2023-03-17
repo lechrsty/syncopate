@@ -28,21 +28,6 @@ class AlbumView(ViewSet):
             serializer = AlbumSerializer(albums, many=True)
             return Response(serializer.data)
 
-    def create(self, request):
-        """Handles POST requests to /albums
-        Returns a serialized instance of album with a 201"""
-
-        genre = Genre.objects.get(pk=request.data["genre"])
-
-        new_album = Album.objects.create(
-            title=request.data['title'],
-            artist=request.data['artist'],
-            description=request.data['description'],
-            genre=genre,
-            image_url=request.data['image_url'],
-        )
-        serialized = AlbumSerializer(new_album, many=False)
-        return Response(serialized.data, status=status.HTTP_201_CREATED)
 
 class GenreAlbumSerializer(serializers.ModelSerializer):
     class Meta:
