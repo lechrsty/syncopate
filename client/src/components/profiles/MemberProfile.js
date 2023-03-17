@@ -14,7 +14,7 @@ export const MemberProfile = () => {
         }, [])
 
     return (
-        <article className="review-list-container">
+        <article className="profile-list-container">
             <div style={{ margin: "0rem 3rem" }}>
                 <section>
                     {

@@ -17,7 +17,7 @@ class TasteMemberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Taste
-        fields = ('type', 'description', )
+        fields = ('id', 'type', 'description', )
 
 class MemberSerializer(serializers.ModelSerializer):
 

@@ -33,10 +33,10 @@
     text-align: center;
     color: rgb(255, 255, 255);
     align-content: center;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-column-gap: 20px;
-    grid-row-gap: 10rem;
+    grid-row-gap: 10rem; */
     margin: 100px;
 }
 
