@@ -28,6 +28,52 @@ class AlbumView(ViewSet):
             serializer = AlbumSerializer(albums, many=True)
             return Response(serializer.data)
 
+    def create(self, request):
+        """Handles POST requests to /albums
+        Returns a serialized instance of album with a 201"""
+
+        genre = Genre.objects.get(pk=request.data["genre"])
+        taste = Taste.objects.get(pk=request.data["taste"])
+
+        new_album = Album.objects.create(
+            title=request.data['title'],
+            artist=request.data['artist'],
+            description=request.data['description'],
+            genre=genre,
+            taste=taste,
+            image_url=request.data['image_url'],
+        )
+        serialized = AlbumSerializer(new_album, many=False)
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, pk):
+        """Handles PUT requests to /albums/pk
+        Returns nothing with a 204."""
+
+        album = Album.objects.get(pk=pk)
+
+        genre_id = request.data.get("genre", {}).get("id")
+        taste_id = request.data.get("taste", {}).get("id")
+
+        genre = Genre.objects.get(pk=genre_id) if genre_id else None
+        taste = Taste.objects.get(pk=taste_id) if taste_id else None
+
+        album.title = request.data['title']
+        album.artist = request.data['artist']
+        album.description = request.data['description']
+        album.genre=genre
+        album.taste=taste
+        album.image_url = request.data['image_url']
+        album.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+        """Handles DELETE requests to /albums/pk
+        Returns nothing with a 204."""
+        album = Album.objects.get(pk=pk)
+        album.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class GenreAlbumSerializer(serializers.ModelSerializer):
     class Meta:
