@@ -7,6 +7,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from vinylcutapi.models import Member, Employee
+from vinylcutapi.models import Taste
+
 
 
 @api_view(['POST'])
@@ -88,11 +90,14 @@ def register_user(request):
         account = None
 
         if account_type == 'member':
+
+            taste = Taste.objects.get(pk=request.data["taste"])
+
             account = Member.objects.create(
                 user=new_user,
                 bio = request.data['bio'],
                 image_url = request.data['image_url'],
-                taste = request.data['taste'],
+                taste = taste,
                 choice_one = request.data['choice_one'],
                 choice_two = request.data['choice_two'],
                 choice_three = request.data['choice_three']
