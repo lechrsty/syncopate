@@ -1,24 +1,35 @@
 import React, { useEffect, useRef, useState } from "react"
+import { registerTastes } from '../../managers/TasteManager'
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 
 export const Register = () => {
+
+    // Initialize and set state for new Member dropdown
     const [member, setMember] = useState(
-            { 
-                "account_type": "member",
-                "taste": null,
-                "choice_one": null,
-                "choice_two": null,
-                "choice_three": null,
-            }
-        )
+        {
+            "account_type": "member",
+            "choice_one": null,
+            "choice_two": null,
+            "choice_three": null,
+            "taste": null
+        }
+    )
 
     const [serverFeedback, setFeedback] = useState("")
     const conflictDialog = useRef()
     const navigate = useNavigate()
 
+    // Initialize and set state for Taste dropdown
+    const [tasteDropdown, setTasteDropdown] = useState([])
+
+    useEffect(
+        () => { registerTastes().then(setTasteDropdown) }, []
+    )
+
     const handleRegister = (e) => {
         e.preventDefault()
+        console.log("Registering with data: ", member)
         fetch("http://localhost:8000/register", {
             method: "POST",
             headers: {
@@ -55,11 +66,10 @@ export const Register = () => {
         setMember(copy)
     }
 
-
     return (
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
-                <div>{ serverFeedback }</div>
+                <div>{serverFeedback}</div>
                 <button className="button--close"
                     onClick={e => {
                         conflictDialog.current.close()
@@ -69,18 +79,21 @@ export const Register = () => {
 
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register New Account</h1>
+
                 <fieldset>
                     <label htmlFor="first_name"> First Name </label>
                     <input onChange={updateMember}
                         type="text" id="first_name"
                         className="form-control" required autoFocus />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="last_name"> Last Name </label>
                     <input onChange={updateMember}
                         type="text" id="last_name"
                         className="form-control" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="username"> Username </label>
                     <input onChange={updateMember}
@@ -88,6 +101,7 @@ export const Register = () => {
                         id="username"
                         className="form-control" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="email"> Email </label>
                     <input onChange={updateMember}
@@ -95,6 +109,7 @@ export const Register = () => {
                         id="email"
                         className="form-control" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="password"> Password </label>
                     <input onChange={updateMember}
@@ -102,6 +117,7 @@ export const Register = () => {
                         id="password"
                         className="form-control" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="bio"> Bio </label>
                     <input onChange={updateMember}
@@ -109,6 +125,20 @@ export const Register = () => {
                         id="bio"
                         className="form-control" required />
                 </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <select name="taste" id="taste" onChange={updateMember} >
+                            <option value="0" className="form-style">Taste Category</option>
+                            {tasteDropdown.map(taste => (
+                                <option key={`taste--${taste.id}`} value={taste.id}>
+                                    {taste?.type}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </fieldset>
+
                 <fieldset>
                     <label htmlFor="image_url"> Profile Image </label>
                     <input onChange={updateMember}

@@ -10,7 +10,6 @@ class GenreView(ViewSet):
 
         genres = Genre.objects.all().order_by('type')
         serializer = GenreSerializer(genres, many=True)
-
         return Response(serializer.data)
 
 class GenreSerializer(serializers.ModelSerializer):
