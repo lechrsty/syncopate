@@ -16,6 +16,10 @@ export const Album = ({ album, onDelete }) => {
         onDelete(album.id)
     }
 
+    // Get localstorage user object to render Edit and Delete buttons
+    const localVinylCutUser = localStorage.getItem("vinylcut");
+    const vinylCutUserObject = JSON.parse(localVinylCutUser)
+
     return (
         <Card key={`album--${album.id}`} className="album" sx={{ maxWidth: 300 }}>
             <CardContent>
@@ -31,12 +35,17 @@ export const Album = ({ album, onDelete }) => {
                     <Typography> {album?.artist} </Typography>
                     <Typography> {album?.description} </Typography>
                     <Typography paragraph color="text.secondary"> {album?.genre?.type}</Typography>
-                    <Button className="button" variant="contained" onClick={() => {
-                        navigate(`/edit/${album.id}`)
-                    }}>Edit</Button>
-                    <Button className="button" variant="contained"
-                        onClick={handleDelete}
-                    >Delete</Button>
+
+
+                    {vinylCutUserObject?.staff === true
+                        ? <>
+                            <Button className="button" variant="contained" onClick={() => {
+                                navigate(`/edit/${album.id}`)
+                            }}>Edit</Button>
+                            <Button className="button" variant="contained" onClick={handleDelete}>Delete</Button>
+                        </>
+                        : null
+                    }
 
                 </Stack>
             </CardContent>
