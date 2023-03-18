@@ -18,3 +18,17 @@ export const registerTastes = () => {
     })
     .then((res) => res.json())
 }
+
+export const updateTaste = (id, newTaste) => {
+    const auth = localStorage.getItem("vinylcut")
+    const token = JSON.parse(auth).token
+    
+    return fetch(`http://localhost:8000/members/${id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization" : `Token ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ taste: newTaste }),
+    })
+}
