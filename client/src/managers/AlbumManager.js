@@ -81,3 +81,14 @@ export const updateAlbum = (id, albumBody) => {
     });
 };
 
+export const getAOTMs = () => {
+    const auth = localStorage.getItem("vinylcut")
+    const token = JSON.parse(auth).token
+
+    return fetch("http://localhost:8000/aotms", {
+        headers: {
+            "Authorization" : `Token ${token}`
+        }
+    })
+    .then((res) => res.json())
+}

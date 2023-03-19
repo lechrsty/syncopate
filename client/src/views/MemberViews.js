@@ -13,6 +13,7 @@ import { WorldAlbumList } from "../components/albums/WorldAlbumList"
 import { HipHopAlbumList } from "../components/albums/HipHopAlbumList"
 import { HighVoltageAlbumList } from "../components/albums/HighVoltageAlbumList"
 import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
+import { AlbumDetails } from "../components/albums/AlbumDetails"
 
 
 
@@ -50,6 +51,7 @@ export const MemberViews = () => {
                 <Route path="member/:memberId" element={<MemberProfile />} />
             </Route>
 
+            <Route path="/albums/:albumId" element={<AlbumDetails />} />
 
             </Route>
         </Routes>

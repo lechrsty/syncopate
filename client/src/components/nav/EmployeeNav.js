@@ -18,6 +18,11 @@ export const EmployeeNav = () => {
             <div className="navicon">
                 <div></div>
             </div>
+
+            <li className="navbar__item">
+                        <Link className="navbar__link" to={`/aotms`}> Records of the Month</Link>
+            </li>
+
             <ul className="navbar">
                 {tastes.map((taste) => (
                     <li className="navbar__item" key={taste.id}>

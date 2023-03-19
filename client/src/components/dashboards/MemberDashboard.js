@@ -26,7 +26,6 @@ export const MemberDashboard = () => {
     }
   }, [])
 
-
   const [tastes, setTastes] = useState([])
 
   // PUT request to update Member's Taste

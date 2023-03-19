@@ -47,7 +47,7 @@ export const Register = () => {
             })
             .then(createdUser => {
                 localStorage.setItem("vinylcut", JSON.stringify(createdUser))
-                navigate("/home")
+                navigate("/login")
             })
             .catch(error => {
                 setFeedback(JSON.parse(error.message).message)

@@ -13,8 +13,10 @@ import "./Review.css"
 
 export const ReviewDetails = () => {
   const navigate = useNavigate()
-  const [review, setReview] = useState({})
+  
   const { reviewId } = useParams()
+
+  const [review, setReview] = useState({})
 
   useEffect(() => {
     getSingleReview(reviewId).then((data) => setReview(data));
