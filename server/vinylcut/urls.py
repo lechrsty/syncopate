@@ -22,4 +22,6 @@ urlpatterns = [
     path('register', register_user),
     path('login', login_user),
     path('', include(router.urls)),
+    path('members/<int:pk>/selections', MemberView.as_view({'put': 'update_selections'})),
+
 ]

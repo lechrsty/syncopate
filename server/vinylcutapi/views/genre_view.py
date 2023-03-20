@@ -12,6 +12,17 @@ class GenreView(ViewSet):
         serializer = GenreSerializer(genres, many=True)
         return Response(serializer.data)
 
+    def create(self, request):
+        """Handles POST requests to /genres
+        Returns a serialized instance of genre with a 201"""
+
+        new_genre = Genre.objects.create(
+            type=request.data['type']
+        )
+
+        serialized = GenreSerializer(new_genre, many=False)
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+
 class GenreSerializer(serializers.ModelSerializer):
 
     class Meta:

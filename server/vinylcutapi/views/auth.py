@@ -7,9 +7,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from vinylcutapi.models import Member, Employee
-from vinylcutapi.models import Taste
-
-
+from vinylcutapi.models import Taste, Album
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -92,17 +90,22 @@ def register_user(request):
         if account_type == 'member':
 
             taste = Taste.objects.get(pk=request.data["taste"])
-
             account = Member.objects.create(
                 user=new_user,
-                bio = request.data['bio'],
-                image_url = request.data['image_url'],
-                taste = taste,
-                choice_one = request.data['choice_one'],
-                choice_two = request.data['choice_two'],
-                choice_three = request.data['choice_three']
-
+                bio=request.data['bio'],
+                image_url=request.data['image_url'],
+                taste=taste,
             )
+            if request.data["choice_one"]:
+                choice_one = Album.objects.get(pk=request.data["choice_one"])
+                account.choice_one = choice_one
+            if request.data["choice_two"]:
+                choice_two = Album.objects.get(pk=request.data["choice_two"])
+                account.choice_two = choice_two
+            if request.data["choice_three"]:
+                choice_three = Album.objects.get(pk=request.data["choice_three"])
+                account.choice_three = choice_three
+
         elif account_type == 'employee':
             new_user.is_staff = True
             new_user.save()
