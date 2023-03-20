@@ -70,14 +70,8 @@ export const Aotm = ({ aotm }) => {
 
                 // Close the modal
                 handleClose();
-            });
-    };
-
-    useEffect(() => {
-        getAlbumsByTasteId(aotm.taste.id).then((data) => {
-            setAlbums(data);
-        })
-    }, [aotm.taste.id])
+            })
+    }
 
     const modalStyle = {
         position: 'absolute',
@@ -94,12 +88,12 @@ export const Aotm = ({ aotm }) => {
         <Card key={`aotm--${aotm.id}`} className="aotm" sx={{ maxWidth: 300 }}>
             <CardContent>
                 <Stack spacing={1}>
+                    <Typography variant="h4">{aotm?.taste?.type}</Typography>
                     <CardMedia sx={{ height: 200 }} image={aotm?.album?.image_url} title="image" />
                     <Link className="card-link" href={`/albums/${aotm?.album?.id}`}>
                         <Typography variant="h6">{aotm?.album?.title}</Typography>
                     </Link>
                     <Typography>{aotm?.album?.artist}</Typography>
-                    <Typography>{aotm?.album?.description}</Typography>
                     <Typography paragraph color="text.secondary">
                         {aotm?.album?.genre?.type}
                     </Typography>

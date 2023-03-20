@@ -1,39 +1,59 @@
 import React, { useEffect, useState } from 'react'
 import { MemberAotm } from "./MemberAotm"
 import { MemberTaste } from "./MemberTaste"
-import { getMemberById } from '../../../managers/MemberManager';
-import { getAOTMByTaste } from '../../../managers/AlbumManager';
+import { getMemberById } from '../../../managers/MemberManager'
+import { getAOTMByTaste } from '../../../managers/AlbumManager'
+import { SelectionList } from '../../selections/SelectionList'
 import "../Dashboard.css"
 
+// Create the member context
+export const MemberContext = React.createContext()
+
+// Create the taste context
+export const TasteContext = React.createContext()
+
+// Create the AOTM context
+export const AOTMContext = React.createContext()
+
 export const MemberDashboardContainer = () => {
-    const [aotm, setAOTM] = useState(null);
-    const [taste, setTaste] = useState(null);
-
-    const handleTasteChange = (newTaste) => {
-        setTaste(newTaste);
-    };
-
+    const [aotm, setAOTM] = useState({})
+    const [taste, setTaste] = useState(1)
+    const [member, setMember] = useState({})
+    
+    // Fetch member data and set it in state
+    const localVinylCutUser = localStorage.getItem("vinylcut")
+    const vinylCutUserObject = JSON.parse(localVinylCutUser)
+    const memberId = vinylCutUserObject?.member
+    
     useEffect(() => {
-        // Get logged in member's ID
-        const localVinylCutUser = localStorage.getItem("vinylcut");
-        const vinylCutUserObject = JSON.parse(localVinylCutUser);
-        const memberId = vinylCutUserObject?.member;
-
-        // Get member object and taste ID
         getMemberById(memberId).then((memberObject) => {
-            const tasteId = taste?.id || memberObject?.taste?.id;
-
-            // Get AOTM for the taste ID
+            setMember(memberObject)
+            
+            // Set taste
+            const tasteId = memberObject?.taste?.id 
+            setTaste(tasteId)
+            
+            // Fetch album of the month and set it in state
             getAOTMByTaste(tasteId).then((data) => {
-                setAOTM(data[0]);
-            });
-        });
-    }, [taste]);
+                setAOTM(data[0])
+                
+            })
+        })
+    }, [memberId])
+    
+    const handleTasteChange = (newTaste) => {
+        setTaste(newTaste)
+    }
 
     return (
-        <>
-            <MemberAotm aotm={aotm} taste={taste} />
-            <MemberTaste onTasteChange={handleTasteChange} />
-        </>
-    );
-};
+        <MemberContext.Provider value={member}>
+            <TasteContext.Provider value={{ taste, handleTasteChange }}>
+                <AOTMContext.Provider value={aotm}>
+                    <MemberTaste />
+                    <MemberAotm />
+                    <SelectionList />
+                </AOTMContext.Provider>
+            </TasteContext.Provider>
+        </MemberContext.Provider>
+    )
+}

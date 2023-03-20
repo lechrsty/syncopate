@@ -20,8 +20,9 @@ export const Review = ({ review, onDelete }) => {
         <Card key={`review--${review.id}`} className="review" sx={{ maxWidth: 300 }}>
             <CardContent>
                 <Stack spacing={1}>
-                    <CardMedia
-                        sx={{ height: 200 }}
+                <CardMedia
+                        component="img"
+                        height= "200"
                         image={review?.image_url}
                         title="image"
                     />

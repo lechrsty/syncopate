@@ -13,6 +13,8 @@ import { HipHopAlbumList } from "../components/albums/HipHopAlbumList"
 import { HighVoltageAlbumList } from "../components/albums/HighVoltageAlbumList"
 import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { MemberDashboardContainer } from "../components/dashboard/member/MemberDashboardContainer"
+import { AlbumDetails } from "../components/albums/AlbumDetails"
+import { SelectionList } from "../components/selections/SelectionList"
 
 
 
@@ -37,6 +39,8 @@ export const MemberViews = () => {
             <Route path="/5" element={<HighVoltageAlbumList />} />
             <Route path="/6" element={<NewReleasesAlbumList />} />
 
+            <Route path="/selections" element={<SelectionList />} />
+
             <Route path="/reviews">
                 <Route index element={ <ReviewList /> } />
                 <Route path=":reviewId" element={<ReviewDetails />} />
@@ -50,8 +54,9 @@ export const MemberViews = () => {
                 <Route path="member/:memberId" element={<MemberProfile />} />
             </Route>
 
-
+            <Route path="/albums/:albumId" element={<AlbumDetails />} />
             </Route>
+
         </Routes>
     )
 }

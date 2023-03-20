@@ -42,6 +42,10 @@ export const MemberNav = () => {
                 </li>
 
                 <li className="navbar__item">
+                    <Link className="navbar__link" to="/selections">Selections</Link>
+                </li>
+
+                <li className="navbar__item">
                     <Link className="navbar__link" to="/profile">Profile</Link>
                 </li>
 
