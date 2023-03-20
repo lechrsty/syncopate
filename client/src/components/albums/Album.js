@@ -17,7 +17,7 @@ export const Album = ({ album, onDelete }) => {
     }
 
     // Get localstorage user object to render Edit and Delete buttons for staff only
-    const localVinylCutUser = localStorage.getItem("vinylcut");
+    const localVinylCutUser = localStorage.getItem("vinylcut")
     const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
     return (

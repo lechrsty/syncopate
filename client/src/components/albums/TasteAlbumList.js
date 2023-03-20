@@ -10,6 +10,10 @@ export const TasteAlbumList = ({ tasteId }) => {
     const navigate = useNavigate()
     const [albums, setAlbums] = useState([])
 
+    // Get localstorage user object to render Edit and Delete buttons for staff only
+    const localVinylCutUser = localStorage.getItem("vinylcut")
+    const vinylCutUserObject = JSON.parse(localVinylCutUser)
+
     useEffect(() => {
         getAlbumsByTasteId(tasteId).then((albumData) => setAlbums(albumData))
     }, [tasteId])
@@ -24,21 +28,26 @@ export const TasteAlbumList = ({ tasteId }) => {
     return (
         <>
             <article className="album-list-container">
-                <Button
-                    className="button"
-                    variant="contained"
-                    onClick={() => {
-                        navigate(`/upload`)
-                    }}
-                >
-                    Drop an Album
-                </Button>
+
+                {vinylCutUserObject?.staff === true
+                    ? <>
+                        <Button
+                            className="button"
+                            variant="contained"
+                            onClick={() => {
+                                navigate(`/upload`)
+                            }}>Drop an Album
+                        </Button>
+                    </>
+                    : null
+                }
 
                 {albums.map((album) => {
                     return (
                         <Album onDelete={handleDelete} album={album} key={`album--${album.id}`} />
                     )
                 })}
+                
             </article>
         </>
     );

@@ -1,6 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { CreateAlbum } from "../components/albums/CreateAlbum"
-import { EmployeeDashboard } from "../components/dashboards/EmployeeDashboard"
 import { ClassicsAlbumList } from "../components/albums/ClassicsAlbumList"
 import { EssentialsAlbumList } from "../components/albums/EssentialsAlbumList"
 import { WorldAlbumList } from "../components/albums/WorldAlbumList"
@@ -10,6 +9,7 @@ import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { EditAlbum } from "../components/albums/EditAlbum"
 import { AotmList } from "../components/albums/AotmList"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
+import { EmployeeDashboardContainer } from "../components/dashboard/employee/EmployeeDashboardContainer"
 
 export const EmployeeViews = () => {
     
@@ -22,7 +22,7 @@ export const EmployeeViews = () => {
             }>
 
             <Route path="/home">
-                <Route index element={ <EmployeeDashboard /> } />
+                <Route index element={ <EmployeeDashboardContainer /> } />
             </Route>
 
             <Route path="/aotms" element={<AotmList />} />

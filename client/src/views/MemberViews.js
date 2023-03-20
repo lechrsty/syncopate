@@ -6,14 +6,13 @@ import { CreateReview } from "../components/reviews/CreateReview"
 import { LoggedInProfile } from "../components/profiles/LoggedInProfile"
 import { MemberProfile } from "../components/profiles/MemberProfile"
 import { CommentListContainer } from "../components/comments/CommentContainer"
-import { MemberDashboard } from "../components/dashboards/MemberDashboard"
 import { ClassicsAlbumList } from "../components/albums/ClassicsAlbumList"
 import { EssentialsAlbumList } from "../components/albums/EssentialsAlbumList"
 import { WorldAlbumList } from "../components/albums/WorldAlbumList"
 import { HipHopAlbumList } from "../components/albums/HipHopAlbumList"
 import { HighVoltageAlbumList } from "../components/albums/HighVoltageAlbumList"
 import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
-import { AlbumDetails } from "../components/albums/AlbumDetails"
+import { MemberDashboardContainer } from "../components/dashboard/member/MemberDashboardContainer"
 
 
 
@@ -28,7 +27,7 @@ export const MemberViews = () => {
             }>
 
             <Route path="/home">
-                <Route index element={ <MemberDashboard /> } />
+                <Route index element={ <MemberDashboardContainer /> } />
             </Route>
 
             <Route path="/1" element={<ClassicsAlbumList />} />
@@ -51,7 +50,6 @@ export const MemberViews = () => {
                 <Route path="member/:memberId" element={<MemberProfile />} />
             </Route>
 
-            <Route path="/albums/:albumId" element={<AlbumDetails />} />
 
             </Route>
         </Routes>

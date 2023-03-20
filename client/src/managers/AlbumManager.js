@@ -79,7 +79,7 @@ export const updateAlbum = (id, albumBody) => {
     },
     body: JSON.stringify(albumBody),
     });
-};
+}
 
 export const getAOTMs = () => {
     const auth = localStorage.getItem("vinylcut")
@@ -91,4 +91,30 @@ export const getAOTMs = () => {
         }
     })
     .then((res) => res.json())
+}
+
+export const getAOTMByTaste = (id) => {
+    const auth = localStorage.getItem("vinylcut")
+    const token = JSON.parse(auth).token
+
+    return fetch(`http://localhost:8000/aotms?taste=${id}`, {
+        headers: {
+            "Authorization" : `Token ${token}`
+        }
+    })
+    .then((res) => res.json())
+}
+
+export const updateAOTM = (id, aotmBody) => {
+    const auth = localStorage.getItem("vinylcut")
+    const token = JSON.parse(auth).token
+    
+    return fetch(`http://localhost:8000/aotms/${id}`, {
+    method: "PUT",
+    headers: {
+        "Authorization" : `Token ${token}`,
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(aotmBody),
+    })
 }

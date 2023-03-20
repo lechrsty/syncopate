@@ -91,6 +91,6 @@ export const updateReview = (id, reviewBody) => {
         "Content-Type": "application/json"
     },
     body: JSON.stringify(reviewBody),
-    });
-};
+    })
+}
 

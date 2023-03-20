@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { getMemberById } from '../../managers/MemberManager'
-import { getTastes, updateTaste } from '../../managers/TasteManager'
-import { EditTaste } from '../tastes/EditTaste'
-import "./Dashboard.css"
+import { getMemberById } from '../../../managers/MemberManager'
+import { getTastes, updateTaste } from '../../../managers/TasteManager'
+import { EditTaste } from '../../tastes/EditTaste'
+import "../Dashboard.css"
 
-export const MemberDashboard = () => {
+export const MemberTaste = () => {
 
   // Initialize and state for logged in Member
   const [member, setMember] = useState(null)
