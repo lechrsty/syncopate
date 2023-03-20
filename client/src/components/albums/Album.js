@@ -25,7 +25,8 @@ export const Album = ({ album, onDelete }) => {
             <CardContent>
                 <Stack spacing={1}>
                     <CardMedia
-                        sx={{ height: 200 }}
+                        component="img"
+                        height= "200"
                         image={album?.image_url}
                         title="image"
                     />
@@ -33,7 +34,6 @@ export const Album = ({ album, onDelete }) => {
                         href={`/albums/${album.id}`}>
                         <Typography variant="h6">{album.title}</Typography></Link>
                     <Typography> {album?.artist} </Typography>
-                    <Typography> {album?.description} </Typography>
                     <Typography paragraph color="text.secondary"> {album?.genre?.type}</Typography>
 
 

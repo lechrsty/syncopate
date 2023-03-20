@@ -24,7 +24,8 @@ export const AlbumDetails = () => {
             <CardContent>
                 <Stack spacing={2}>
                     <CardMedia
-                        sx={{ height: 140 }}
+                        component="img"
+                        height= "200"
                         image={album?.image_url}
                         title="image"
                     />

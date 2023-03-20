@@ -24,7 +24,6 @@ export const ReviewList = (props) => {
         })
     }
 
-
     return (
         <>
             <article className="review-list-container">

@@ -42,7 +42,7 @@ export const TasteAlbumList = ({ tasteId }) => {
                     : null
                 }
 
-                {albums.map((album) => {
+                {albums.reverse().map((album) => {
                     return (
                         <Album onDelete={handleDelete} album={album} key={`album--${album.id}`} />
                     )
