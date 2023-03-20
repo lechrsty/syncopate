@@ -24,7 +24,7 @@ export const Aotm = ({ aotm }) => {
     useEffect(() => {
         getAlbumsByTasteId(aotm.taste.id).then((data) => {
             setAlbums(data)
-        });
+        })
     }, [aotm.taste.id])
 
     // State for modal
@@ -35,16 +35,16 @@ export const Aotm = ({ aotm }) => {
     // Handle opening and closing of modal
     const handleOpen = () => {
         setOpen(true)
-    };
+    }
 
     const handleClose = () => {
         setOpen(false)
-    };
+    }
 
     // Handle selecting an album from the dropdown
     const handleSelectAlbum = (event) => {
         setSelectedAlbumId(event.target.value)
-    };
+    }
 
     // Handle saving the selected album
     const handleSave = (event) => {
@@ -54,7 +54,7 @@ export const Aotm = ({ aotm }) => {
         getAOTMByTaste(aotm.id)
             .then((data) => {
                 // Extract the taste ID from the data object
-                const tasteId = data[0].taste.id;
+                const tasteId = data[0].taste.id
 
                 // Create the AOTM body with the selected album and extracted taste ID
                 const aotmBody = {
@@ -65,11 +65,11 @@ export const Aotm = ({ aotm }) => {
                 // Update the AOTM with the new album and taste
                 updateAOTM(aotm.id, aotmBody).then(() => {
                     // Reset the albums state
-                    setAlbums([]);
+                    setAlbums([])
                 });
 
                 // Close the modal
-                handleClose();
+                handleClose()
             })
     }
 
