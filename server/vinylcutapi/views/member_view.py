@@ -7,6 +7,12 @@ from vinylcutapi.models import Member, Taste, Album, Genre
 
 class MemberView(ViewSet):
 
+    def list(self, request):
+
+        members = Member.objects.all()
+        serializer = MemberSerializer(members, many=True)
+        return Response(serializer.data)
+
     def retrieve(self, request, pk):
 
         member = Member.objects.get(pk=pk)

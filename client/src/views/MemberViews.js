@@ -1,5 +1,4 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { ReviewList } from "../components/reviews/ReviewList"
 import { ReviewDetails } from "../components/reviews/ReviewDetails"
 import { EditReview } from "../components/reviews/EditReview"
 import { CreateReview } from "../components/reviews/CreateReview"
@@ -15,6 +14,7 @@ import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { MemberDashboardContainer } from "../components/dashboard/member/MemberDashboardContainer"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { SelectionList } from "../components/selections/SelectionList"
+import { ReviewContainer } from "../components/reviews/ReviewContainer"
 
 
 
@@ -42,7 +42,7 @@ export const MemberViews = () => {
             <Route path="/selections" element={<SelectionList />} />
 
             <Route path="/reviews">
-                <Route index element={ <ReviewList /> } />
+                <Route index element={ <ReviewContainer /> } />
                 <Route path=":reviewId" element={<ReviewDetails />} />
                 <Route path="edit/:reviewId" element={<EditReview />} />
                 <Route path="create" element={<CreateReview />} />
