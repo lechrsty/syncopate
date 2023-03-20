@@ -27,6 +27,24 @@ class AOTMView(ViewSet):
         serializer = AOTMSerializer(aotm)
         return Response(serializer.data)
 
+    def update(self, request, pk):
+        """Handles PUT requests to /aotms/pk
+        Returns nothing with a 204."""
+
+        aotm = AOTM.objects.get(pk=pk)
+
+        album_id = request.data.get("album", {}).get("id")
+        taste_id = request.data.get("taste", {}).get("id")
+
+        album = Album.objects.get(pk=album_id) if album_id else None
+        taste = Taste.objects.get(pk=taste_id) if taste_id else None
+
+        aotm.album=album
+        aotm.taste=taste
+        aotm.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 class GenreAOTMSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
