@@ -13,8 +13,8 @@ export const ReviewContainer = () => {
 
     return (
         <>
-            <FilterMembers setMemberSelection={setMemberSelection} />
             <ReviewSearch setterFunction={setSearchTerms} />
+            <FilterMembers setMemberSelection={setMemberSelection} />
             <ReviewList memberSelection={memberSelection}  searchTermState={searchTerms}/>    
         </>
     )
