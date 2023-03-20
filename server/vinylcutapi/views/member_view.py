@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from vinylcutapi.models import Member, Taste, Album
+from vinylcutapi.models import Member, Taste, Album, Genre
 
 
 class MemberView(ViewSet):
@@ -61,11 +61,18 @@ class TasteMemberSerializer(serializers.ModelSerializer):
         model = Taste
         fields = ('id', 'type', 'description', )
 
+class GenreMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = ('id', 'type', )
+
 class AlbumMemberSerializer(serializers.ModelSerializer):
+
+    genre = GenreMemberSerializer(many=False)
 
     class Meta:
         model = Album
-        fields = ('id', 'title', 'artist', 'description', )
+        fields = ('id', 'title', 'artist', 'description', 'genre', 'image_url', )
 
 class MemberSerializer(serializers.ModelSerializer):
 
