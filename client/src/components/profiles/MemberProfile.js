@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { deleteReview, getReviewsByMember } from "../../managers/ReviewManager";
 import { Review } from "../reviews/Review"
-import "./Profile.css"
+import "../reviews/Review.css"
 
 export const MemberProfile = () => {
     const [reviews, setReviews] = useState([])
@@ -23,16 +23,12 @@ export const MemberProfile = () => {
     }
 
     return (
-        <article className="profile-list-container">
-            <div style={{ margin: "0rem 3rem" }}>
-                <section>
-                    {
-                        reviews.map(review => {
-                            return <Review onDelete={handleDelete} review={review} key={`review--${review.id}`} />
-                        })
-                    }
-                </section>
-            </div>
+        <article className="list-container">
+            {
+                reviews.map(review => {
+                    return <Review onDelete={handleDelete} review={review} key={`review--${review.id}`} />
+                })
+            }
         </article>
     )
 }

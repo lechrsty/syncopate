@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography'
 import CardMedia from '@mui/material/CardMedia'
 import Stack from '@mui/material/Stack'
 
-export const MemberAotm = () => {
+export const MemberAotm = ( ) => {
     const aotm = useContext(AOTMContext)
 
     return (

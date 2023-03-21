@@ -13,6 +13,8 @@ export const EditTaste = ({ memberId, currentTaste, tastes, onUpdate }) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         onUpdate(memberId, newTaste)
+        window.location.reload()
+
     }
 
     return (
