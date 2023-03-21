@@ -99,7 +99,7 @@ export const Register = () => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register New Account</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register Member</h1>
 
                 <fieldset>
                     <label htmlFor="first_name"> First Name </label>

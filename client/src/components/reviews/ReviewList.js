@@ -33,12 +33,10 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
         [reviews, memberSelection]
     )
 
-    console.log(reviews)
-
     useEffect(
         () => {
             const searchedReviews = reviews.filter(review => {
-                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase())
+                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase())|| review?.artist?.toLowerCase().includes(searchTermState.toLowerCase())
             })
             setFilteredReviews(searchedReviews)
         },
@@ -55,11 +53,10 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
 
     return (
         <>
-            <Button className="button" variant="contained"
-                onClick={() => {
-                    navigate(`/reviews/create`)
-                }}>Drop a Review</Button>
-
+                <Button className="button" variant="contained"
+                    onClick={() => {
+                        navigate(`/reviews/create`)
+                    }}>Drop a Review</Button>
             <article className="review-list-container">
 
                 {

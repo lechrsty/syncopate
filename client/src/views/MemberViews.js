@@ -13,9 +13,7 @@ import { HighVoltageAlbumList } from "../components/albums/HighVoltageAlbumList"
 import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { MemberDashboardContainer } from "../components/dashboard/member/MemberDashboardContainer"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
-import { SelectionList } from "../components/selections/SelectionList"
 import { ReviewContainer } from "../components/reviews/ReviewContainer"
-
 
 
 export const MemberViews = () => {
@@ -28,7 +26,7 @@ export const MemberViews = () => {
                 </>
             }>
 
-            <Route path="/home">
+            <Route path="/">
                 <Route index element={ <MemberDashboardContainer /> } />
             </Route>
 

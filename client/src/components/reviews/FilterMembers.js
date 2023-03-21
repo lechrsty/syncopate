@@ -13,7 +13,7 @@ export const FilterMembers = ({ setMemberSelection }) => {
         <><section className="reviews__dropdown">
             <label htmlFor="members">Search By Member</label><br></br>
             <select onChange={(event) => {setMemberSelection(parseInt(event.target.value))}}>
-                <option value="0" name="member_id" className="form-control">Select a member</option>
+                <option value="0" name="member_id" className="form-control">All members</option>
                 {members.map(member => (
                     <option key={`member--${member.id}`} value={member.id}>
                         {member.username}

@@ -10,11 +10,13 @@ import Button from '@mui/material/Button'
 import "./Review.css"
 
 export const Review = ({ review, onDelete }) => {
+    console.log(onDelete)
     const navigate = useNavigate()
 
     const handleDelete = () => {
         onDelete(review.id)
     }
+
 
     return (
         <Card key={`review--${review.id}`} className="review" sx={{ maxWidth: 300 }}>
