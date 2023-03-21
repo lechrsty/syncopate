@@ -21,9 +21,7 @@ export const EmployeeViews = () => {
                 </>
             }>
 
-            <Route path="/">
-                <Route index element={ <EmployeeDashboard /> } />
-            </Route>
+            <Route path="/dashboard" element={<EmployeeDashboard />} />
 
             <Route path="/aotms" element={<AotmList />} />
 

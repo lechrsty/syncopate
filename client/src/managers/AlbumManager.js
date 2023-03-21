@@ -10,25 +10,23 @@ export const getAlbums = () => {
     .then((res) => res.json())
 }
 
+// Hard-coded token to display on Home
 export const getSingleAlbum = (id) => {
-    const auth = localStorage.getItem("vinylcut")
-    const token = JSON.parse(auth).token
 
     return fetch(`http://localhost:8000/albums/${id}`, {
         headers: {
-            "Authorization" : `Token ${token}`
+            "Authorization" : `Token 0be249c88238743e5b4a7ac370b5145730c28e20`
         }
     })
     .then((res) => res.json())
 }
 
+// Hard-coded token to display on Home
 export const getAlbumsByTasteId = (id) => {
-    const auth = localStorage.getItem("vinylcut")
-    const token = JSON.parse(auth).token
 
     return fetch(`http://localhost:8000/albums?taste=${id}`, {
         headers: {
-            "Authorization" : `Token ${token}`
+            "Authorization" : `Token 0be249c88238743e5b4a7ac370b5145730c28e20`
         }
     })
     .then((res) => res.json())
@@ -83,13 +81,12 @@ export const updateAlbum = (id, albumBody) => {
     });
 }
 
+// Hard-coded token to display on Home
 export const getAOTMs = () => {
-    const auth = localStorage.getItem("vinylcut")
-    const token = JSON.parse(auth).token
 
     return fetch("http://localhost:8000/aotms", {
         headers: {
-            "Authorization" : `Token ${token}`
+            "Authorization" : `Token 0be249c88238743e5b4a7ac370b5145730c28e20`
         }
     })
     .then((res) => res.json())

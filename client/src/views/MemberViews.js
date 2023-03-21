@@ -26,9 +26,7 @@ export const MemberViews = () => {
                 </>
             }>
 
-            <Route path="/">
-                <Route index element={ <MemberDashboardContainer /> } />
-            </Route>
+            <Route path="/dashboard" element={<MemberDashboardContainer />} />
 
             <Route path="/1" element={<ClassicsAlbumList />} />
             <Route path="/2" element={<EssentialsAlbumList />} />

@@ -5,6 +5,7 @@ export const Home = () => {
         <div className="container">
             <h1>Vinyl Cut</h1>
             <p-hero>Welcome to the club</p-hero>
+            <a href="/login">Login | Register</a>
         </div>
 
         <div className="blank">
