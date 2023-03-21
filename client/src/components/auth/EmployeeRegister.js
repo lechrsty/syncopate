@@ -18,17 +18,22 @@ export const EmployeeRegister = (props) => {
 
     // Cloudinary image upload
     const [image, setImage] = useState("")
+    const [loading, setLoading] = useState(false)
+
 
     const uploadImage = () => {
         const formData = new FormData()
         formData.append("file", image)
         formData.append("upload_preset", "vinylcut")
+        setLoading(true)
+
 
         // Make Axios post request
         axios
             .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
             .then((response) => {
                 setImage(response.data.secure_url)
+                setLoading(false)
             })
     }
 
@@ -135,16 +140,22 @@ export const EmployeeRegister = (props) => {
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="image_url"> Profile Image </label>
-                    <input
-                        type="file"
-                        id="image_url"
-                        className="form-control"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-                    <button type="button" onClick={uploadImage}>
-                        Upload Image
-                    </button>
+                        <div className="form-box center-elements">
+                            <input
+                                type="file"
+                                id="image_url"
+                                className="form-control"
+                                onChange={(e) => setImage(e.target.files[0])}
+                            />
+                            {loading ? (
+                                <h3>Loading...</h3>
+                            ) : (
+                                <img src={image} style={{ width: '200px' }} />
+                            )}
+                            <button type="button" onClick={uploadImage}>
+                                Upload Image
+                            </button>
+                        </div>
                 </fieldset>
 
                 <fieldset>

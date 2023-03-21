@@ -93,7 +93,7 @@ input.search{
     letter-spacing: 1.5px;
 }
 
-.dogSearch:hover,focus {
+.search:hover,focus {
     padding: 12px 0;
     outline: 0;
     border: 1px solid transparent;
@@ -102,3 +102,9 @@ input.search{
     background-position: 100% center;
 }
 
+.center-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
