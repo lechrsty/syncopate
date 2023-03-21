@@ -34,16 +34,17 @@ export const getAlbumsByTasteId = (id) => {
     .then((res) => res.json())
 }
 
-export const createAlbum = (album) => {
+export const createAlbum = (album, image) => {
     const auth = localStorage.getItem("vinylcut")
     const token = JSON.parse(auth).token
+
     const newAlbum = {
         title: album.title,
         artist: album.artist,
         description: album.description,
         genre: parseInt(album.genre),
         taste: parseInt(album.taste),
-        image_url: album.image_url
+        image_url: image,
     }
     return fetch("http://localhost:8000/albums", {
         method: "POST",
@@ -54,6 +55,7 @@ export const createAlbum = (album) => {
         body: JSON.stringify(newAlbum)
     })
 }
+
 export const deleteAlbum = (id) => {
     const auth = localStorage.getItem("vinylcut")
     const token = JSON.parse(auth).token

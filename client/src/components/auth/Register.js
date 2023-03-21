@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { registerTastes } from '../../managers/TasteManager'
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import "./Login.css"
 
 export const Register = () => {
@@ -27,15 +28,35 @@ export const Register = () => {
         () => { registerTastes().then(setTasteDropdown) }, []
     )
 
+    // Cloudinary image upload
+    const [image, setImage] = useState("")
+
+    const uploadImage = () => {
+        const formData = new FormData()
+        formData.append("file", image)
+        formData.append("upload_preset", "vinylcut")
+
+        // Make Axios post request
+        axios
+            .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
+            .then((response) => {
+                setImage(response.data.secure_url)
+            })
+    }
+
+
     const handleRegister = (e) => {
         e.preventDefault()
-        console.log("Registering with data: ", member)
+        // Add the "image_url" value to the member object
+        const updatedMember = { ...member, image_url: image }
+
+        console.log("Registering with data: ", updatedMember)
         fetch("http://localhost:8000/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(member)
+            body: JSON.stringify(updatedMember)
         })
             .then(res => {
                 if (res.status === 200) {
@@ -43,7 +64,7 @@ export const Register = () => {
                 }
                 return res.json().then((json) => {
                     throw new Error(JSON.stringify(json))
-                });
+                })
             })
             .then(createdUser => {
                 localStorage.setItem("vinylcut", JSON.stringify(createdUser))
@@ -141,10 +162,15 @@ export const Register = () => {
 
                 <fieldset>
                     <label htmlFor="image_url"> Profile Image </label>
-                    <input onChange={updateMember}
-                        type="text"
+                    <input
+                        type="file"
                         id="image_url"
-                        className="form-control" required />
+                        className="form-control"
+                        onChange={(e) => setImage(e.target.files[0])}
+                    />
+                    <button type="button" onClick={uploadImage}>
+                        Upload Image
+                    </button>
                 </fieldset>
 
                 <fieldset>

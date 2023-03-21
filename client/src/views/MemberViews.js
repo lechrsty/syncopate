@@ -39,8 +39,6 @@ export const MemberViews = () => {
             <Route path="/5" element={<HighVoltageAlbumList />} />
             <Route path="/6" element={<NewReleasesAlbumList />} />
 
-            <Route path="/selections" element={<SelectionList />} />
-
             <Route path="/reviews">
                 <Route index element={ <ReviewContainer /> } />
                 <Route path=":reviewId" element={<ReviewDetails />} />

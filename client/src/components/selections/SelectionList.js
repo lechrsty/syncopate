@@ -8,21 +8,19 @@ export const SelectionList = () => {
     return (
         <div className="container second">
             {member?.choice_one && (
-                <SelectionCard
-                    choice={member.choice_one}
-                />
+                <MemberContext.Provider value={member}>
+                    <SelectionCard choice={member.choice_one} />
+                </MemberContext.Provider>
             )}
             {member?.choice_two && (
-                <SelectionCard
-                    choice={member.choice_two}
-
-                />
+                <MemberContext.Provider value={member}>
+                    <SelectionCard choice={member.choice_two} />
+                </MemberContext.Provider>
             )}
             {member?.choice_three && (
-                <SelectionCard
-                    choice={member.choice_three}
-
-                />
+                <MemberContext.Provider value={member}>
+                    <SelectionCard choice={member.choice_three} />
+                </MemberContext.Provider>
             )}
         </div>
     )

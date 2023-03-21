@@ -140,7 +140,7 @@ export const SelectionCard = ({ choice }) => {
                             onClick={handleSave}
                             disabled={!selectedAlbumId}
                         >
-                            Save
+                            Choose this one
                         </Button>
                     </FormControl>
                 </Box>

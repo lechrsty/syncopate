@@ -1,4 +1,5 @@
 import * as React from 'react'
+import axios from 'axios'
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { getGenres } from '../../managers/GenreManager'
@@ -39,13 +40,30 @@ export const CreateReview = () => {
         () => { getRatings().then(setRatingDropdown) }, []
     )
 
+    // Handle input changes
     const handleInputChange = (event) => {
         const copyOfReview = { ...review };
         copyOfReview[event.target.id] = event.target.value;
-        setReview(copyOfReview);
-    };
+        setReview(copyOfReview)
+    }
 
+    // Cloudinary image upload
+    const [image, setImage] = useState("")
 
+    const uploadImage = () => {
+        const formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset", "vinylcut");
+
+        // Make Axios post request
+        axios
+            .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
+            .then((response) => {
+                setImage(response.data.secure_url)
+            })
+    }
+
+    // POST new review
     const handleSubmit = (event) => {
 
         event.preventDefault();
@@ -61,7 +79,7 @@ export const CreateReview = () => {
         } else if (review.genre === "") {
             alert("Give the genre your best shot.")
         } else {
-            createReview(review)
+            createReview(review, image)
                 .then(() => {
                     navigate('/reviews')
                 });
@@ -104,10 +122,12 @@ export const CreateReview = () => {
 
                         <fieldset>
                             <div className="form-group">
-                                <input type="text" name="image_url" id="image_url" required autoFocus className="form-control"
-                                    placeholder="Album image URL"
-                                    defaultValue={review.image_url}
-                                    onChange={handleInputChange} />
+                                <input name="image_url" id="image_url" required autoFocus className="form-control"
+                                    type="file"
+                                    onChange={(event) => {
+                                        setImage(event.target.files[0])
+                                    }} />
+                                <button onClick={uploadImage}>Upload Image</button>
                             </div>
                         </fieldset>
 
