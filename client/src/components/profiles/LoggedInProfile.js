@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getReviewsByLoggedInMember } from "../../managers/ReviewManager";
+import { deleteReview, getReviewsByLoggedInMember } from "../../managers/ReviewManager";
 import { Review } from "../reviews/Review"
-import "./Profile.css"
+import "../reviews/Review.css"
 
-export const LoggedInProfile = ( ) => {
+export const LoggedInProfile = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(
@@ -11,17 +11,23 @@ export const LoggedInProfile = ( ) => {
             getReviewsByLoggedInMember().then(setReviews)
         }, [])
 
-        return (
-            <article className="review-list-container">
-            <div style={{ margin: "0rem 3rem" }}>
-            <section>
-                {
-                    reviews.reverse().map(review => {
-                        return <Review review={review} key={`review--${review.id}`} />
-                    })
-                }
-            </section>
-            </div>
-            </article>  
-        );
+    // Handle delete for review
+    const handleDelete = (id) => {
+        deleteReview(id).then(() => {
+            const updatedReviews = reviews.filter(review => review.id !== id)
+            setReviews(updatedReviews)
+        })
+    }
+
+
+    return (
+        <article className="list-container">
+
+            {
+                reviews.reverse().map(review => {
+                    return <Review review={review} onDelete={handleDelete} key={`review--${review.id}`} />
+                })
+            }
+        </article>
+    )
 }

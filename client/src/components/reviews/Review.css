@@ -4,10 +4,6 @@
     justify-content: space-between;
 }
 
-.card-body {
-    color: black;
-}
-
 .review {
     margin: 20px;
     padding: 20px;
@@ -29,16 +25,17 @@
 
 }
 
-.review-list-container {
+.list-container {
     text-align: center;
     color: rgb(255, 255, 255);
     align-content: center;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(3, 33%);
     grid-column-gap: 20px;
     grid-row-gap: 10rem;
     margin: 100px;
 }
+
 
 .reviewForm {
     align-content: center;
