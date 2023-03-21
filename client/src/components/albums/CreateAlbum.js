@@ -49,20 +49,23 @@ export const CreateAlbum = () => {
 
     // Cloudinary image upload
     const [image, setImage] = useState("")
+    const [loading, setLoading] = useState(false)
+
 
     const uploadImage = () => {
-        const formData = new FormData();
-        formData.append("file", image);
-        formData.append("upload_preset", "vinylcut");
+        const formData = new FormData()
+        formData.append("file", image)
+        formData.append("upload_preset", "vinylcut")
+        setLoading(true)
+
 
         // Make Axios post request
         axios
             .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
             .then((response) => {
-                console.log(response)
                 setImage(response.data.secure_url)
+                setLoading(false)
             })
-        console.log(image)
     }
 
     // POST new album
@@ -124,18 +127,6 @@ export const CreateAlbum = () => {
 
                         <fieldset>
                             <div className="form-group">
-                                <input name="image_url" id="image_url" required autoFocus className="form-control"
-                                    type="file"
-                                    onChange={(event) => {
-                                        setImage(event.target.files[0])
-                                    }} />
-                                <button onClick={uploadImage}>Upload Image
-                                </button>
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
-                            <div className="form-group">
                                 <select name="genre" id="genre" onChange={(handleInputChange)} >
                                     <option value="0" className="form-style">Genre</option>
                                     {genreDropdown.map(genre => (
@@ -157,6 +148,23 @@ export const CreateAlbum = () => {
                                         </option>
                                     ))}
                                 </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div className="form-box center-elements">
+                                <input name="image_url" id="image_url" required autoFocus className="form-control"
+                                    type="file"
+                                    onChange={(event) => {
+                                        setImage(event.target.files[0])
+                                    }} />
+                                {loading ? (
+                                    <h3>Loading...</h3>
+                                ) : (
+                                    <img src={image} style={{ width: '200px' }} />
+                                )}
+                                <button onClick={uploadImage}>Upload Image
+                                </button>
                             </div>
                         </fieldset>
 
