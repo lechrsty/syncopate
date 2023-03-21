@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import "./Login.css"
 
 export const EmployeeRegister = (props) => {
@@ -8,14 +9,47 @@ export const EmployeeRegister = (props) => {
     const conflictDialog = useRef()
     const navigate = useNavigate()
 
+    // State for Employee code
+    const [expectedCode, setExpectedCode] = useState("123")
+
+    // State for entered Employee code
+    const [employeeCode, setEmployeeCode] = useState("")
+
+
+    // Cloudinary image upload
+    const [image, setImage] = useState("")
+
+    const uploadImage = () => {
+        const formData = new FormData()
+        formData.append("file", image)
+        formData.append("upload_preset", "vinylcut")
+
+        // Make Axios post request
+        axios
+            .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
+            .then((response) => {
+                setImage(response.data.secure_url)
+            })
+    }
+
     const handleRegister = (e) => {
         e.preventDefault()
+
+        // Check to see if inputted code is correct
+        if (employeeCode.toLowerCase() !== expectedCode.toLowerCase()) {
+            setFeedback("Invalid code. Please enter the correct code to register.")
+            return
+        }
+
+        const updatedEmployee = { ...employee, image_url: image }
+
         fetch("http://localhost:8000/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(employee)
+            body: JSON.stringify(updatedEmployee)
+
         })
             .then(res => {
                 if (res.status === 200) {
@@ -27,7 +61,7 @@ export const EmployeeRegister = (props) => {
             })
             .then(createdUser => {
                 localStorage.setItem("vinylcut", JSON.stringify(createdUser))
-                navigate("/")
+                navigate("/login")
             })
             .catch(error => {
                 setFeedback(JSON.parse(error.message).message)
@@ -50,7 +84,7 @@ export const EmployeeRegister = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
-                <div>{ serverFeedback }</div>
+                <div>{serverFeedback}</div>
                 <button className="button--close"
                     onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
@@ -91,6 +125,7 @@ export const EmployeeRegister = (props) => {
                         className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="password"> Password </label>
                     <input onChange={updateEmployee}
@@ -98,14 +133,25 @@ export const EmployeeRegister = (props) => {
                         id="password"
                         className="form-control" required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="image_url"> Profile Image </label>
-                    <input onChange={updateEmployee}
-                        type="text"
+                    <input
+                        type="file"
                         id="image_url"
                         className="form-control"
-                        placeholder="insert image url" required />
+                        onChange={(e) => setImage(e.target.files[0])}
+                    />
+                    <button type="button" onClick={uploadImage}>
+                        Upload Image
+                    </button>
                 </fieldset>
+
+                <fieldset>
+                    <label htmlFor="employeeCode"> Employee Code </label>
+                    <input type="text" id="employeeCode" className="form-control" required value={employeeCode} onChange={(e) => setEmployeeCode(e.target.value.trim())} />
+                </fieldset>
+
                 <fieldset>
                     <button type="submit"> Register </button>
                 </fieldset>
