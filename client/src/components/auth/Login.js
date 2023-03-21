@@ -23,7 +23,7 @@ export const Login = () => {
         .then(authInfo => {
             if (authInfo.valid) {
                 localStorage.setItem("vinylcut", JSON.stringify(authInfo))
-                navigate("/")
+                navigate("/dashboard")
             } else {
                 existDialog.current.showModal()
             }

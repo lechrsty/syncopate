@@ -20,7 +20,7 @@ export const EmployeeNav = () => {
             </div>
 
             <li className="navbar__item">
-                <Link className="navbar__link" to="/">Dashboard</Link>
+                <Link className="navbar__link" to="/dashboard">Dashboard</Link>
             </li>
 
             <ul className="navbar">
