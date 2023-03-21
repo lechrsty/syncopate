@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { getTastes } from "../../managers/TasteManager"
 import "./NavBar.css"
 
@@ -20,7 +20,7 @@ export const EmployeeNav = () => {
             </div>
 
             <li className="navbar__item">
-                        <Link className="navbar__link" to={`/aotms`}> Records of the Month</Link>
+                <Link className="navbar__link" to="/">Dashboard</Link>
             </li>
 
             <ul className="navbar">

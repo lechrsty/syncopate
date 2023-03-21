@@ -7,9 +7,7 @@ import "./Review.css"
 export const ReviewContainer = () => {
     
     const [memberSelection, setMemberSelection] = useState()
-    console.log(memberSelection)
     const [searchTerms, setSearchTerms] = useState("")
-    console.log(searchTerms)
 
     return (
         <>
@@ -19,4 +17,3 @@ export const ReviewContainer = () => {
         </>
     )
 }
-

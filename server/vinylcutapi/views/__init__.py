@@ -7,3 +7,4 @@ from .comment_view import CommentView
 from .genre_view import GenreView
 from .rating_view import RatingView
 from .reviews_view import ReviewView
+from .employee_view import EmployeeView

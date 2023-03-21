@@ -9,7 +9,7 @@ import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { EditAlbum } from "../components/albums/EditAlbum"
 import { AotmList } from "../components/albums/AotmList"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
-import { EmployeeDashboardContainer } from "../components/dashboard/employee/EmployeeDashboardContainer"
+import { EmployeeDashboard } from "../components/dashboard/employee/EmployeeDashboard"
 
 export const EmployeeViews = () => {
     
@@ -21,8 +21,8 @@ export const EmployeeViews = () => {
                 </>
             }>
 
-            <Route path="/home">
-                <Route index element={ <EmployeeDashboardContainer /> } />
+            <Route path="/">
+                <Route index element={ <EmployeeDashboard /> } />
             </Route>
 
             <Route path="/aotms" element={<AotmList />} />
