@@ -90,8 +90,8 @@ export const CreateAlbum = () => {
         } else {
             createAlbum(album, image)
                 .then(() => {
-                    navigate('/home')
-                });
+                    navigate('/dashboard')
+                })
         }
     }
 

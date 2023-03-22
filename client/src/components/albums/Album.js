@@ -13,7 +13,10 @@ export const Album = ({ album, onDelete }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
-        onDelete(album.id)
+        if (window.confirm("Are you sure you want to remove this from inventory?")) {
+            window.alert("Album removed from inventory.")
+            onDelete(album.id)
+        }
     }
 
     // Get localstorage user object to render Edit and Delete buttons for staff only
@@ -26,7 +29,7 @@ export const Album = ({ album, onDelete }) => {
                 <Stack spacing={1}>
                     <CardMedia
                         component="img"
-                        height= "200"
+                        height="200"
                         image={album?.image_url}
                         title="image"
                     />
