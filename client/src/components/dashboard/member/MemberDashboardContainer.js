@@ -44,7 +44,6 @@ export const MemberDashboardContainer = () => {
     const handleTasteUpdate = (newTaste) => {
         setTaste(newTaste)
 }
-    console.log(member, aotm, taste)
 
     return (
         <MemberContext.Provider value={member}>

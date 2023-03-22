@@ -13,6 +13,7 @@ export const Review = ({ review, onDelete }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
+        onDelete(review.id)
     }
 
     return (

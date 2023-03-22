@@ -8,6 +8,7 @@ nav {
     clip-path: circle(24px at 32px 24px);
     -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
     transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
+    z-index: 2;
 }
 
 nav:hover {
@@ -39,6 +40,7 @@ li {
     -webkit-transform-origin: 32px 24px;
     -ms-transform-origin: 32px 24px;
     transform-origin: 32px 24px;
+    z-index: 2;
 
 }
 

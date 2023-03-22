@@ -5,9 +5,11 @@ import "./NavBar.css"
 export const GuestNav = () => {
 
     return (
-        <>
+        <nav>
+            <div className="navicon">
+                <div></div>
+            </div>
             <ul className="navbar">
-
 
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/aotms">Records of the Month</Link>
@@ -23,7 +25,7 @@ export const GuestNav = () => {
 
             </ul>
 
-        </>
+        </nav>
     )
 }
 
