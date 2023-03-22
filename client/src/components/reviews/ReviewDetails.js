@@ -13,7 +13,7 @@ import "./Review.css"
 
 export const ReviewDetails = () => {
   const navigate = useNavigate()
-  
+
   const { reviewId } = useParams()
 
   const [review, setReview] = useState({})
@@ -23,42 +23,49 @@ export const ReviewDetails = () => {
   }, [reviewId])
 
   return (
-    <Card className="review" sx={{ maxWidth: 800, padding: 5}}>
+    <Card className="review" sx={{ maxWidth: 800, padding: 5 }}>
       <CardContent>
         <Stack spacing={2}>
-                <CardMedia
-                    sx={{ height: 140 }}
-                    image={review?.image_url}
-                    title="image"
-                />
+          <CardMedia
+            sx={{ height: 140 }}
+            image={review?.image_url}
+            title="image"
+          />
           <Typography className="review__title"> {review?.title}</Typography>
           <Typography className="review__artist"> {review?.artist}</Typography>
           <Typography className="review__description"> {review?.description}</Typography>
-          <Typography className="review__category_id"> {review?.genre?.type} </Typography> 
-          <Typography className="review__category_id"> {review?.rating?.rating} </Typography> 
+          <Typography className="review__category_id"> {review?.genre?.type} </Typography>
+          <Typography className="review__category_id"> {review?.rating?.rating} </Typography>
           <Typography><Link className="review__members_name" to={`/profile/member/${review?.member?.id}`}> {review?.member?.username} </Link></Typography>
           <Typography className="review__publication_date">{review?.created_on}</Typography>
           <Typography className="review__content"> {review?.content}</Typography>
-          <Link className="review__comments" to={`/reviews/${reviewId}/comments`}>Comments</Link>
-          
+
           {
             review.is_member
-            ?
-            <>
-              <Button className="button" variant="contained"  onClick={() => {
-                navigate(`/reviews/edit/${review.id}`)
-              }}>Edit</Button>
-              <Button className="button" variant="contained" onClick={()=>{
-                deleteReview(review.id)
-                .then(()=>navigate('/reviews'))
-              }}>Delete</Button>
-            </>
-            :
-            ""
+              ?
+              <>
+                <Button className="button" variant="contained" onClick={() => {
+                  navigate(`/reviews/edit/${review.id}`)
+                }}>Edit</Button>
+                <Button
+                  className="button"
+                  variant="contained"
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to remove this review?")) {
+                      deleteReview(review.id).then(() => navigate("/reviews"));
+                    }
+                  }}
+                >
+                  Delete
+                </Button>
+              </>
+              :
+              ""
           }
-          
+
         </Stack>
       </CardContent>
     </Card>
-)
+
+  )
 }

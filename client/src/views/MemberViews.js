@@ -14,6 +14,7 @@ import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { MemberDashboardContainer } from "../components/dashboard/member/MemberDashboardContainer"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { ReviewContainer } from "../components/reviews/ReviewContainer"
+import { ReviewDetailsContainer } from "../components/reviews/ReviewDetailsContainer"
 
 
 export const MemberViews = () => {
@@ -37,7 +38,7 @@ export const MemberViews = () => {
 
             <Route path="/reviews">
                 <Route index element={ <ReviewContainer /> } />
-                <Route path=":reviewId" element={<ReviewDetails />} />
+                <Route path=":reviewId" element={<ReviewDetailsContainer />} />
                 <Route path="edit/:reviewId" element={<EditReview />} />
                 <Route path="create" element={<CreateReview />} />
                 <Route path=":reviewId/comments" element={< CommentListContainer />} />

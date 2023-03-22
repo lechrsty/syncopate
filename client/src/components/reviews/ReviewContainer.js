@@ -3,6 +3,7 @@ import { ReviewList } from "../reviews/ReviewList"
 import { FilterMembers } from "../reviews/FilterMembers"
 import { ReviewSearch } from "../reviews/ReviewSearch"
 import "./Review.css"
+import { CommentListContainer } from "../comments/CommentContainer"
 
 export const ReviewContainer = () => {
     
