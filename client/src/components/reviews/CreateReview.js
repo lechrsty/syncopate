@@ -47,7 +47,7 @@ export const CreateReview = () => {
         setReview(copyOfReview)
     }
 
-    // Hide "upload" button if clicked
+    // State to hide "upload" button if clicked
     const [uploadClicked, setUploadClicked] = useState(false)
 
     // Cloudinary image upload

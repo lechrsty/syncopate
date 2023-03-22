@@ -15,13 +15,15 @@ export const EmployeeRegister = (props) => {
     // State for entered Employee code
     const [employeeCode, setEmployeeCode] = useState("")
 
+    // State to hide "upload" button if clicked
+    const [uploadClicked, setUploadClicked] = useState(false)
 
     // Cloudinary image upload
     const [image, setImage] = useState("")
     const [loading, setLoading] = useState(false)
 
-
     const uploadImage = () => {
+        setUploadClicked(true)
         const formData = new FormData()
         formData.append("file", image)
         formData.append("upload_preset", "vinylcut")
@@ -140,22 +142,24 @@ export const EmployeeRegister = (props) => {
                 </fieldset>
 
                 <fieldset>
-                        <div className="form-box center-elements">
-                            <input
-                                type="file"
-                                id="image_url"
-                                className="form-control"
-                                onChange={(e) => setImage(e.target.files[0])}
-                            />
-                            {loading ? (
-                                <h3>Loading...</h3>
-                            ) : (
-                                <img src={image} style={{ width: '200px' }} />
-                            )}
-                            <button type="button" onClick={uploadImage}>
-                                Upload Image
-                            </button>
-                        </div>
+                    <div className="form-box center-elements">
+                        {loading ? (
+                            <h3>Loading...</h3>
+                        ) : (
+                            <img src={image} style={{ width: '200px' }} />
+                        )}
+                        <input
+                            type="file"
+                            id="image_url"
+                            className="form-control"
+                            onChange={(event) => {
+                                setImage(event.target.files[0])
+                                setUploadClicked(false)
+                            }} />
+                        {!uploadClicked && (
+                            <button onClick={uploadImage}>Upload Image</button>
+                        )}
+                    </div>
                 </fieldset>
 
                 <fieldset>
