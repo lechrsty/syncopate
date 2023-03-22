@@ -29,8 +29,17 @@ export const Aotm = ({ aotm }) => {
 
     // State for modal
     const [open, setOpen] = useState(false)
-    const [selectedAlbumId, setSelectedAlbumId] = useState('')
     const [albums, setAlbums] = useState([])
+    const [selectedAlbumId, setSelectedAlbumId] = useState('')
+
+    // Filter out the initially selected album from the album dropdown
+    const menuItems = albums
+        .filter((album) => album.id !== aotm.album.id)
+        .map((album) => (
+            <MenuItem key={album.id} value={album.id}>
+                {album.title} - {album.artist}
+            </MenuItem>
+        ))
 
     // Handle opening and closing of modal
     const handleOpen = () => {
@@ -66,23 +75,37 @@ export const Aotm = ({ aotm }) => {
                 updateAOTM(aotm.id, aotmBody).then(() => {
                     // Reset the albums state
                     setAlbums([])
-                });
+                })
 
                 // Close the modal
                 handleClose()
+                window.location.reload()
             })
     }
 
     const modalStyle = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
         width: 400,
-        bgcolor: 'background.paper',
+        bgcolor: "background.paper",
         boxShadow: 24,
         p: 4,
+        borderRadius: 8,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "1rem",
+        "& .MuiFormControl-root": {
+            width: "100%",
+        },
+        "& button": {
+            marginTop: "1rem",
+        },
     }
+
 
     return (
         <Card key={`aotm--${aotm.id}`} className="aotm" sx={{ maxWidth: 300 }}>
@@ -126,13 +149,9 @@ export const Aotm = ({ aotm }) => {
                             id="demo-simple-select"
                             value={selectedAlbumId}
                             label="Album"
-                            onChange={(e) => setSelectedAlbumId(e.target.value)}
+                            onChange={handleSelectAlbum}
                         >
-                            {albums?.map((album) => (
-                                <MenuItem key={album.id} value={album.id}>
-                                    {album.title} - {album.artist}
-                                </MenuItem>
-                            ))}
+                            {menuItems}
                         </Select>
                     </FormControl>
                     <Button variant="contained" onClick={handleSave}>

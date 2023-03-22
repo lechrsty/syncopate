@@ -47,12 +47,16 @@ export const CreateAlbum = () => {
         setAlbum(copyOfAlbum)
     }
 
+    // State to hide "upload" button if clicked
+    const [uploadClicked, setUploadClicked] = useState(false)
+
     // Cloudinary image upload
     const [image, setImage] = useState("")
     const [loading, setLoading] = useState(false)
 
 
     const uploadImage = () => {
+        setUploadClicked(true)
         const formData = new FormData()
         formData.append("file", image)
         formData.append("upload_preset", "vinylcut")
@@ -86,8 +90,8 @@ export const CreateAlbum = () => {
         } else {
             createAlbum(album, image)
                 .then(() => {
-                    navigate('/home')
-                });
+                    navigate('/dashboard')
+                })
         }
     }
 
@@ -153,18 +157,20 @@ export const CreateAlbum = () => {
 
                         <fieldset>
                             <div className="form-box center-elements">
-                                <input name="image_url" id="image_url" required autoFocus className="form-control"
-                                    type="file"
-                                    onChange={(event) => {
-                                        setImage(event.target.files[0])
-                                    }} />
                                 {loading ? (
                                     <h3>Loading...</h3>
                                 ) : (
                                     <img src={image} style={{ width: '200px' }} />
                                 )}
-                                <button onClick={uploadImage}>Upload Image
-                                </button>
+                                <input name="image_url" id="image_url" required autoFocus className="form-control"
+                                    type="file"
+                                    onChange={(event) => {
+                                        setImage(event.target.files[0])
+                                        setUploadClicked(false)
+                                    }} />
+                                {!uploadClicked && (
+                                    <button onClick={uploadImage}>Upload Image</button>
+                                )}
                             </div>
                         </fieldset>
 

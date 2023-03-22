@@ -1,4 +1,5 @@
 import { EmployeeViews } from "./EmployeeViews"
+import { GuestViews } from "./GuestViews"
 import { MemberViews } from "./MemberViews"
 
 export const ApplicationViews = () => {
@@ -10,9 +11,12 @@ export const ApplicationViews = () => {
         // Return employee views
         return <EmployeeViews />
     }
-    else {
-        // Return member views
+    else if (vinylCutUserObject) {
+        // Return member nav
         return <MemberViews />
-
+    }
+    else {
+        // Return guest nav
+        return <GuestViews />
     }
 }

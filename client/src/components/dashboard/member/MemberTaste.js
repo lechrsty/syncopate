@@ -20,13 +20,13 @@ export const MemberTaste = () => {
         // Initialize and set state for Member to update Taste, and set current Taste so Member can see what they have selected before change
         getTastes().then((tastesData) => {
           const currentTaste = tastesData.find(taste => taste.id === memberData.taste.id)
-          setTastes([currentTaste, ...tastesData.filter(taste => taste.id !== memberData.taste.id)])
+          setTasteDropdown([currentTaste, ...tastesData.filter(taste => taste.id !== memberData.taste.id)])
         })
       })
     }
   }, [])
 
-  const [tastes, setTastes] = useState([])
+  const [tasteDropdown, setTasteDropdown] = useState([])
 
   // PUT request to update Member's Taste
   const handleTasteUpdate = (memberId, newTaste) => {
@@ -47,7 +47,7 @@ export const MemberTaste = () => {
           <EditTaste
             memberId={member.id}
             currentTaste={member.taste}
-            tastes={tastes}
+            tasteDropdown={tasteDropdown}
             onUpdate={handleTasteUpdate}
           />
         </>

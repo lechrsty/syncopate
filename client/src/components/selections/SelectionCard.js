@@ -23,10 +23,16 @@ export const SelectionCard = ({ choice }) => {
     const { taste } = useContext(TasteContext)
     const tasteId = taste
 
+    // State for modal
     const [open, setOpen] = useState(false)
+
+    //State to grab id of album that user changes to in the dropdown menu
     const [selectedAlbumId, setSelectedAlbumId] = useState("")
-    const [albums, setAlbums] = useState([])
-    
+
+    // State for album dropdown menu
+    const [dropdownAlbums, setDropdownAlbums] = useState([])
+
+    // Initialize state for choices that will be passed into the PUT request in handleSave 
     const [choices, setChoices] = useState({
         choice_one: member.choice_one,
         choice_two: member.choice_two,
@@ -36,7 +42,7 @@ export const SelectionCard = ({ choice }) => {
     // Get albums for the dropdown
     useEffect(() => {
         getAlbumsByTasteId(taste).then((data) => {
-            setAlbums(data)
+            setDropdownAlbums(data)
         })
     }, [taste])
 
@@ -66,85 +72,96 @@ export const SelectionCard = ({ choice }) => {
         }
 
         if (choices.choice_one && choices.choice_one.id === choice.id) {
-            body.choice_one = { id: selectedAlbumId };
+            body.choice_one = { id: selectedAlbumId }
         } else if (choices.choice_two && choices.choice_two.id === choice.id) {
-            body.choice_two = { id: selectedAlbumId };
+            body.choice_two = { id: selectedAlbumId }
         } else if (choices.choice_three && choices.choice_three.id === choice.id) {
-            body.choice_three = { id: selectedAlbumId };
+            body.choice_three = { id: selectedAlbumId }
         }
+        
 
         updateMember(member.id, body).then(() => {
-            setAlbums([])
+            setDropdownAlbums([])
             handleClose()
+        window.location.reload()
         })
     }
 
-    const modalStyle = {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: 400,
-        bgcolor: "background.paper",
-        boxShadow: 24,
-        p: 4,
+        const modalStyle = {
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+        }
+
+        return (
+            <Card sx={{ maxWidth: "300px", minHeight: "500px", maxHeight: "500px" }}>
+                <CardContent>
+                    <Stack spacing={1}>
+                        <CardMedia component="img" image={choice.image_url} />
+                        <Link className="card-link" href={`/albums/${choice.id}`}>
+                            <Typography variant="h6">{choice.title}</Typography>
+                        </Link>
+                        <Typography> {choice.artist} </Typography>
+                        <Typography paragraph color="text.secondary">
+                            {choice.genre?.type}
+                        </Typography>
+                        <>
+                            <Button
+                                className="button"
+                                variant="contained"
+                                onClick={handleOpen}
+                            >
+                                Change
+                            </Button>
+                        </>
+                    </Stack>
+                </CardContent>
+
+                <Modal open={open} onClose={handleClose}>
+                    <Box sx={modalStyle}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            Switch Album
+                        </Typography>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Album</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={selectedAlbumId}
+                                label="Album"
+                                onChange={handleSelectAlbum}
+                            >
+                                {dropdownAlbums
+                                    .filter((album) => {
+                                        return (
+                                            album.id !== choices.choice_one?.id &&
+                                            album.id !== choices.choice_two?.id &&
+                                            album.id !== choices.choice_three?.id
+                                        );
+                                    })
+                                    .map((album) => (
+                                        <MenuItem key={album.id} value={album.id}>
+                                            {album.title} - {album.artist}
+                                        </MenuItem>
+                                    ))}
+                            </Select>
+
+                            <Button
+                                className="button"
+                                variant="contained"
+                                onClick={handleSave}
+                                disabled={!selectedAlbumId}
+                            >
+                                Choose this one
+                            </Button>
+                        </FormControl>
+                    </Box>
+                </Modal>
+            </Card>
+        )
     }
-
-    return (
-        <Card sx={{ maxWidth: "300px", minHeight: "500px", maxHeight: "500px" }}>
-            <CardContent>
-                <Stack spacing={1}>
-                    <CardMedia component="img" image={choice.image_url} />
-                    <Link className="card-link" href={`/albums/${choice.id}`}>
-                        <Typography variant="h6">{choice.title}</Typography>
-                    </Link>
-                    <Typography> {choice.artist} </Typography>
-                    <Typography paragraph color="text.secondary">
-                        {choice.genre?.type}
-                    </Typography>
-                    <>
-                        <Button
-                            className="button"
-                            variant="contained"
-                            onClick={handleOpen}
-                        >
-                            Change
-                        </Button>
-                    </>
-                </Stack>
-            </CardContent>
-
-            <Modal open={open} onClose={handleClose}>
-                <Box sx={modalStyle}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Switch Album
-                    </Typography>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Album</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={selectedAlbumId}
-                            label="Album"
-                            onChange={handleSelectAlbum}
-                        >
-                            {albums.map((album) => (
-                                <MenuItem key={album.id} value={album.id}>
-                                    {album.title} - {album.artist}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                        <Button
-                            className="button"
-                            variant="contained"
-                            onClick={handleSave}
-                            disabled={!selectedAlbumId}
-                        >
-                            Choose this one
-                        </Button>
-                    </FormControl>
-                </Box>
-            </Modal>
-        </Card>
-    )
-}

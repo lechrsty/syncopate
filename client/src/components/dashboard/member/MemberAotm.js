@@ -24,7 +24,7 @@ export const MemberAotm = ( ) => {
                     <Link className="card-link" href={`/albums/${aotm?.id}`}>
                         <Typography variant="h6">{aotm?.album?.title}</Typography>
                     </Link>
-                    <Typography>{aotm?.artist}</Typography>
+                    <Typography>{aotm?.album?.artist}</Typography>
                     <Typography paragraph color="text.secondary">
                         {aotm?.album?.genre?.type}
                     </Typography>

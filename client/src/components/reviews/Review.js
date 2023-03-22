@@ -13,6 +13,10 @@ export const Review = ({ review, onDelete }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
+        if (window.confirm("Are you sure you want to remove this review?")) {
+            window.alert("Review removed from the ether.")
+            onDelete(review.id)
+        }
     }
 
     return (
