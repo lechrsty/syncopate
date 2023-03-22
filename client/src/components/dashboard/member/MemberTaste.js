@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { getMemberById } from '../../../managers/MemberManager'
 import { getTastes, updateTaste } from '../../../managers/TasteManager'
 import { EditTaste } from './EditTaste'
-import "../Dashboard.css"
 
 export const MemberTaste = () => {
 

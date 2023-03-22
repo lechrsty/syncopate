@@ -1,12 +1,11 @@
 import { NavBar } from "./components/nav/NavBar"
 import "./Home.css"
-import "./components/nav/NavBar.css"
+import "./Container.css"
 
 export const Home = () => {
     return (
         <>
-            <NavBar />
-            <div className="container">
+            <div className="home-container">
                 <h1>Vinyl Cut</h1>
                 <p-hero>Welcome to the club</p-hero>
                 <a href="/login">Login | Register</a>
@@ -16,7 +15,7 @@ export const Home = () => {
                 <p-hero>Get records, hand-curated with a whole lot of TLC, delivered to you monthly all while expanding your connections within the music community.</p-hero>
             </div>
 
-            <div className="container second">
+            <div className="home-container second">
                 <div className="home-item">
                     <div className="img img-second"></div>
                     <div className="card">

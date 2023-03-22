@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { Review } from "./Review";
 import { deleteReview, getReviews } from "../../managers/ReviewManager"
-import Button from '@mui/material/Button'
 import "./Review.css"
+import "../../Container.css"
+import "../../index.css"
 
 export const ReviewList = ({ memberSelection, searchTermState }) => {
     const navigate = useNavigate()
@@ -36,7 +37,7 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
     useEffect(
         () => {
             const searchedReviews = reviews.filter(review => {
-                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase())|| review?.artist?.toLowerCase().includes(searchTermState.toLowerCase())
+                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase())
             })
             setFilteredReviews(searchedReviews)
         },
@@ -53,22 +54,16 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
 
     return (
         <>
-                <Button className="button" variant="contained"
-                    onClick={() => {
-                        navigate(`/reviews/create`)
-                    }}>Drop a Review</Button>
-            <article className="review-list-container">
-
-                {
-                    filteredReviews.map((review) => {
-                        return <Review
-                            onDelete={handleDelete}
-                            review={review}
-                            key={`review--${review.id}`} />
-                    })
-                }
-
-            </article>
+                <div className='review-list-container second'>
+                    {
+                        filteredReviews.map((review) => {
+                            return <Review
+                                onDelete={handleDelete}
+                                review={review}
+                                key={`review--${review.id}`} />
+                        })
+                    }
+                </div>
         </>
     )
 }

@@ -10,36 +10,38 @@ import { EditAlbum } from "../components/albums/EditAlbum"
 import { AotmList } from "../components/albums/AotmList"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { EmployeeDashboard } from "../components/dashboard/employee/EmployeeDashboard"
+import '../Container.css'
 
 export const EmployeeViews = () => {
-    
-	return (
-        <Routes>
-            <Route path="/" element={
-                <>
-                    <Outlet />
-                </>
-            }>
 
-            <Route path="/dashboard" element={<EmployeeDashboard />} />
 
-            <Route path="/aotms" element={<AotmList />} />
+    return (
+            <Routes>
+                <Route path="/" element={
+                    <>
+                        <Outlet />
+                    </>
+                }>
 
-            <Route path="/1" element={<ClassicsAlbumList />} />
-            <Route path="/2" element={<EssentialsAlbumList />} />
-            <Route path="/3" element={<WorldAlbumList />} />
-            <Route path="/4" element={<HipHopAlbumList />} />
-            <Route path="/5" element={<HighVoltageAlbumList />} />
-            <Route path="/6" element={<NewReleasesAlbumList />} />
+                    <Route path="/dashboard" element={<EmployeeDashboard />} />
 
-            <Route path="/albums/:albumId" element={<AlbumDetails />} />
+                    <Route path="/aotms" element={<AotmList />} />
 
-            <Route path="/upload">
-                <Route index element={ <CreateAlbum /> } />
-            </Route>
-            <Route path="/edit/:albumId" element={<EditAlbum />} />
+                    <Route path="/1" element={<ClassicsAlbumList />} />
+                    <Route path="/2" element={<EssentialsAlbumList />} />
+                    <Route path="/3" element={<WorldAlbumList />} />
+                    <Route path="/4" element={<HipHopAlbumList />} />
+                    <Route path="/5" element={<HighVoltageAlbumList />} />
+                    <Route path="/6" element={<NewReleasesAlbumList />} />
 
-            </Route>
-        </Routes>
+                    <Route path="/albums/:albumId" element={<AlbumDetails />} />
+
+                    <Route path="/upload">
+                        <Route index element={<CreateAlbum />} />
+                    </Route>
+                    <Route path="/edit/:albumId" element={<EditAlbum />} />
+
+                </Route>
+            </Routes>
     )
 }

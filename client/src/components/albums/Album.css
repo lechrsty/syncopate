@@ -13,22 +13,6 @@
     padding: 20px;
 }
 
-.button {
-    border-radius: 4px;
-    height: 40px;
-    width: 150px;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    border: none;
-    background-color: #ffeba7;
-    color: #102770;
-    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-    margin: 5px;
-
-}
-
 .album-list-container {
     text-align: center;
     color: rgb(255, 255, 255);

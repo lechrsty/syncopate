@@ -4,7 +4,6 @@ import { MemberTaste } from "./MemberTaste"
 import { getMemberById } from '../../../managers/MemberManager'
 import { getAOTMByTaste } from '../../../managers/AlbumManager'
 import { SelectionList } from '../../selections/SelectionList'
-import "../Dashboard.css"
 
 // Create the member context
 export const MemberContext = React.createContext()
