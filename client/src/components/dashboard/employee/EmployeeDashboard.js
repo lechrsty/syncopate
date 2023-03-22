@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AotmList } from '../../albums/AotmList'
 import Button from '@mui/material/Button'
-import "../Dashboard.css"
 
 export const EmployeeDashboard = () => {
 

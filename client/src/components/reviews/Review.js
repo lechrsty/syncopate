@@ -1,12 +1,6 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Link from '@mui/material/Link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
+import { Link } from 'react-router-dom'
 import "./Review.css"
 
 export const Review = ({ review, onDelete }) => {
@@ -20,41 +14,44 @@ export const Review = ({ review, onDelete }) => {
     }
 
     return (
-        <Card key={`review--${review.id}`} className="review" sx={{ maxWidth: 300 }}>
-            <CardContent>
-                <Stack spacing={1}>
-                <CardMedia
-                        component="img"
-                        height= "200"
-                        image={review?.image_url}
-                        title="image"
-                    />
-                    <Link className="card-link"
-                        href={`/reviews/${review.id}`}>
-                        <Typography variant="h6">{review.title}</Typography></Link>
-                    <Typography> {review?.artist} </Typography>
-                    <Typography> {review?.description} </Typography>
-                    <Typography paragraph color="text.primary"> {review?.member?.username}</Typography>
-                    <Typography paragraph color="text.secondary"> {review?.genre?.type}</Typography>
-                    <Typography paragraph color="text.secondary"> {review?.rating?.rating}</Typography>
 
+        <div key={`review--${review.id}`} className="card" sx={{ maxWidth: 300 }}>
+            <div className="imgBx">
+                <a href={`/reviews/${review.id}`}>
+                    <img
+                        src={review?.image_url} />
+                </a>
+
+                <Link to={`/reviews/${review.id}`} className="card-link">
+                    <h2 className='title'>{review.title}</h2>
+                </Link>
+                <p className='artist'> {review?.artist} </p>
+                <p> {review?.description.slice(0, 250)}... </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <p className='genre' style={{ alignSelf: 'flex-start' }}>{review?.genre?.type}</p>
+                    <Link to={`/profile/member/${review.member.id}`}>
+                        <p className='username' style={{ alignSelf: 'flex-end' }}>{review.member.username}</p>
+                    </Link>
+                </div>
+                <p className='rating'> {review?.rating?.rating}</p>
+
+                <div className="button-row">
                     {
                         review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member
                             ?
                             <>
-                                <Button className="button" variant="contained" onClick={() => {
+                                <button onClick={() => {
                                     navigate(`/reviews/edit/${review.id}`)
-                                }}>Edit</Button>
-                                <Button className="button" variant="contained"
+                                }}><span>Edit</span></button>
+                                <button
                                     onClick={handleDelete}
-                                >Delete</Button>
+                                ><span>Delete</span></button>
                             </>
                             :
                             ""
                     }
-
-                </Stack>
-            </CardContent>
-        </Card>
+                </div>
+            </div>
+        </div>
     )
 }

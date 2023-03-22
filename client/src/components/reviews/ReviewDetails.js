@@ -37,7 +37,7 @@ export const ReviewDetails = () => {
           <Typography className="review__category_id"> {review?.genre?.type} </Typography>
           <Typography className="review__category_id"> {review?.rating?.rating} </Typography>
           <Typography><Link className="review__members_name" to={`/profile/member/${review?.member?.id}`}> {review?.member?.username} </Link></Typography>
-          <Typography className="review__publication_date">{review?.created_on}</Typography>
+          <Typography className="review__publication_date"> {review?.created_on ? review.created_on.slice(0, 10) : ""}</Typography>
           <Typography className="review__content"> {review?.content}</Typography>
 
           {

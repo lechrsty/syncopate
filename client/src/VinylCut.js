@@ -23,8 +23,8 @@ export const VinylCut = () => {
 		<Route path="*" element={
 			<Authorized>
 				<>
-					<div className="container">
-						<NavBar/>
+					<NavBar />
+					<div className="review-list-container">
 						<ApplicationViews />
 					</div>
 				</>
