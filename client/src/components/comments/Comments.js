@@ -22,7 +22,6 @@ export const Comments = ({ review, setReview, reviewId, comments, setComments })
     return <article className="comment-list-container">
         <>
             <Stack spacing={2}>
-                <Typography variant="h5" color="text.primary">Comments</Typography>
                 {
                     comments.reverse().map(comment => {
                         return <Card className="comment" sx={{ maxWidth: 300 }} key={`comments--${comment.id}`}>
