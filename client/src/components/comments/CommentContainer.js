@@ -17,7 +17,7 @@ export const CommentListContainer = () => {
         getCommentsByReviewId(reviewId).then(setComments)
     },[reviewId])
 
-    return <article className="comment-list-container">
+    return <article className="review-detail-container second">
         <>
             <CreateComment reviewId={reviewId} setReview = {setReview} setComments={setComments} />
             <Comments review = {review} setReview = {setReview} reviewId = {reviewId} comments = {comments} setComments = {setComments}/>

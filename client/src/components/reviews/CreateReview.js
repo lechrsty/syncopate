@@ -10,6 +10,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
+import { FormControl } from '@mui/material'
 import "./Review.css"
 
 export const CreateReview = () => {
@@ -98,86 +99,80 @@ export const CreateReview = () => {
             <Card className="reviewForm" sx={{ maxWidth: 800, padding: 5 }}>
                 <CardContent>
                     <Stack spacing={2}>
-                        <Typography variant="h5">Drop a Review</Typography>
+                        <h2 >DROP A REVIEW</h2>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <input type="text" name="title" id="title" required autoFocus className="form-control"
-                                    placeholder="Album"
-                                    defaultValue={review.title}
-                                    onChange={handleInputChange} />
-                            </div>
-                        </fieldset>
+                        <div className="form-box center-elements">
+                            {loading ? (
+                                <h3>Loading...</h3>
+                            ) : (
+                                <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
+                            )}
+                            <input name="image_url"
 
-                        <fieldset>
-                            <div className="form-group">
-                                <input type="text" name="artist" id="artist" required autoFocus className="form-control"
-                                    placeholder="Artist"
-                                    defaultValue={review.artist}
-                                    onChange={handleInputChange} />
-                            </div>
-                        </fieldset>
+                                id="image_url" required autoFocus
+                                type="file"
+                                onChange={(event) => {
+                                    setImage(event.target.files[0])
+                                    setUploadClicked(false)
+                                }} />
+                            {!uploadClicked && (
+                                <button onClick={uploadImage} style={{ marginTop: "20px" }}><span>Upload image</span></button>
+                            )}
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <input type="text" name="description" id="description" required autoFocus className="form-control"
-                                    placeholder="A gut-wrenchingly honest opinion?"
-                                    defaultValue={review.description}
-                                    onChange={handleInputChange} />
-                            </div>
-                        </fieldset>
+                        <div className='create-title'>
+                            <input type="text" name="title" id="title" required autoFocus
+                                placeholder="Album"
+                                defaultValue={review.title}
+                                onChange={handleInputChange} />
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <select name="genre" id="genre" onChange={(handleInputChange)} >
-                                    <option value="0" className="form-style">Genre</option>
-                                    {genreDropdown.map(genre => (
-                                        <option key={`genre--${genre.id}`} value={genre?.id}>
-                                            {genre?.type}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
+                        <div className='create-artist'>
+                            <input type="text" name="artist" id="artist" required autoFocus
+                                placeholder="Artist"
+                                defaultValue={review.artist}
+                                onChange={handleInputChange} />
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <select name="rating" id="rating" onChange={(handleInputChange)} >
-                                    <option value="0" className="form-style">Rate it</option>
-                                    {ratingDropdown.map(rating => (
-                                        <option key={`rating--${rating.id}`} value={rating?.id}>
-                                            {rating?.rating}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
+                        <div className='create-genre'>
+                            <select name="genre" id="genre" onChange={(handleInputChange)} >
+                                <option value="0" className="form-style">Genre</option>
+                                {genreDropdown.map(genre => (
+                                    <option key={`genre--${genre.id}`} value={genre?.id}>
+                                        {genre?.type}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
 
-                        <fieldset >
-                            <div className="form-box center-elements">
-                                {loading ? (
-                                    <h3>Loading...</h3>
-                                ) : (
-                                    <img src={image} style={{ width: '200px' }} />
-                                )}
-                                <input name="image_url"
-                                    className="form-control"
-                                    id="image_url" required autoFocus
-                                    type="file"
-                                    onChange={(event) => {
-                                        setImage(event.target.files[0])
-                                        setUploadClicked(false)
-                                    }} />
-                                {!uploadClicked && (
-                                    <button onClick={uploadImage}>Upload Image</button>
-                                )}
-                            </div>
-                        </fieldset>
+                        <div className='create-rating'>
+                            <select name="rating" id="rating" onChange={(handleInputChange)} >
+                                <option value="0" className="form-style">Rate it</option>
+                                {ratingDropdown.map(rating => (
+                                    <option key={`rating--${rating.id}`} value={rating?.id}>
+                                        {rating?.rating}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
 
-                        <Button variant="contained" type="submit"
+                        <div className='create-text'>
+                            <textarea
+                                name="description"
+                                id="description"
+                                required
+                                autoFocus
+                                placeholder="A gut-wrenchingly honest opinion?"
+                                defaultValue={review.description}
+                                onChange={handleInputChange}
+                                style={{ resize: "vertical", minHeight: "50px", minWidth:"300px" }} 
+                            />
+                        </div>
+
+                        <button  type="submit"
                             onClick={handleSubmit}
-                            className="button">Submit Review
-                        </Button>
+                            className="button"><span>Submit</span>
+                        </button>
                     </Stack>
                 </CardContent>
             </Card>

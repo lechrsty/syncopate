@@ -20,7 +20,7 @@ import '../Container.css'
 export const MemberViews = () => {
 
     return (
-        <div className="review-list-container">
+        <div className="main-container">
             <Routes>
                 <Route path="/" element={
                     <>
@@ -40,7 +40,7 @@ export const MemberViews = () => {
                     <Route path="/reviews">
                         <Route index element={<ReviewContainer />} />
                         <Route path=":reviewId" element={<ReviewDetailsContainer />} />
-                        <Route path="edit/:reviewId" element={<EditReview />} />
+                        <Route path="edit/:reviewId" element={<EditReview />} /> 
                         <Route path="create" element={<CreateReview />} />
                         <Route path=":reviewId/comments" element={< CommentListContainer />} />
                     </Route>

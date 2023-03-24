@@ -4,19 +4,15 @@ import { MemberContext } from '../dashboard/member/MemberDashboardContainer'
 import { TasteContext } from '../dashboard/member/MemberDashboardContainer'
 import { getAlbumsByTasteId } from "../../managers/AlbumManager"
 import { updateMember } from "../../managers/MemberManager"
-import Link from '@mui/material/Link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
+import { Link } from "react-router-dom"
+import '../reviews/Review.css'
 
 export const SelectionCard = ({ choice }) => {
     const member = useContext(MemberContext)
@@ -78,90 +74,90 @@ export const SelectionCard = ({ choice }) => {
         } else if (choices.choice_three && choices.choice_three.id === choice.id) {
             body.choice_three = { id: selectedAlbumId }
         }
-        
+
 
         updateMember(member.id, body).then(() => {
             setDropdownAlbums([])
             handleClose()
-        window.location.reload()
+            window.location.reload()
         })
     }
 
-        const modalStyle = {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 400,
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-        }
-
-        return (
-            <Card sx={{ maxWidth: "300px", minHeight: "500px", maxHeight: "500px" }}>
-                <CardContent>
-                    <Stack spacing={1}>
-                        <CardMedia component="img" image={choice.image_url} />
-                        <Link className="card-link" href={`/albums/${choice.id}`}>
-                            <Typography variant="h6">{choice.title}</Typography>
-                        </Link>
-                        <Typography> {choice.artist} </Typography>
-                        <Typography paragraph color="text.secondary">
-                            {choice.genre?.type}
-                        </Typography>
-                        <>
-                            <Button
-                                className="button"
-                                variant="contained"
-                                onClick={handleOpen}
-                            >
-                                Change
-                            </Button>
-                        </>
-                    </Stack>
-                </CardContent>
-
-                <Modal open={open} onClose={handleClose}>
-                    <Box sx={modalStyle}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                            Switch Album
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Album</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={selectedAlbumId}
-                                label="Album"
-                                onChange={handleSelectAlbum}
-                            >
-                                {dropdownAlbums
-                                    .filter((album) => {
-                                        return (
-                                            album.id !== choices.choice_one?.id &&
-                                            album.id !== choices.choice_two?.id &&
-                                            album.id !== choices.choice_three?.id
-                                        );
-                                    })
-                                    .map((album) => (
-                                        <MenuItem key={album.id} value={album.id}>
-                                            {album.title} - {album.artist}
-                                        </MenuItem>
-                                    ))}
-                            </Select>
-
-                            <Button
-                                className="button"
-                                variant="contained"
-                                onClick={handleSave}
-                                disabled={!selectedAlbumId}
-                            >
-                                Choose this one
-                            </Button>
-                        </FormControl>
-                    </Box>
-                </Modal>
-            </Card>
-        )
+    const modalStyle = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 400,
+        bgcolor: "background.paper",
+        boxShadow: 24,
+        p: 4,
     }
+
+    return (
+
+        <div className="album" sx={{ maxWidth: 300 }}>
+            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
+                <a href={`/albums/${choice.id}`}>
+                    <img
+                        src={choice?.image_url} />
+                </a>
+            </div>
+            <Link to={`/albums/${choice.id}`} className="link">
+                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent: 'center', justifyContent: 'center'}}>{choice.title}</p>
+            </Link>
+            <div className='album-contents'>
+                <p className='artist' style={{ textAlign: 'center' }}> {choice?.artist} </p>
+                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {choice?.genre?.type} </p>
+                <div className='button-row' style={{  justifyContent: 'space-around', color: 'grey' }}>
+                    <button className="button"
+                        variant="contained"
+                        onClick={handleOpen}
+                    >
+                        <span>Change</span>
+                    </button>
+                </div>
+            </div>
+
+            <Modal open={open} onClose={handleClose}>
+                <Box sx={modalStyle}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        SWITCH
+                    </Typography>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">Album</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={selectedAlbumId}
+                            label="Album"
+                            onChange={handleSelectAlbum}
+                        >
+                            {dropdownAlbums
+                                .filter((album) => {
+                                    return (
+                                        album.id !== choices.choice_one?.id &&
+                                        album.id !== choices.choice_two?.id &&
+                                        album.id !== choices.choice_three?.id
+                                    );
+                                })
+                                .map((album) => (
+                                    <MenuItem key={album.id} value={album.id}>
+                                        {album.title} - {album.artist}
+                                    </MenuItem>
+                                ))}
+                        </Select>
+
+                        <button style={{ marginTop: '10px' }} 
+                            className="button"
+                            onClick={handleSave}
+                            disabled={!selectedAlbumId}
+                        >
+                            <span>Choose this one</span>
+                        </button>
+                    </FormControl>
+                </Box>
+            </Modal>
+        </div>
+    )
+}

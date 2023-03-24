@@ -1,12 +1,6 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Link from '@mui/material/Link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
+import { Link } from 'react-router-dom'
 import "./Album.css"
 
 export const Album = ({ album, onDelete }) => {
@@ -24,34 +18,34 @@ export const Album = ({ album, onDelete }) => {
     const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
     return (
-        <Card key={`album--${album.id}`} className="album" sx={{ maxWidth: 300 }}>
-            <CardContent>
-                <Stack spacing={1}>
-                    <CardMedia
-                        component="img"
-                        height="200"
-                        image={album?.image_url}
-                        title="image"
-                    />
-                    <Link className="card-link"
-                        href={`/albums/${album.id}`}>
-                        <Typography variant="h6">{album.title}</Typography></Link>
-                    <Typography> {album?.artist} </Typography>
-                    <Typography paragraph color="text.secondary"> {album?.genre?.type}</Typography>
-
-
-                    {vinylCutUserObject?.staff === true
-                        ? <>
-                            <Button className="button" variant="contained" onClick={() => {
+        <div key={`album--${album.id}`} className="album" sx={{ maxWidth: 300 }}>
+            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
+                <a href={`/albums/${album.id}`}>
+                    <img
+                        src={album?.image_url} />
+                </a>
+            </div>
+            <Link to={`/albums/${album.id}`} className="link">
+                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent:'center', justifyContent:'center' }}>{album.title}</p>
+            </Link>
+            <div className='album-contents'>
+                <p className='artist' style={{ textAlign: 'center' }}> {album?.artist} </p>
+                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {album?.genre?.type} </p>
+                <div className="button-row">
+                    <div className="left-button">
+                        {vinylCutUserObject?.staff === true && (
+                            <button className="button" variant="contained" onClick={() => {
                                 navigate(`/edit/${album.id}`)
-                            }}>Edit</Button>
-                            <Button className="button" variant="contained" onClick={handleDelete}>Delete</Button>
-                        </>
-                        : null
-                    }
-
-                </Stack>
-            </CardContent>
-        </Card>
+                            }}><span>Edit</span></button>
+                        )}
+                    </div>
+                    <div className="right-button">
+                        {vinylCutUserObject?.staff === true && (
+                            <button className="button" variant="contained" onClick={handleDelete}><span>Delete</span></button>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }

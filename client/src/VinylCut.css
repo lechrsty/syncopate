@@ -28,12 +28,48 @@ p {
   font-family: 'Work Sans', sans-serif;
 }
 
+/* Background for entire website */
 body {
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
-  display: flex;
   justify-content: center;
-  background-color: rgb(234, 189, 76);
+}
+.text {
+  max-width: 52ch;
+  line-height: 1.5;
+  padding: 1em;
+  color: #333;
+}
+.link {
+  position: relative;
+  color: #333333; /* dark grey */
+  text-decoration: none; /* remove underline */
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color:  rgb(185, 26, 26); 
+  transition: width 0.3s ease-out; /* add transition effect */
+}
+
+.link:hover::before {
+  width: 100%; /* change width to 100% when hovered over */
+}
+
+p-hero {
+  max-width: 52ch;
+  line-height: 2.5;
+  padding: 1em;
+  margin-bottom: 10px;
+  letter-spacing: .5px;
+  color: rgb(255, 255, 255);
+  font-family: 'DM Sans', sans-serif;
+
 }
 
 /* Button  */

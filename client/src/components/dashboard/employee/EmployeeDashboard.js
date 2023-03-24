@@ -1,28 +1,33 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AotmList } from '../../albums/AotmList'
-import Button from '@mui/material/Button'
+import './EmployeeDashboard.css'
+import '../Dashboard.css'
+import '../../albums/Album.css'
+
 
 export const EmployeeDashboard = () => {
 
     const navigate = useNavigate()
 
-    // Fetch employee data and set it in state
-    // const localVinylCutUser = localStorage.getItem("vinylcut")
-    // const vinylCutUserObject = JSON.parse(localVinylCutUser)
-    // const employeeId = vinylCutUserObject?.employee
-
     return (
         <>
-            {/* <h1>Welcome {employee?.full_name}!</h1> */}
-            <Button
-                className="button"
-                variant="contained"
-                onClick={() => {
-                    navigate(`/upload`)
-                }}>Drop an Album
-            </Button>
-            <AotmList />
+            <article className="profile-list-container">
+                <div className="profile-dashboard-container">
+                    <div className='button-box' style={{textAlign: 'center', alignContent:'center', justifyContent:'center', paddingBottom:'20px' }}>
+                        <button
+                            className="button btn-bigger"
+                            variant="contained"
+                            onClick={() => {
+                                navigate(`/upload`)
+                            }}><span>DROP AN ALBUM</span>
+                        </button>
+                    </div>
+                    <div className='album-list-container'>
+                        <AotmList />
+                    </div>
+                </div>
+            </article>
         </>
     )
 }

@@ -1,18 +1,22 @@
+import { TextareaAutosize } from '@mui/material'
 import * as React from 'react'
 import { useState } from "react"
+import { useEffect } from 'react'
 import { addComment, getCommentsByReviewId } from "../../managers/CommentManager"
-import Card from '@mui/material/Card'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import Stack from '@mui/material/Stack'
+import { getSingleReview } from '../../managers/ReviewManager'
 import "./Comment.css"
 
-export const CreateComment = ({ reviewId, setReview , setComments }) => {
-    
+export const CreateComment = ({ reviewId, setReview, setComments }) => {
+
     const [comment, setComment] = useState({
         body: ""
     })
+
+    const [reviewimg, setReviewImg] = useState({})
+
+    useEffect(() => {
+        getSingleReview(reviewId).then((data) => setReviewImg(data))
+    }, [reviewId])
 
     const handleInputChange = (event) => {
         const copyOfComment = { ...comment }
@@ -27,35 +31,48 @@ export const CreateComment = ({ reviewId, setReview , setComments }) => {
         if (comment.body === "") {
             alert("Cannot be empty.")
         } else {
-        
+
             const copy = { ...comment }
-            addComment(reviewId, copy).then(() => { 
-                getCommentsByReviewId(reviewId).then((data) => setComments(data))})
+            addComment(reviewId, copy).then(() => {
+                getCommentsByReviewId(reviewId).then((data) => setComments(data))
+            })
         }
     }
-    
 
-return (
-    <Card sx={{ maxWidth: 300, padding: 5}}>
-        <Stack spacing={2}>
-        <Typography variant="h6" color="text.primary">Add a Comment: </Typography>
-            <TextField variant="outlined" type="text" name="comment" id="comment" required autoFocus className="form-control"
-                placeholder="What are your thoughts?"
-                value={comment.body}
-                onChange={
-                    (evt) => {
-                        const copy = {...comment}
-                        copy.body = evt.target.value
-                        setComment(copy)
+
+    return (
+        <div className="add-comment-container" >
+            <div className="detail-imgBx">
+                <a href={`/reviews/${reviewimg.id}`}>
+                    <img style={{ height: '400px', width: '400px', paddingBottom: '30px', marginTop:'-50px' }}
+                        src={reviewimg?.image_url} />
+                </a>
+            </div>
+            <h2>LEAVE A COMMENT </h2>
+            <div className='comment-textbox'>
+                <TextareaAutosize
+                    name="comment" id="comment" required autoFocus
+                    aria-label="empty textarea"
+                    placeholder="Your most gut-wrechingly honest opinion?"
+                    style={{ width: 300 }}
+                    minRows={3}
+                    value={comment.body}
+                    onChange={
+                        (evt) => {
+                            const copy = { ...comment }
+                            copy.body = evt.target.value
+                            setComment(copy)
+                        }
                     }
-                }
-            />
-        <Button variant="contained" type="submit"
-            onClick={handleSubmit}
-            className="btn btn-primary">
-                Submit Comment
-        </Button >
-        </Stack>
-    </Card>
+                />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} className='comment-button'>
+                <button className="button" type="submit"
+                    onClick={handleSubmit}>
+                    <span>Submit Comment</span>
+                </button >
+            </div>
+        </div>
+
     )
 }

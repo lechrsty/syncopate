@@ -96,8 +96,30 @@ export const EmployeeRegister = (props) => {
                     onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
+            <form className="form--login" onSubmit={handleRegister} style={{padding:'100px'}}>
                 <h1 className="h3 mb-3 font-weight-normal">Welcome to the team</h1>
+
+                <fieldset>
+                    <div className="form-box center-elements">
+                        {loading ? (
+                            <h3>Loading...</h3>
+                        ) : (
+                            <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
+                        )}
+                        <input
+                            type="file"
+                            id="image_url"
+                            className="form-control"
+                            onChange={(event) => {
+                                setImage(event.target.files[0])
+                                setUploadClicked(false)
+                            }} />
+                        {!uploadClicked && (
+                            <button onClick={uploadImage}  style={{ marginTop: "20px" }}><span>Upload image</span></button>
+                        )}
+                    </div>
+                </fieldset>
+
                 <fieldset>
                     <label htmlFor="first_name"> First Name </label>
                     <input onChange={updateEmployee}
@@ -142,33 +164,12 @@ export const EmployeeRegister = (props) => {
                 </fieldset>
 
                 <fieldset>
-                    <div className="form-box center-elements">
-                        {loading ? (
-                            <h3>Loading...</h3>
-                        ) : (
-                            <img src={image} style={{ width: '200px' }} />
-                        )}
-                        <input
-                            type="file"
-                            id="image_url"
-                            className="form-control"
-                            onChange={(event) => {
-                                setImage(event.target.files[0])
-                                setUploadClicked(false)
-                            }} />
-                        {!uploadClicked && (
-                            <button onClick={uploadImage}>Upload Image</button>
-                        )}
-                    </div>
-                </fieldset>
-
-                <fieldset>
                     <label htmlFor="employeeCode"> Employee Code </label>
                     <input type="text" id="employeeCode" className="form-control" required value={employeeCode} onChange={(e) => setEmployeeCode(e.target.value.trim())} />
                 </fieldset>
 
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button type="submit"> <span>Register</span> </button>
                 </fieldset>
             </form>
         </main>

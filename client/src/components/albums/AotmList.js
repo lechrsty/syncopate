@@ -16,7 +16,7 @@ export const AotmList = (props) => {
 
     return (
         <>
-            <article className="aotm-list-container">
+            <article className="album-list-container">
 
                 {
                     aotms.map((aotm) => {

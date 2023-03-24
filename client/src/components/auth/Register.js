@@ -3,6 +3,7 @@ import { registerTastes } from '../../managers/TasteManager'
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./Login.css"
+import { TextareaAutosize } from "@mui/material"
 
 export const Register = () => {
 
@@ -105,8 +106,30 @@ export const Register = () => {
                     }}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
+            <form className="form--login" onSubmit={handleRegister} style={{padding:'100px'}}>
                 <h1 className="h3 mb-3 font-weight-normal">Register Member</h1>
+
+                <fieldset>
+                    <div className="form-box center-elements">
+                        <label htmlFor="image_url"> Profile Image </label>
+                        {loading ? (
+                            <h3>Loading...</h3>
+                        ) : (
+                            <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
+                        )}
+                        <input
+                            type="file"
+                            id="image_url"
+                            className="form-control"
+                            onChange={(event) => {
+                                setImage(event.target.files[0])
+                                setUploadClicked(false)
+                            }} />
+                        {!uploadClicked && (
+                            <button onClick={uploadImage} style={{ marginTop: "20px" }}><span>Upload image</span></button>
+                        )}
+                    </div>
+                </fieldset>
 
                 <fieldset>
                     <label htmlFor="first_name"> First Name </label>
@@ -131,7 +154,7 @@ export const Register = () => {
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="email"> Email </label>
+                    <label htmlFor="email" style={{ marginLeftwidth: "200px" }}> Email </label>
                     <input onChange={updateMember}
                         type="email"
                         id="email"
@@ -139,7 +162,7 @@ export const Register = () => {
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="password"> Password </label>
+                    <label htmlFor="password" style={{ width: "200px" }}> Password </label>
                     <input onChange={updateMember}
                         type="password"
                         id="password"
@@ -147,8 +170,9 @@ export const Register = () => {
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="bio"> Bio </label>
-                    <input onChange={updateMember}
+                    <TextareaAutosize onChange={updateMember}
+                        aria-label="empty textarea"
+                        placeholder="Bio"
                         type="text"
                         id="bio"
                         className="form-control" required />
@@ -156,8 +180,8 @@ export const Register = () => {
 
                 <fieldset>
                     <div className="form-group">
-                        <select name="taste" id="taste" onChange={updateMember} >
-                            <option value="0" className="form-style">Taste Category</option>
+                        <select name="taste" id="taste" onChange={updateMember} style={{ width: "200px" }} >
+                            <option value="0">Taste Category</option>
                             {tasteDropdown.map(taste => (
                                 <option key={`taste--${taste.id}`} value={taste.id}>
                                     {taste?.type}
@@ -168,29 +192,9 @@ export const Register = () => {
                 </fieldset>
 
                 <fieldset>
-                    <div className="form-box center-elements">
-                        <label htmlFor="image_url"> Profile Image </label>
-                        {loading ? (
-                            <h3>Loading...</h3>
-                        ) : (
-                            <img src={image} style={{ width: '200px' }} />
-                        )}
-                        <input
-                            type="file"
-                            id="image_url"
-                            className="form-control"
-                            onChange={(event) => {
-                                setImage(event.target.files[0])
-                                setUploadClicked(false)
-                            }} />
-                        {!uploadClicked && (
-                            <button onClick={uploadImage}>Upload Image</button>
-                        )}
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <button type="submit"> Register </button>
+                    <button type="submit" >
+                        <span>Register</span> 
+                    </button>
                 </fieldset>
             </form>
         </main>

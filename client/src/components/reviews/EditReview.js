@@ -64,91 +64,89 @@ export const EditReview = () => {
                 <CardContent>
                     <Stack spacing={2}>
 
-                        <Typography variant="h5">Edit Review</Typography>
+                        <h2 >EDIT REVIEW</h2>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="title">Album Title: </label>
-                                <input type="text" name="title" required autoFocus className="form-control"
 
-                                    defaultValue={review.title}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
+                        <div className='create-title'>
+                            <label htmlFor="title">Album Title: </label>
+                            <input type="text" name="title" required autoFocus className="form-control"
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="artist">Album Artist: </label>
-                                <input type="text" name="artist" required autoFocus className="form-control"
+                                defaultValue={review.title}
+                                onChange={handleInputChange}
+                            />
+                        </div>
 
-                                    defaultValue={review.artist}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="description">Review: </label>
-                                <input type="text" name="description" required autoFocus className="form-control"
+                        <div className='create-artist'>
+                            <label htmlFor="artist">Album Artist: </label>
+                            <input type="text" name="artist" required autoFocus className="form-control"
 
-                                    defaultValue={review.description}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
+                                defaultValue={review.artist}
+                                onChange={handleInputChange}
+                            />
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="genre">Genre </label>
-                                <select
-                                    className="form-style"
-                                    onChange={(evt) => {
-                                        const copy = { ...review };
-                                        copy.genre = { id: parseInt(evt.target.value) };
-                                        setReview(copy);
-                                    }}
-                                >
-                                    <option value="">{review?.genre?.type}</option>
-                                    {genreDropdown.map((genre) => (
-                                        <option key={`genre--${genre.id}`} value={genre.id}>
-                                            {genre.type}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="rating">Rating </label>
-                                <select
-                                    className="form-style"
-                                    value={review?.rating?.id}
-                                    onChange={(evt) => {
-                                        const copy = { ...review };
-                                        copy.rating = { id: parseInt(evt.target.value) };
-                                        setReview(copy);
-                                    }}
-                                >
-                                    <option value="" disabled={!review?.rating}>
-                                        {review?.rating?.rating}
+                        <div className='create-text'>
+                            <textarea
+                                name="description"
+                                id="description"
+                                required
+                                autoFocus
+                                placeholder="A gut-wrenchingly honest opinion?"
+                                defaultValue={review.description}
+                                onChange={handleInputChange}
+                                style={{ resize: "vertical", minHeight: "50px", minWidth:"300px" }}
+                            />
+                        </div>
+
+
+                        <div className='create-genre'>
+                            <label htmlFor="genre">Genre </label>
+                            <select
+                                className="form-style"
+                                onChange={(evt) => {
+                                    const copy = { ...review };
+                                    copy.genre = { id: parseInt(evt.target.value) };
+                                    setReview(copy);
+                                }}
+                            >
+                                <option value="">{review?.genre?.type}</option>
+                                {genreDropdown.map((genre) => (
+                                    <option key={`genre--${genre.id}`} value={genre.id}>
+                                        {genre.type}
                                     </option>
-                                    {ratingDropdown.map((rating) => (
-                                        <option key={`rating--${rating?.id}`} value={rating?.id}>
-                                            {rating?.rating}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
+                                ))}
+                            </select>
+                        </div>
 
-                        <Button variant="contained" type="submit"
+
+                        <div className='create-rating'>
+                            <label htmlFor="rating">Rating </label>
+                            <select
+                                className="form-style"
+                                value={review?.rating?.id}
+                                onChange={(evt) => {
+                                    const copy = { ...review };
+                                    copy.rating = { id: parseInt(evt.target.value) };
+                                    setReview(copy);
+                                }}
+                            >
+                                <option value="" disabled={!review?.rating}>
+                                    {review?.rating?.rating}
+                                </option>
+                                {ratingDropdown.map((rating) => (
+                                    <option key={`rating--${rating?.id}`} value={rating?.id}>
+                                        {rating?.rating}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <button type="submit"
                             onClick={handleSubmit}
-                            className="button">
-                            Submit
-                        </Button>
+                            className="button"><span>Submit</span>
+                        </button>
 
                     </Stack>
                 </CardContent>

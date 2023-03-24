@@ -1,6 +1,6 @@
 export const ReviewSearch = ({ setterFunction }) => {
     return (
-        <div className="wrap">
+        <div className="search-container">
             <input className="search"
                 onChange={
                     (changeEvent) => {
