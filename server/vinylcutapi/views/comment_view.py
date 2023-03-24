@@ -8,7 +8,7 @@ from vinylcutapi.models import Member, Comment, Review
 class CommentView(ViewSet):
     def list(self, request):
 
-        comments = Comment.objects.all()
+        comments = Comment.objects.all().order_by('-created_on')
 
         if "review" in request.query_params:
 
