@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import "./Album.css"
+import "../reviews/Review.css"
+
 
 
 export const EditAlbum = () => {
@@ -54,101 +56,93 @@ export const EditAlbum = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         updateAlbum(albumId, album)
-            .then(() => navigate(`/albums`))
+            .then(() => navigate(`/albums/${album.id}`))
     }
 
 
     return (
-        <article className="create-album-list-container">
-            <Card className="albumForm" sx={{ maxWidth: 800, padding: 5 }}>
+        <article className="create-review-list-container">
+            <Card className="reviewForm" sx={{ maxWidth: 800, padding: 5 }}>
                 <CardContent>
                     <Stack spacing={2}>
 
-                        <Typography variant="h5">Edit Album</Typography>
+                        <h2 >EDIT ALBUM</h2>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="title">Album Title: </label>
-                                <input type="text" name="title" required autoFocus className="form-control"
+                        <div className="create-title">
+                            <label htmlFor="title">Album Title: </label>
+                            <input type="text" name="title" required autoFocus 
 
-                                    defaultValue={album.title}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
+                                defaultValue={album.title}
+                                onChange={handleInputChange}
+                            />
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="artist">Album Artist: </label>
-                                <input type="text" name="artist" required autoFocus className="form-control"
+                        <div className="create-artist">
+                            <label htmlFor="artist">Album Artist: </label>
+                            <input type="text" name="artist" required autoFocus 
 
-                                    defaultValue={album.artist}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
+                                defaultValue={album.artist}
+                                onChange={handleInputChange}
+                            />
+                        </div>
 
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="description">Album: </label>
-                                <input type="text" name="description" required autoFocus className="form-control"
+                        <div className='create-text'>
+                            <textarea
+                                name="description"
+                                id="description"
+                                required
+                                autoFocus
+                                defaultValue={album.description}
+                                onChange={handleInputChange}
+                                style={{ resize: "vertical", minHeight: "50px", minWidth:"300px" }} 
+                            />
+                        </div>
 
-                                    defaultValue={album.description}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="genre">Genre </label>
-                                <select
-                                    className="form-style"
-                                    onChange={(evt) => {
-                                        const copy = { ...album };
-                                        copy.genre = { id: parseInt(evt.target.value) };
-                                        setAlbum(copy);
-                                    }}
-                                >
-                                    <option value="">{album?.genre?.type}</option>
-                                    {genreDropdown.map((genre) => (
-                                        <option key={`genre--${genre.id}`} value={genre.id}>
-                                            {genre.type}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="taste">Taste </label>
-                                <select
-                                    className="form-style"
-                                    value={album?.taste?.id}
-                                    onChange={(evt) => {
-                                        const copy = { ...album };
-                                        copy.taste = { id: parseInt(evt.target.value) };
-                                        setAlbum(copy);
-                                    }}
-                                >
-                                    <option value="" disabled={!album?.taste}>
-                                        {album?.taste?.type}
+                        <div className="create-genre">
+                            <label htmlFor="genre">Genre </label>
+                            <select
+                                className="form-style"
+                                onChange={(evt) => {
+                                    const copy = { ...album };
+                                    copy.genre = { id: parseInt(evt.target.value) };
+                                    setAlbum(copy);
+                                }}
+                            >
+                                <option value="">{album?.genre?.type}</option>
+                                {genreDropdown.map((genre) => (
+                                    <option key={`genre--${genre.id}`} value={genre.id}>
+                                        {genre.type}
                                     </option>
-                                    {tasteDropdown.map((taste) => (
-                                        <option key={`taste--${taste?.id}`} value={taste?.id}>
-                                            {taste?.type}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </fieldset>
+                                ))}
+                            </select>
+                        </div>
 
-                        <Button variant="contained" type="submit"
+                        <div className="create-rating">
+                            <label htmlFor="taste">Taste </label>
+                            <select
+                                className="form-style"
+                                value={album?.taste?.id}
+                                onChange={(evt) => {
+                                    const copy = { ...album };
+                                    copy.taste = { id: parseInt(evt.target.value) };
+                                    setAlbum(copy);
+                                }}
+                            >
+                                <option value="" disabled={!album?.taste}>
+                                    {album?.taste?.type}
+                                </option>
+                                {tasteDropdown.map((taste) => (
+                                    <option key={`taste--${taste?.id}`} value={taste?.id}>
+                                        {taste?.type}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <button  type="submit"
                             onClick={handleSubmit}
-                            className="button">
-                            Submit
-                        </Button>
+                            className="button"><span>Submit</span>
+                        </button>
 
                     </Stack>
                 </CardContent>

@@ -37,7 +37,7 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
     useEffect(
         () => {
             const searchedReviews = reviews.filter(review => {
-                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase())
+                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.genre?.type.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.member?.username.toLowerCase().includes(searchTermState.toLowerCase())
             })
             setFilteredReviews(searchedReviews)
         },

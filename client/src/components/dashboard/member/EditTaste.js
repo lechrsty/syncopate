@@ -1,8 +1,12 @@
 import * as React from 'react'
 import { useState } from "react"
-import { useEffect } from 'react'
+import { useContext } from 'react'
+import { MemberContext } from './MemberDashboardContainer'
+
 
 export const EditTaste = ({ memberId, currentTaste, tasteDropdown, onUpdate }) => {
+
+    const member = useContext(MemberContext)
 
     const [newTaste, setNewTaste] = useState(currentTaste)
 
@@ -18,16 +22,18 @@ export const EditTaste = ({ memberId, currentTaste, tasteDropdown, onUpdate }) =
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="newTaste">Update Taste:</label>
-            <select id="newTaste" value={newTaste} onChange={handleSelectChange}>
-                {tasteDropdown.map((taste) => (
-                    <option key={taste.id} value={taste.id}>
-                        {taste.type}
-                    </option>
-                ))}
-            </select>
-            <button type="submit">Update</button>
+        <form className='dashboard-taste-box' onSubmit={handleSubmit}>
+            <label htmlFor="newTaste"></label>
+            <div className='dashboard-select-box'>
+                <select style={{ width:'130px' }} id="newTaste" value={newTaste} onChange={handleSelectChange}>
+                    {tasteDropdown.map((taste) => (
+                        <option key={taste.id} value={taste.id}>
+                            {taste.type}
+                        </option>
+                    ))}
+                </select>
+            <button className='update-button' type="submit"><span>Update</span></button>
+            </div>
         </form>
     )
 }

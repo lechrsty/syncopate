@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAlbum, getAlbumsByTasteId } from '../../managers/AlbumManager'
 import { Album } from './Album'
-import Button from '@mui/material/Button'
 import './Album.css'
 
 export const TasteAlbumList = ({ tasteId }) => {

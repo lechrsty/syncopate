@@ -3,13 +3,9 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import { getSingleReview } from "../../managers/ReviewManager"
 import { deleteReview } from "../../managers/ReviewManager"
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
 import "./Review.css"
+import "./ReviewDetails.css"
+
 
 export const ReviewDetails = () => {
   const navigate = useNavigate()
@@ -23,49 +19,48 @@ export const ReviewDetails = () => {
   }, [reviewId])
 
   return (
-    <Card className="review" sx={{ maxWidth: 800, padding: 5 }}>
-      <CardContent>
-        <Stack spacing={2}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image={review?.image_url}
-            title="image"
-          />
-          <Typography className="review__title"> {review?.title}</Typography>
-          <Typography className="review__artist"> {review?.artist}</Typography>
-          <Typography className="review__description"> {review?.description}</Typography>
-          <Typography className="review__category_id"> {review?.genre?.type} </Typography>
-          <Typography className="review__category_id"> {review?.rating?.rating} </Typography>
-          <Typography><Link className="review__members_name" to={`/profile/member/${review?.member?.id}`}> {review?.member?.username} </Link></Typography>
-          <Typography className="review__publication_date"> {review?.created_on ? review.created_on.slice(0, 10) : ""}</Typography>
-          <Typography className="review__content"> {review?.content}</Typography>
-
-          {
-            review.is_member
-              ?
-              <>
-                <Button className="button" variant="contained" onClick={() => {
-                  navigate(`/reviews/edit/${review.id}`)
-                }}>Edit</Button>
-                <Button
-                  className="button"
-                  variant="contained"
-                  onClick={() => {
-                    if (window.confirm("Are you sure you want to remove this review?")) {
-                      deleteReview(review.id).then(() => navigate("/reviews"));
-                    }
-                  }}
-                >
-                  Delete
-                </Button>
-              </>
-              :
-              ""
-          }
-
-        </Stack>
-      </CardContent>
-    </Card>
-
+    <div className='review-detail-container second'>
+    <div key={`review--${review.id}`} className="detail-card">
+      <div className='box' style={{ display: 'flex', justifyContent: 'left', marginLeft:'10px' }}>
+        <p className='detail-rating'> {review?.rating?.rating}/5</p>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <p className='detail-title'> {review?.title} </p>
+        <div className='detail-artist-genre-container'>
+          <p className='detail-artist'> {review?.artist} </p>
+          <p className='detail-genre'> {review?.genre?.type} </p>
+        </div>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'left' }}>
+        <p style={{ marginRight: '-2px' }}>POSTED BY</p>
+        <Link to={`/profile/member/${review?.member?.id}`}>
+          <p className='detail-link'>{review?.member?.username}</p>
+        </Link>
+      </div>
+      <p className='detail-description'> {review?.description} </p>
+      <div className="detail-button-row">
+        {
+          review.is_member
+            ?
+            <>
+              <button onClick={() => {
+                navigate(`/reviews/edit/${review.id}`)
+              }}><span>Edit</span></button>
+              <button
+                onClick={() => {
+                  if (window.confirm("Are you sure you want to remove this review?")) {
+                    deleteReview(review.id).then(() => navigate("/reviews"));
+                  }
+                }}
+              >
+                <span>Delete</span>
+              </button>
+            </>
+            :
+            ""
+        }
+      </div>
+    </div>
+    </div>
   )
 }

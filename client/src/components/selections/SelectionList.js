@@ -109,33 +109,30 @@ export const SelectionList = () => {
 
 
     return (
-        <div className="container second">
+        <div className="selection-list-container-cards" style={{ marginLeft: '-20px' }}>
             {member?.choice_one ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_one} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button"
-                    variant="contained"
-                    onClick={handleOpen}>Make a selection</button>
+                <button className="button btn-bigger"
+                    onClick={handleOpen}><span>Make a selection</span></button>
             )}
             {member?.choice_two ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_two} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button"
-                    variant="contained"
-                    onClick={handleOpen}>Make a selection</button>
+                <button className="button btn-bigger"
+                    onClick={handleOpen}><span>Make a selection</span></button>
             )}
             {member?.choice_three ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_three} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button"
-                    variant="contained"
-                    onClick={handleOpen}>Make a selection</button>
+                <button className="button btn-bigger"
+                    onClick={handleOpen}><span>Make a selection</span></button>
             )}
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
@@ -165,15 +162,15 @@ export const SelectionList = () => {
                                     </MenuItem>
                                 ))}
                         </Select>
-
-                        <Button
-                            className="button"
-                            variant="contained"
-                            onClick={handleSave}
-                            disabled={!selectedAlbumId}
-                        >
-                            Choose this one
-                        </Button>
+                        <div className="button-row" style={{ marginTop:'20px',justifyContent: 'space-around', alignContent:'center' }}>
+                            <button
+                                className="button"
+                                onClick={handleSave}
+                                disabled={!selectedAlbumId}
+                            >
+                                <span>Choose this one</span>
+                            </button>
+                        </div>
                     </FormControl>
                 </Box>
             </Modal>

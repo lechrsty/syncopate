@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getSingleAlbum } from "../../managers/AlbumManager"
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
 import "./Album.css"
 
 export const AlbumDetails = () => {
+    const navigate = useNavigate()
 
     const { albumId } = useParams()
 
@@ -19,22 +17,25 @@ export const AlbumDetails = () => {
         getSingleAlbum(albumId).then((data) => setAlbum(data))
     }, [albumId])
 
+
     return (
-        <Card className="album" sx={{ maxWidth: 800, padding: 5 }}>
-            <CardContent>
-                <Stack spacing={2}>
-                    <CardMedia
-                        component="img"
-                        height= "200"
-                        image={album?.image_url}
-                        title="image"
-                    />
-                    <Typography className="album__title"> {album?.title}</Typography>
-                    <Typography className="album__artist"> {album?.artist}</Typography>
-                    <Typography className="album__description"> {album?.description}</Typography>
-                    <Typography className="album__category_id"> {album?.genre?.type} </Typography>
-                </Stack>
-            </CardContent>
-        </Card>
+        <div className='album-list-container'>
+            <div key={`album--${album.id}`} className="album" sx={{ paddingTop:'-200px', width: 600 }}>
+                <div style={{ paddingLeft: '50px' }} className="album-imgBx">
+                    <a href={`/albums/${album.id}`}>
+                        <img
+                            src={album?.image_url} />
+                    </a>
+                </div>
+                <Link to={`/albums/${album.id}`} className="link">
+                    <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent: 'center', justifyContent: 'center' }}>{album.title}</p>
+                </Link>
+                <div className='album-contents'>
+                    <p className='artist' style={{ textAlign: 'center' }}> {album?.artist} </p>
+                    <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {album?.genre?.type} </p>
+                    <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'black' }}> {album?.description} </p>
+                </div>
+            </div>
+        </div>
     )
 }

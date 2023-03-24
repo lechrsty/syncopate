@@ -15,43 +15,43 @@ export const Review = ({ review, onDelete }) => {
 
     return (
 
-        <div key={`review--${review.id}`} className="card" sx={{ maxWidth: 300 }}>
+        <div key={`review--${review.id}`} className="card">
             <div className="imgBx">
                 <a href={`/reviews/${review.id}`}>
                     <img
                         src={review?.image_url} />
                 </a>
-
-                <Link to={`/reviews/${review.id}`} className="card-link">
-                    <h2 className='title'>{review.title}</h2>
-                </Link>
-                <p className='artist'> {review?.artist} </p>
-                <p> {review?.description.slice(0, 250)}... </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <p className='genre' style={{ alignSelf: 'flex-start' }}>{review?.genre?.type}</p>
-                    <Link to={`/profile/member/${review.member.id}`}>
-                        <p className='username' style={{ alignSelf: 'flex-end' }}>{review.member.username}</p>
-                    </Link>
-                </div>
-                <p className='rating'> {review?.rating?.rating}</p>
-
-                <div className="button-row">
-                    {
-                        review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member
-                            ?
-                            <>
-                                <button onClick={() => {
-                                    navigate(`/reviews/edit/${review.id}`)
-                                }}><span>Edit</span></button>
-                                <button
-                                    onClick={handleDelete}
-                                ><span>Delete</span></button>
-                            </>
-                            :
-                            ""
-                    }
-                </div>
             </div>
-        </div>
+            <Link to={`/reviews/${review.id}`} className="link">
+                <p className='title'>{review.title}</p>
+            </Link>
+            <div style={{ display: 'flex', justifyContent: 'space-between', textAlign:'right' }}>
+                <p className='artist' style={{textAlign:'left' }}> {review?.artist} </p>
+                <p className='genre'> {review?.genre?.type} </p>
+            </div>
+            <p className='description'> {review?.description.slice(0, 600)}... </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Link to={`/profile/member/${review.member.id}`}>
+                    <p className='username'>{review.member.username}</p>
+                </Link>
+                <p className='rating'> {review?.rating?.rating}</p>
+            </div>
+            <div className="button-row">
+                {
+                    review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member
+                        ?
+                        <>
+                            <button onClick={() => {
+                                navigate(`/reviews/edit/${review.id}`)
+                            }}><span>Edit</span></button>
+                            <button
+                                onClick={handleDelete}
+                            ><span>Delete</span></button>
+                        </>
+                        :
+                        ""
+                }
+            </div>
+        </div >
     )
 }

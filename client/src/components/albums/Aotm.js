@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getAlbumsByTasteId, getAOTMByTaste, updateAOTM } from '../../managers/AlbumManager'
-import Link from '@mui/material/Link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
+import { Link } from 'react-router-dom'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -14,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import "./Album.css"
+import "../reviews/Review.css"
 
 export const Aotm = ({ aotm }) => {
 
@@ -108,40 +104,40 @@ export const Aotm = ({ aotm }) => {
 
 
     return (
-        <Card key={`aotm--${aotm.id}`} className="aotm" sx={{ maxWidth: 300 }}>
-            <CardContent>
-                <Stack spacing={1}>
-                    <Typography variant="h4">{aotm?.taste?.type}</Typography>
-                    <CardMedia sx={{ height: 200 }} image={aotm?.album?.image_url} title="image" />
-                    <Link className="card-link" href={`/albums/${aotm?.album?.id}`}>
-                        <Typography variant="h6">{aotm?.album?.title}</Typography>
-                    </Link>
-                    <Typography>{aotm?.album?.artist}</Typography>
-                    <Typography paragraph color="text.secondary">
-                        {aotm?.album?.genre?.type}
-                    </Typography>
+        <div key={`aotm--${aotm.id}`} className="album" sx={{ maxWidth: 300 }}>
 
+            <p style={{ fontSize: '40px', textTransform: 'uppercase', textAlign: 'center' }}>{aotm?.taste?.type}</p>
+            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
+                <a href={`/albums/${aotm?.album?.id}`}>
+                    <img
+                        src={aotm?.album?.image_url} />
+                </a>
+            </div>
+            <Link to={`/albums/${aotm?.album?.id}`} className="link">
+                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent: 'center', justifyContent: 'center' }}>{aotm?.album?.title}</p>
+            </Link>
+            <div className='album-contents'>
+                <p className='artist' style={{ textAlign: 'center' }}> {aotm?.album?.artist} </p>
+                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {aotm?.album?.genre?.type} </p>
+                <div className='button-row' style={{ justifyContent: 'space-around' }}>
                     {vinylCutUserObject?.staff === true && (
                         <>
-                            <Button
+                            <button
                                 className="button"
-                                variant="contained"
                                 onClick={() => {
                                     setOpen(true);
                                 }}
                             >
-                                Switch
-                            </Button>
+                                <span>Switch</span>
+                            </button>
                         </>
                     )}
-                </Stack>
-            </CardContent>
+                </div>
+            </div>
+
 
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Switch Album
-                    </Typography>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Album</InputLabel>
                         <Select
@@ -154,11 +150,11 @@ export const Aotm = ({ aotm }) => {
                             {menuItems}
                         </Select>
                     </FormControl>
-                    <Button variant="contained" onClick={handleSave}>
-                        Save
-                    </Button>
+                    <button className='button' onClick={handleSave}>
+                        <span>Save</span>
+                    </button>
                 </Box>
             </Modal>
-        </Card>
+        </div>
     )
 }

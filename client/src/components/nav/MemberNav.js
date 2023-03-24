@@ -30,27 +30,27 @@ export const MemberNav = () => {
 
 
                 <li className="navbar__item">
-                    <Link className="navbar__link" to="/dashboard">Dashboard</Link>
+                    <Link className="link" to="/dashboard">Dashboard</Link>
                 </li>
 
                 <li className="navbar__item">
-                <Link className="navbar__link" to={`/${member?.taste?.id}`}>Tasties</Link>
+                    <Link className="link" to={`/${member?.taste?.id}`}>Tasties</Link>
                 </li>
 
                 <li className="navbar__item">
-                    <Link className="navbar__link" to="/reviews">Reviews</Link>
+                    <Link className="link" to="/reviews">Reviews</Link>
                 </li>
 
                 <li className="navbar__item">
-                    <Link className="navbar__link" to="/profile">Profile</Link>
+                    <Link className="link" to="/profile">Profile</Link>
                 </li>
 
                 {
                     localStorage.getItem("vinylcut")
                         ? <li className="navbar__item navbar__logout">
-                            <Link variant="text" className="navbar__link" to="" onClick={() => {
+                            <Link variant="text" className="link" to="" onClick={() => {
                                 localStorage.removeItem("vinylcut")
-                                navigate("/", { replace: true })
+                                navigate("/login", { replace: true })
                             }}>Logout</Link>
                         </li>
                         : ""

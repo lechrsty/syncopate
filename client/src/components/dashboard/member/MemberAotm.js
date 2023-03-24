@@ -1,35 +1,24 @@
 import React from 'react'
 import { useContext } from 'react'
 import { AOTMContext } from './MemberDashboardContainer'
-import Link from '@mui/material/Link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Stack from '@mui/material/Stack'
+import { Link } from 'react-router-dom'
 
-export const MemberAotm = ( ) => {
+export const MemberAotm = () => {
     const aotm = useContext(AOTMContext)
 
     return (
-        <Card key={`aotm--${aotm?.album?.id}`} className="album" sx={{ maxWidth: 300 }}>
-            <CardContent>
-                <Stack spacing={1}>
-                    <Typography variant="h5" >Record of the Month</Typography>
-                    <CardMedia component="img"
-                        height="200"
-                        image={aotm?.album?.image_url}
-                        title="image"
-                    />
-                    <Link className="card-link" href={`/albums/${aotm?.id}`}>
-                        <Typography variant="h6">{aotm?.album?.title}</Typography>
-                    </Link>
-                    <Typography>{aotm?.album?.artist}</Typography>
-                    <Typography paragraph color="text.secondary">
-                        {aotm?.album?.genre?.type}
-                    </Typography>
-                </Stack>
-            </CardContent>
-        </Card>
+        <div key={`aotm--${aotm?.album?.id}`} className="aotm" sx={{ maxWidth: 300 }}>
+            <h2 className='aotm-header'>RECORD OF THE MONTH</h2>
+            <div style={{ paddingLeft:'10px' }} className="aotm-imgBx">
+                <a href={`/albums/${aotm?.album?.id}`}>
+                    <img style={{ height:'200px', width:'200px' }}
+                        src={aotm?.album?.image_url} />
+                </a>
+            </div>
+            <div className='album-contents'>
+                <p className='artist' style={{ fontSize: '20px', textAlign: 'center' }}> {aotm?.album?.artist} </p>
+                <p className='genre' style={{ fontSize: '15px', textAlign: 'center', color: 'grey', textTransform:'uppercase', marginTop:'-10px' }}> {aotm?.album?.genre?.type} </p>
+            </div>
+        </div>
     )
 }
