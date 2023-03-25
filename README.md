@@ -14,8 +14,11 @@ Members can upload reviews of albums they've loved, loathed, or felt lukewarm ab
 Employees can upload, edit, and delete albums for a specific category. They can also select which album they would like to highlight as the Record of the Month.
 
 # ERD
+![alt text](https://res.cloudinary.com/dmilofp0z/image/upload/v1679785158/Screen_Shot_2023-03-25_at_3.48.31_PM_xqeohl.png)
 
 # Wireframe
+[Link to Miro board](https://miro.com/app/board/uXjVMfDdGls=/?share_link_id=896910926347)
+
 
 # Member Features
 [Member Dashboard](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#member-dashboard)
@@ -43,30 +46,14 @@ Employees can upload, edit, and delete albums for a specific category. They can 
 [View the albums associated with the Taste other members have chosen](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
 
-### Member Dashboard
-### Select records for your subscription box 
-### Switch records in your subscription box
-### Change your Taste plan
-### View albums recommended to you
-### View album details
-### Post a review
-### Edit a review
-### Delete a review
-### Comment on a review
-### View other members' profiles
-### View the albums associated with the Taste plan other members have chosen
-
-
 # Employee Features
+[Upload an album](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
-### Upload an album
+[Edit and album](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
-### Edit an album
+[Delete an album](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
-### Delete an album
+[Change the "Record of the Month"](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
-### View albums associated with a Taste plan
-
-### Change the Record of the Month
 
 
