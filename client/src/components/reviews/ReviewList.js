@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Review } from "./Review";
 import { deleteReview, getReviews } from "../../managers/ReviewManager"
-import "./Review.css"
-import "../../Container.css"
-import "../../index.css"
 
 export const ReviewList = ({ memberSelection, searchTermState }) => {
     const navigate = useNavigate()
@@ -54,16 +51,18 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
 
     return (
         <>
-                <div className='review-list-container second'>
-                    {
-                        filteredReviews.map((review) => {
-                            return <Review
-                                onDelete={handleDelete}
-                                review={review}
-                                key={`review--${review.id}`} />
-                        })
-                    }
-                </div>
+            <div>
+
+                {
+                    filteredReviews.map((review) => {
+                        return <Review
+                            onDelete={handleDelete}
+                            review={review}
+                            key={`review--${review.id}`} />
+                    })
+                }
+
+            </div>
         </>
     )
 }

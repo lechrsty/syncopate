@@ -4,13 +4,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getSingleReview, updateReview } from "../../managers/ReviewManager"
 import { getGenres } from "../../managers/GenreManager"
 import { getRatings } from "../../managers/RatingManager"
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
-import "./Review.css"
-
 
 export const EditReview = () => {
 
@@ -59,98 +52,89 @@ export const EditReview = () => {
 
 
     return (
-        <article className="create-review-list-container">
-            <Card className="reviewForm" sx={{ maxWidth: 800, padding: 5 }}>
-                <CardContent>
-                    <Stack spacing={2}>
+        <article>
 
-                        <h2 >EDIT REVIEW</h2>
+            <h2>Edit a review</h2>
 
-
-                        <div className='create-title'>
-                            <label htmlFor="title">Album Title: </label>
-                            <input type="text" name="title" required autoFocus className="form-control"
-
-                                defaultValue={review.title}
-                                onChange={handleInputChange}
-                            />
-                        </div>
+            <div>
+                <label htmlFor="title">Album Title: </label>
+                <input type="text" name="title" required autoFocus className="form-control"
+                    defaultValue={review.title}
+                    onChange={handleInputChange}
+                />
+            </div>
 
 
-                        <div className='create-artist'>
-                            <label htmlFor="artist">Album Artist: </label>
-                            <input type="text" name="artist" required autoFocus className="form-control"
-
-                                defaultValue={review.artist}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-
-
-                        <div className='create-text'>
-                            <textarea
-                                name="description"
-                                id="description"
-                                required
-                                autoFocus
-                                placeholder="A gut-wrenchingly honest opinion?"
-                                defaultValue={review.description}
-                                onChange={handleInputChange}
-                                style={{ resize: "vertical", minHeight: "50px", minWidth:"300px" }}
-                            />
-                        </div>
+            <div>
+                <label htmlFor="artist">Album Artist: </label>
+                <input type="text" name="artist" required autoFocus className="form-control"
+                    defaultValue={review.artist}
+                    onChange={handleInputChange}
+                />
+            </div>
 
 
-                        <div className='create-genre'>
-                            <label htmlFor="genre">Genre </label>
-                            <select
-                                className="form-style"
-                                onChange={(evt) => {
-                                    const copy = { ...review };
-                                    copy.genre = { id: parseInt(evt.target.value) };
-                                    setReview(copy);
-                                }}
-                            >
-                                <option value="">{review?.genre?.type}</option>
-                                {genreDropdown.map((genre) => (
-                                    <option key={`genre--${genre.id}`} value={genre.id}>
-                                        {genre.type}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+            <div>
+                <textarea
+                    name="description"
+                    id="description"
+                    required
+                    autoFocus
+                    placeholder="A gut-wrenchingly honest opinion?"
+                    defaultValue={review.description}
+                    onChange={handleInputChange}
+                />
+            </div>
 
 
-                        <div className='create-rating'>
-                            <label htmlFor="rating">Rating </label>
-                            <select
-                                className="form-style"
-                                value={review?.rating?.id}
-                                onChange={(evt) => {
-                                    const copy = { ...review };
-                                    copy.rating = { id: parseInt(evt.target.value) };
-                                    setReview(copy);
-                                }}
-                            >
-                                <option value="" disabled={!review?.rating}>
-                                    {review?.rating?.rating}
-                                </option>
-                                {ratingDropdown.map((rating) => (
-                                    <option key={`rating--${rating?.id}`} value={rating?.id}>
-                                        {rating?.rating}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+            <div>
+                <label htmlFor="genre">Genre </label>
+                <select
+                    className="form-style"
+                    onChange={(evt) => {
+                        const copy = { ...review };
+                        copy.genre = { id: parseInt(evt.target.value) };
+                        setReview(copy);
+                    }}
+                >
+                    <option value="">{review?.genre?.type}</option>
+                    {genreDropdown.map((genre) => (
+                        <option key={`genre--${genre.id}`} value={genre.id}>
+                            {genre.type}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
-                        <button type="submit"
-                            onClick={handleSubmit}
-                            className="button"><span>Submit</span>
-                        </button>
 
-                    </Stack>
-                </CardContent>
-            </Card>
+            <div>
+                <label htmlFor="rating">Rating </label>
+                <select
+                    className="form-style"
+                    value={review?.rating?.id}
+                    onChange={(evt) => {
+                        const copy = { ...review };
+                        copy.rating = { id: parseInt(evt.target.value) };
+                        setReview(copy);
+                    }}
+                >
+                    <option value="" disabled={!review?.rating}>
+                        {review?.rating?.rating}
+                    </option>
+                    {ratingDropdown.map((rating) => (
+                        <option key={`rating--${rating?.id}`} value={rating?.id}>
+                            {rating?.rating}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <button type="submit"
+                onClick={handleSubmit}
+            >
+                Submit
+            </button>
+
         </article>
     )
 }

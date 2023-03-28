@@ -6,7 +6,6 @@ import { Register } from "./components/auth/Register"
 import { EmployeeRegister } from "./components/auth/EmployeeRegister"
 import { NavBar } from "./components/nav/NavBar"
 import { AotmList } from "./components/albums/AotmList"
-import "./VinylCut.css"
 
 export const VinylCut = () => {
 

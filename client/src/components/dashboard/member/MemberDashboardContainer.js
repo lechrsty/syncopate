@@ -45,22 +45,14 @@ export const MemberDashboardContainer = () => {
     }
 
     return (
-        <article className="selection-list-container">
-            <MemberContext.Provider value={member}>
-                <TasteContext.Provider value={{ taste, handleTasteUpdate }}>
-                    <AOTMContext.Provider value={aotm}>
-                        <div className="profile-dashboard-container">
-                            <div className='profile-box'>
-                                <div className='profile-contents'>
-                                    <MemberTaste />
-                                </div>
-                                <MemberAotm />
-                            </div>
-                            <SelectionList />
-                        </div>
-                    </AOTMContext.Provider>
-                </TasteContext.Provider>
-            </MemberContext.Provider>
-        </article>
+        <MemberContext.Provider value={member}>
+            <TasteContext.Provider value={{ taste, handleTasteUpdate }}>
+                <AOTMContext.Provider value={aotm}>
+                    <MemberTaste />
+                    <MemberAotm />
+                    <SelectionList />
+                </AOTMContext.Provider>
+            </TasteContext.Provider>
+        </MemberContext.Provider>
     )
 }

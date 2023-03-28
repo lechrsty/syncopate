@@ -8,8 +8,6 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
-import "./Album.css"
-import "../reviews/Review.css"
 
 export const Aotm = ({ aotm }) => {
 
@@ -104,35 +102,31 @@ export const Aotm = ({ aotm }) => {
 
 
     return (
-        <div key={`aotm--${aotm.id}`} className="album" sx={{ maxWidth: 300 }}>
+        <div key={`aotm--${aotm.id}`}>
 
-            <p style={{ fontSize: '40px', textTransform: 'uppercase', textAlign: 'center' }}>{aotm?.taste?.type}</p>
-            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
-                <a href={`/albums/${aotm?.album?.id}`}>
-                    <img
-                        src={aotm?.album?.image_url} />
-                </a>
-            </div>
-            <Link to={`/albums/${aotm?.album?.id}`} className="link">
-                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent: 'center', justifyContent: 'center' }}>{aotm?.album?.title}</p>
+            <p>{aotm?.taste?.type}</p>
+            <a href={`/albums/${aotm?.album?.id}`}>
+                <img
+                    src={aotm?.album?.image_url} />
+            </a>
+            <Link to={`/albums/${aotm?.album?.id}`}>
+                <p>{aotm?.album?.title}</p>
             </Link>
-            <div className='album-contents'>
-                <p className='artist' style={{ textAlign: 'center' }}> {aotm?.album?.artist} </p>
-                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {aotm?.album?.genre?.type} </p>
-                <div className='button-row' style={{ justifyContent: 'space-around' }}>
-                    {vinylCutUserObject?.staff === true && (
-                        <>
-                            <button
-                                className="button"
-                                onClick={() => {
-                                    setOpen(true);
-                                }}
-                            >
-                                <span>Switch</span>
-                            </button>
-                        </>
-                    )}
-                </div>
+            <p> {aotm?.album?.artist} </p>
+            <p> {aotm?.album?.genre?.type} </p>
+            <div>
+                {vinylCutUserObject?.staff === true && (
+                    <>
+                        <button
+                            className="button"
+                            onClick={() => {
+                                setOpen(true);
+                            }}
+                        >
+                            Switch
+                        </button>
+                    </>
+                )}
             </div>
 
 

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react"
 import { registerTastes } from '../../managers/TasteManager'
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import "./Login.css"
 import { TextareaAutosize } from "@mui/material"
 
 export const Register = () => {
@@ -96,7 +95,7 @@ export const Register = () => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>{serverFeedback}</div>
                 <button className="button--close"
@@ -106,27 +105,26 @@ export const Register = () => {
                     }}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister} style={{padding:'100px'}}>
-                <h1 className="h3 mb-3 font-weight-normal">Register Member</h1>
+            <form onSubmit={handleRegister}>
+                <h1>Register Member</h1>
 
                 <fieldset>
-                    <div className="form-box center-elements">
+                    <div>
                         <label htmlFor="image_url"> Profile Image </label>
                         {loading ? (
                             <h3>Loading...</h3>
                         ) : (
-                            <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
+                            <img src={image} />
                         )}
                         <input
                             type="file"
                             id="image_url"
-                            className="form-control"
                             onChange={(event) => {
                                 setImage(event.target.files[0])
                                 setUploadClicked(false)
                             }} />
                         {!uploadClicked && (
-                            <button onClick={uploadImage} style={{ marginTop: "20px" }}><span>Upload image</span></button>
+                            <button onClick={uploadImage}>Upload image</button>
                         )}
                     </div>
                 </fieldset>
@@ -135,14 +133,14 @@ export const Register = () => {
                     <label htmlFor="first_name"> First Name </label>
                     <input onChange={updateMember}
                         type="text" id="first_name"
-                        className="form-control" required autoFocus />
+                        required autoFocus />
                 </fieldset>
 
                 <fieldset>
                     <label htmlFor="last_name"> Last Name </label>
                     <input onChange={updateMember}
                         type="text" id="last_name"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
@@ -150,23 +148,23 @@ export const Register = () => {
                     <input onChange={updateMember}
                         type="text"
                         id="username"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="email" style={{ marginLeftwidth: "200px" }}> Email </label>
+                    <label htmlFor="email"> Email </label>
                     <input onChange={updateMember}
                         type="email"
                         id="email"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
-                    <label htmlFor="password" style={{ width: "200px" }}> Password </label>
+                    <label htmlFor="password"> Password </label>
                     <input onChange={updateMember}
                         type="password"
                         id="password"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
@@ -175,12 +173,12 @@ export const Register = () => {
                         placeholder="Bio"
                         type="text"
                         id="bio"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
                     <div className="form-group">
-                        <select name="taste" id="taste" onChange={updateMember} style={{ width: "200px" }} >
+                        <select name="taste" id="taste" onChange={updateMember} >
                             <option value="0">Taste Category</option>
                             {tasteDropdown.map(taste => (
                                 <option key={`taste--${taste.id}`} value={taste.id}>
@@ -193,7 +191,7 @@ export const Register = () => {
 
                 <fieldset>
                     <button type="submit" >
-                        <span>Register</span> 
+                        Register
                     </button>
                 </fieldset>
             </form>

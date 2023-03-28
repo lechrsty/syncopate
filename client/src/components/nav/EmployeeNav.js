@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getTastes } from "../../managers/TasteManager"
-import "./NavBar.css"
 
 export const EmployeeNav = () => {
     const navigate = useNavigate()
@@ -17,16 +16,13 @@ export const EmployeeNav = () => {
 
     return (
         <nav>
-            <div className="navicon">
-                <div></div>
-            </div>
-            <ul className="navbar">
+            <ul>
 
-                <li className="navbar__item">
+                <li>
                     <Link className="link" to="/dashboard">Dashboard</Link>
                 </li>
 
-                <li className="navbar__item" >
+                <li >
                     {tastes.map((taste) => (
                         <li key={taste.id}>
                             <Link className="link" to={`/${taste.id}`}>{taste.type}</Link>
@@ -37,15 +33,15 @@ export const EmployeeNav = () => {
                 {
                     localStorage.getItem("vinylcut")
                         ? <li className="navbar__item navbar__logout">
-                            <Link variant="text" className="link" to="" onClick={() => {
+                            <Link to="" onClick={() => {
                                 localStorage.removeItem("vinylcut")
                                 navigate("/login", { replace: true })
                             }}>Logout</Link>
                         </li>
                         : ""
                 }
-            </ul>
 
+            </ul>
         </nav>
     )
 }

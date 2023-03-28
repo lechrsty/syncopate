@@ -5,13 +5,6 @@ import { useNavigate } from "react-router-dom"
 import { getGenres } from '../../managers/GenreManager'
 import { getRatings } from '../../managers/RatingManager'
 import { createReview } from "../../managers/ReviewManager"
-import Button from '@mui/material/Button'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
-import { FormControl } from '@mui/material'
-import "./Review.css"
 
 export const CreateReview = () => {
 
@@ -95,87 +88,82 @@ export const CreateReview = () => {
     }
 
     return (
-        <article className="create-review-list-container">
-            <Card className="reviewForm" sx={{ maxWidth: 800, padding: 5 }}>
-                <CardContent>
-                    <Stack spacing={2}>
-                        <h2 >DROP A REVIEW</h2>
+        <div>
+            
+            <h2>Drop a review</h2>
 
-                        <div className="form-box center-elements">
-                            {loading ? (
-                                <h3>Loading...</h3>
-                            ) : (
-                                <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
-                            )}
-                            <input name="image_url"
+            <div>
+                {loading ? (
+                    <h3>Loading...</h3>
+                ) : (
+                    <img src={image} />
+                )}
+                <input name="image_url"
 
-                                id="image_url" required autoFocus
-                                type="file"
-                                onChange={(event) => {
-                                    setImage(event.target.files[0])
-                                    setUploadClicked(false)
-                                }} />
-                            {!uploadClicked && (
-                                <button onClick={uploadImage} style={{ marginTop: "20px" }}><span>Upload image</span></button>
-                            )}
-                        </div>
+                    id="image_url" required autoFocus
+                    type="file"
+                    onChange={(event) => {
+                        setImage(event.target.files[0])
+                        setUploadClicked(false)
+                    }} />
+                {!uploadClicked && (
+                    <button onClick={uploadImage}>Upload image</button>
+                )}
+            </div>
 
-                        <div className='create-title'>
-                            <input type="text" name="title" id="title" required autoFocus
-                                placeholder="Album"
-                                defaultValue={review.title}
-                                onChange={handleInputChange} />
-                        </div>
+            <div>
+                <input type="text" name="title" id="title" required autoFocus
+                    placeholder="Album"
+                    defaultValue={review.title}
+                    onChange={handleInputChange} />
+            </div>
 
-                        <div className='create-artist'>
-                            <input type="text" name="artist" id="artist" required autoFocus
-                                placeholder="Artist"
-                                defaultValue={review.artist}
-                                onChange={handleInputChange} />
-                        </div>
+            <div>
+                <input type="text" name="artist" id="artist" required autoFocus
+                    placeholder="Artist"
+                    defaultValue={review.artist}
+                    onChange={handleInputChange} />
+            </div>
 
-                        <div className='create-genre'>
-                            <select name="genre" id="genre" onChange={(handleInputChange)} >
-                                <option value="0" className="form-style">Genre</option>
-                                {genreDropdown.map(genre => (
-                                    <option key={`genre--${genre.id}`} value={genre?.id}>
-                                        {genre?.type}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+            <div>
+                <select name="genre" id="genre" onChange={(handleInputChange)} >
+                    <option value="0" className="form-style">Genre</option>
+                    {genreDropdown.map(genre => (
+                        <option key={`genre--${genre.id}`} value={genre?.id}>
+                            {genre?.type}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
-                        <div className='create-rating'>
-                            <select name="rating" id="rating" onChange={(handleInputChange)} >
-                                <option value="0" className="form-style">Rate it</option>
-                                {ratingDropdown.map(rating => (
-                                    <option key={`rating--${rating.id}`} value={rating?.id}>
-                                        {rating?.rating}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+            <div>
+                <select name="rating" id="rating" onChange={(handleInputChange)} >
+                    <option value="0" className="form-style">Rate it</option>
+                    {ratingDropdown.map(rating => (
+                        <option key={`rating--${rating.id}`} value={rating?.id}>
+                            {rating?.rating}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
-                        <div className='create-text'>
-                            <textarea
-                                name="description"
-                                id="description"
-                                required
-                                autoFocus
-                                placeholder="A gut-wrenchingly honest opinion?"
-                                defaultValue={review.description}
-                                onChange={handleInputChange}
-                                style={{ resize: "vertical", minHeight: "50px", minWidth:"300px" }} 
-                            />
-                        </div>
+            <div>
+                <textarea
+                    name="description"
+                    id="description"
+                    required
+                    autoFocus
+                    placeholder="A gut-wrenchingly honest opinion?"
+                    defaultValue={review.description}
+                    onChange={handleInputChange}
+                />
+            </div>
 
-                        <button  type="submit"
-                            onClick={handleSubmit}
-                            className="button"><span>Submit</span>
-                        </button>
-                    </Stack>
-                </CardContent>
-            </Card>
-        </article>
+            <button type="submit"
+                onClick={handleSubmit}>
+                Submit
+            </button>
+
+        </div>
     )
 }

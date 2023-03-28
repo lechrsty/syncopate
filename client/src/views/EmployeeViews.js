@@ -10,11 +10,9 @@ import { EditAlbum } from "../components/albums/EditAlbum"
 import { AotmList } from "../components/albums/AotmList"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { EmployeeDashboard } from "../components/dashboard/employee/EmployeeDashboard"
-import '../Container.css'
 
 export const EmployeeViews = () => {
-
-
+    
     return (
             <Routes>
                 <Route path="/" element={

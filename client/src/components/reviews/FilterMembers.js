@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { getMembers } from "../../managers/MemberManager"
-import "./Review.css"
 
 export const FilterMembers = ({ setMemberSelection }) => {
     const [members, setMembers] = useState([])
@@ -11,10 +10,10 @@ export const FilterMembers = ({ setMemberSelection }) => {
 
     return (
         <>
-            <section className="reviews__dropdown">
-                <h4 htmlFor="search-member">Search By Member</h4>
+            <section>
+                <h2>Search by member</h2>
                 <select onChange={(event) => { setMemberSelection(parseInt(event.target.value)) }}>
-                    <option value="0" name="member_id" className="form-control">All members</option>
+                    <option value="0" name="member_id" >All members</option>
                     {members.map(member => (
                         <option key={`member--${member.id}`} value={member.id}>
                             {member.username}

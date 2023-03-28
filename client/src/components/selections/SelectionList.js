@@ -6,7 +6,6 @@ import { getAlbumsByTasteId } from "../../managers/AlbumManager"
 import { updateMember } from "../../managers/MemberManager"
 import { SelectionCard } from './SelectionCard'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
@@ -109,30 +108,30 @@ export const SelectionList = () => {
 
 
     return (
-        <div className="selection-list-container-cards" style={{ marginLeft: '-20px' }}>
+        <div>
             {member?.choice_one ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_one} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button btn-bigger"
-                    onClick={handleOpen}><span>Make a selection</span></button>
+                <button
+                    onClick={handleOpen}>Make a selection</button>
             )}
             {member?.choice_two ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_two} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button btn-bigger"
-                    onClick={handleOpen}><span>Make a selection</span></button>
+                <button
+                    onClick={handleOpen}>Make a selection</button>
             )}
             {member?.choice_three ? (
                 <MemberContext.Provider value={member}>
                     <SelectionCard choice={member.choice_three} />
                 </MemberContext.Provider>
             ) : (
-                <button className="button btn-bigger"
-                    onClick={handleOpen}><span>Make a selection</span></button>
+                <button
+                    onClick={handleOpen}>Make a selection</button>
             )}
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
@@ -162,15 +161,16 @@ export const SelectionList = () => {
                                     </MenuItem>
                                 ))}
                         </Select>
-                        <div className="button-row" style={{ marginTop:'20px',justifyContent: 'space-around', alignContent:'center' }}>
+
+                        <div>
                             <button
-                                className="button"
                                 onClick={handleSave}
                                 disabled={!selectedAlbumId}
                             >
-                                <span>Choose this one</span>
+                                Choose this one
                             </button>
                         </div>
+
                     </FormControl>
                 </Box>
             </Modal>

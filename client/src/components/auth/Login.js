@@ -1,10 +1,7 @@
 
 import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom";
-import { useNavigate, Navigate } from "react-router-dom"
-import { TextField } from "@mui/material";
-import '../albums/Album.css'
-import "./Login.css"
+import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
     const [email, setEmail] = useState("")
@@ -33,21 +30,20 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main>
         <dialog className="dialog dialog--auth" ref={existDialog}>
             <div>User does not exist</div>
             <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
         </dialog>
 
         <section>
-            <form className="form--login" onSubmit={handleLogin}>
-                <h1 style={{ fontSize:'40px', fontStyle:'italic'}}>VINYL CUT</h1>
-                <h2 style={{ fontSize:'20px'}}>Welcome back!</h2>
+            <form onSubmit={handleLogin}>
+                <h1>Vinyl Cut</h1>
+                <h2>Welcome back!</h2>
                 <fieldset>
                     <input type="email" id="inputEmail"
                         value={email}
                         onChange={evt => setEmail(evt.target.value)}
-                        className="form-control"
                         placeholder="Email address"
                         required autoFocus />
                 </fieldset>
@@ -55,22 +51,21 @@ export const Login = () => {
                     <input type="password" id="inputPassword"
                         value={password}
                         onChange={evt => setPassword(evt.target.value)}
-                        className="form-control"
                         placeholder="Password"
                         required />
                 </fieldset>
                 <fieldset>
-                    <button className='button' type="submit">
-                        <span>Sign in</span>
+                    <button type="submit">
+                        Sign in
                     </button>
                 </fieldset>
             </form>
         </section>
-        <div className="loginLinks">
-            <section className="link--register">
+        <div>
+            <section>
                 <Link to="/registerMember">Member Register</Link>
             </section>
-            <section className="link--register" style={{ marginRight:'-10px'}}>
+            <section>
                 <Link to="/registerEmployee">Employee Register</Link>
             </section>
         </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import "./Login.css"
 
 export const EmployeeRegister = (props) => {
     const [employee, setEmployee] = useState({ "account_type": "employee" })
@@ -89,33 +88,32 @@ export const EmployeeRegister = (props) => {
 
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>{serverFeedback}</div>
                 <button className="button--close"
                     onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister} style={{padding:'100px'}}>
-                <h1 className="h3 mb-3 font-weight-normal">Welcome to the team</h1>
+            <form onSubmit={handleRegister}>
+                <h1>Welcome to the team</h1>
 
                 <fieldset>
-                    <div className="form-box center-elements">
+                    <div>
                         {loading ? (
                             <h3>Loading...</h3>
                         ) : (
-                            <img src={image} style={{ width: '200px', paddingBottom:'20px' }} />
+                            <img src={image} />
                         )}
                         <input
                             type="file"
                             id="image_url"
-                            className="form-control"
                             onChange={(event) => {
                                 setImage(event.target.files[0])
                                 setUploadClicked(false)
                             }} />
                         {!uploadClicked && (
-                            <button onClick={uploadImage}  style={{ marginTop: "20px" }}><span>Upload image</span></button>
+                            <button onClick={uploadImage}>Upload image</button>
                         )}
                     </div>
                 </fieldset>
@@ -123,19 +121,19 @@ export const EmployeeRegister = (props) => {
                 <fieldset>
                     <label htmlFor="first_name"> First Name </label>
                     <input onChange={updateEmployee}
-                        type="text" id="first_name" className="form-control"
+                        type="text" id="first_name"
                         placeholder="Enter your first name" required autoFocus />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="last_name"> Last Name </label>
                     <input onChange={updateEmployee}
-                        type="text" id="last_name" className="form-control"
+                        type="text" id="last_name"
                         placeholder="Enter your last name" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="username"> Username </label>
                     <input onChange={updateEmployee}
-                        type="text" id="username" className="form-control"
+                        type="text" id="username"
                         placeholder="Enter your username" required />
                 </fieldset>
                 <fieldset>
@@ -143,7 +141,6 @@ export const EmployeeRegister = (props) => {
                     <input onChange={updateEmployee}
                         type="text"
                         id="bio"
-                        className="form-control"
                         placeholder="Bio" required />
                 </fieldset>
                 <fieldset>
@@ -151,7 +148,6 @@ export const EmployeeRegister = (props) => {
                     <input onChange={updateEmployee}
                         type="email"
                         id="email"
-                        className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
 
@@ -160,16 +156,16 @@ export const EmployeeRegister = (props) => {
                     <input onChange={updateEmployee}
                         type="password"
                         id="password"
-                        className="form-control" required />
+                        required />
                 </fieldset>
 
                 <fieldset>
                     <label htmlFor="employeeCode"> Employee Code </label>
-                    <input type="text" id="employeeCode" className="form-control" required value={employeeCode} onChange={(e) => setEmployeeCode(e.target.value.trim())} />
+                    <input type="text" id="employeeCode" required value={employeeCode} onChange={(e) => setEmployeeCode(e.target.value.trim())} />
                 </fieldset>
 
                 <fieldset>
-                    <button type="submit"> <span>Register</span> </button>
+                    <button type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>
