@@ -1,19 +1,20 @@
 import { CommentListContainer } from "../comments/CommentContainer"
 import { ReviewDetails } from "./ReviewDetails"
-import "./Review.css"
-import "./ReviewDetails.css"
 
 export const ReviewDetailsContainer = () => {
 
     return (
         <>
-            <div className='review-detail-container'>
-                <div className='review-details-wrapper'>
+            <div>
+
+                <div>
                     <ReviewDetails />
                 </div>
-                <div className='comment-list-wrapper'>
+
+                <div>
                     <CommentListContainer />
                 </div>
+
             </div>
         </>
     )

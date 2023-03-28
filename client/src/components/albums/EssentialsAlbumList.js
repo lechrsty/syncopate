@@ -1,6 +1,6 @@
-import React from 'react';
-import { TasteAlbumList } from './TasteAlbumList';
+import React from 'react'
+import { TasteAlbumList } from './TasteAlbumList'
 
 export const EssentialsAlbumList = () => {
-    return <TasteAlbumList tasteId="2" />;
-};
+    return <TasteAlbumList tasteId="2" />
+}

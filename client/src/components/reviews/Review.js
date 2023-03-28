@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import "./Review.css"
 
 export const Review = ({ review, onDelete }) => {
     const navigate = useNavigate()
@@ -15,43 +14,40 @@ export const Review = ({ review, onDelete }) => {
 
     return (
 
-        <div key={`review--${review.id}`} className="card">
-            <div className="imgBx">
-                <a href={`/reviews/${review.id}`}>
-                    <img
-                        src={review?.image_url} />
-                </a>
-            </div>
-            <Link to={`/reviews/${review.id}`} className="link">
-                <p className='title'>{review.title}</p>
+        <div key={`review--${review.id}`}>
+
+            <a href={`/reviews/${review.id}`}>
+                <img
+                    src={review?.image_url} />
+            </a>
+            <Link to={`/reviews/${review.id}`} >
+                <p>{review.title}</p>
             </Link>
-            <div style={{ display: 'flex', justifyContent: 'space-between', textAlign:'right' }}>
-                <p className='artist' style={{textAlign:'left' }}> {review?.artist} </p>
-                <p className='genre'> {review?.genre?.type} </p>
-            </div>
-            <p className='description'> {review?.description.slice(0, 600)}... </p>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Link to={`/profile/member/${review.member.id}`}>
-                    <p className='username'>{review.member.username}</p>
-                </Link>
-                <p className='rating'> {review?.rating?.rating}</p>
-            </div>
-            <div className="button-row">
+            <p> {review?.artist} </p>
+            <p> {review?.genre?.type} </p>
+            <p> {review?.description.slice(0, 600)}... </p>
+            <Link to={`/profile/member/${review.member.id}`}>
+                <p className='username'>{review.member.username}</p>
+            </Link>
+            <p> {review?.rating?.rating}</p>
+
+            <div>
                 {
                     review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member
                         ?
                         <>
                             <button onClick={() => {
                                 navigate(`/reviews/edit/${review.id}`)
-                            }}><span>Edit</span></button>
+                            }}>Edit</button>
                             <button
                                 onClick={handleDelete}
-                            ><span>Delete</span></button>
+                            >Delete</button>
                         </>
                         :
                         ""
                 }
             </div>
+
         </div >
     )
 }

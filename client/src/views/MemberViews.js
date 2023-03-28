@@ -14,13 +14,10 @@ import { MemberDashboardContainer } from "../components/dashboard/member/MemberD
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { ReviewContainer } from "../components/reviews/ReviewContainer"
 import { ReviewDetailsContainer } from "../components/reviews/ReviewDetailsContainer"
-import '../Container.css'
-
 
 export const MemberViews = () => {
 
     return (
-        <div className="main-container">
             <Routes>
                 <Route path="/" element={
                     <>
@@ -54,6 +51,5 @@ export const MemberViews = () => {
                 </Route>
 
             </Routes>
-            </div>
     )
 }

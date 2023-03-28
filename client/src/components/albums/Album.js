@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import "./Album.css"
 
 export const Album = ({ album, onDelete }) => {
     const navigate = useNavigate()
@@ -18,32 +17,28 @@ export const Album = ({ album, onDelete }) => {
     const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
     return (
-        <div key={`album--${album.id}`} className="album" sx={{ maxWidth: 300 }}>
-            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
-                <a href={`/albums/${album.id}`}>
-                    <img
-                        src={album?.image_url} />
-                </a>
-            </div>
-            <Link to={`/albums/${album.id}`} className="link">
-                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent:'center', justifyContent:'center' }}>{album.title}</p>
+        <div key={`album--${album.id}`}>
+            <a href={`/albums/${album.id}`}>
+                <img
+                    src={album?.image_url} />
+            </a>
+            <Link to={`/albums/${album.id}`}>
+                <p>{album.title}</p>
             </Link>
-            <div className='album-contents'>
-                <p className='artist' style={{ textAlign: 'center' }}> {album?.artist} </p>
-                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {album?.genre?.type} </p>
-                <div className="button-row">
-                    <div className="left-button">
-                        {vinylCutUserObject?.staff === true && (
-                            <button className="button" variant="contained" onClick={() => {
-                                navigate(`/edit/${album.id}`)
-                            }}><span>Edit</span></button>
-                        )}
-                    </div>
-                    <div className="right-button">
-                        {vinylCutUserObject?.staff === true && (
-                            <button className="button" variant="contained" onClick={handleDelete}><span>Delete</span></button>
-                        )}
-                    </div>
+            <p> {album?.artist} </p>
+            <p> {album?.genre?.type} </p>
+            <div>
+                <div>
+                    {vinylCutUserObject?.staff === true && (
+                        <button onClick={() => {
+                            navigate(`/edit/${album.id}`)
+                        }}>Edit</button>
+                    )}
+                </div>
+                <div>
+                    {vinylCutUserObject?.staff === true && (
+                        <button onClick={handleDelete}>Delete</button>
+                    )}
                 </div>
             </div>
         </div>

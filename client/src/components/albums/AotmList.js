@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useEffect, useState } from "react"
 import { getAOTMs } from '../../managers/AlbumManager'
 import { Aotm } from './Aotm'
-import "./Album.css"
 
 export const AotmList = (props) => {
 
@@ -16,17 +15,13 @@ export const AotmList = (props) => {
 
     return (
         <>
-            <article className="album-list-container">
-
-                {
-                    aotms.map((aotm) => {
-                        return <Aotm
-                        aotm={aotm} 
+            {
+                aotms.map((aotm) => {
+                    return <Aotm
+                        aotm={aotm}
                         key={`aotm--${aotm.id}`} />
-                    })
-                }
-
-            </article>
+                })
+            }
         </>
     )
 }

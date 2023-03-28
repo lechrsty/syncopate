@@ -4,7 +4,7 @@ import { MemberContext } from '../dashboard/member/MemberDashboardContainer'
 import { TasteContext } from '../dashboard/member/MemberDashboardContainer'
 import { getAlbumsByTasteId } from "../../managers/AlbumManager"
 import { updateMember } from "../../managers/MemberManager"
-import Typography from '@mui/material/Typography'
+import Typography  from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
@@ -12,7 +12,7 @@ import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import { Link } from "react-router-dom"
-import '../reviews/Review.css'
+
 
 export const SelectionCard = ({ choice }) => {
     const member = useContext(MemberContext)
@@ -96,33 +96,28 @@ export const SelectionCard = ({ choice }) => {
 
     return (
 
-        <div className="album" sx={{ maxWidth: 300 }}>
-            <div style={{ paddingLeft: '50px' }} className="album-imgBx">
-                <a href={`/albums/${choice.id}`}>
-                    <img
-                        src={choice?.image_url} />
-                </a>
-            </div>
-            <Link to={`/albums/${choice.id}`} className="link">
-                <p className='title' style={{ fontSize: '25px', textAlign: 'center', alignContent: 'center', justifyContent: 'center'}}>{choice.title}</p>
+        <div>
+            <a href={`/albums/${choice.id}`}>
+                <img
+                    src={choice?.image_url} />
+            </a>
+            <Link to={`/albums/${choice.id}`}>
+                <p>{choice.title}</p>
             </Link>
-            <div className='album-contents'>
-                <p className='artist' style={{ textAlign: 'center' }}> {choice?.artist} </p>
-                <p className='genre' style={{ fontSize: '17px', textAlign: 'center', color: 'grey' }}> {choice?.genre?.type} </p>
-                <div className='button-row' style={{  justifyContent: 'space-around', color: 'grey' }}>
-                    <button className="button"
-                        variant="contained"
-                        onClick={handleOpen}
-                    >
-                        <span>Change</span>
-                    </button>
-                </div>
+            <p> {choice?.artist} </p>
+            <p> {choice?.genre?.type} </p>
+            <div>
+                <button
+                    onClick={handleOpen}
+                >
+                    Change
+                </button>
             </div>
 
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        SWITCH
+                        Switch
                     </Typography>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Album</InputLabel>
@@ -148,16 +143,16 @@ export const SelectionCard = ({ choice }) => {
                                 ))}
                         </Select>
 
-                        <button style={{ marginTop: '10px' }} 
-                            className="button"
+                        <button
                             onClick={handleSave}
                             disabled={!selectedAlbumId}
                         >
-                            <span>Choose this one</span>
+                            Choose this one 
                         </button>
                     </FormControl>
                 </Box>
             </Modal>
+
         </div>
     )
 }

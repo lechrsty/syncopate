@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { getMemberById } from "../../managers/MemberManager"
-import "./NavBar.css"
 
 export const MemberNav = () => {
     const navigate = useNavigate()
@@ -23,40 +22,36 @@ export const MemberNav = () => {
 
     return (
         <nav>
-            <div className="navicon">
-                <div></div>
-            </div>
-            <ul className="navbar">
+            <ul>
 
-
-                <li className="navbar__item">
-                    <Link className="link" to="/dashboard">Dashboard</Link>
+                <li>
+                    <Link to="/dashboard">Dashboard</Link>
                 </li>
 
-                <li className="navbar__item">
-                    <Link className="link" to={`/${member?.taste?.id}`}>Tasties</Link>
+                <li>
+                    <Link to={`/${member?.taste?.id}`}>Tasties</Link>
                 </li>
 
-                <li className="navbar__item">
-                    <Link className="link" to="/reviews">Reviews</Link>
+                <li>
+                    <Link to="/reviews">Reviews</Link>
                 </li>
 
-                <li className="navbar__item">
-                    <Link className="link" to="/profile">Profile</Link>
+                <li>
+                    <Link to="/profile">Profile</Link>
                 </li>
 
                 {
                     localStorage.getItem("vinylcut")
-                        ? <li className="navbar__item navbar__logout">
-                            <Link variant="text" className="link" to="" onClick={() => {
+                        ? <li>
+                            <Link to="" onClick={() => {
                                 localStorage.removeItem("vinylcut")
                                 navigate("/login", { replace: true })
                             }}>Logout</Link>
                         </li>
                         : ""
                 }
-            </ul>
 
+            </ul>
         </nav>
     )
 }

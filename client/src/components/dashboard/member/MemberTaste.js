@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { getMemberById } from '../../../managers/MemberManager'
 import { getTastes, updateTaste } from '../../../managers/TasteManager'
 import { EditTaste } from './EditTaste'
-import '.././Dashboard.css'
 
 export const MemberTaste = () => {
 
@@ -38,16 +37,15 @@ export const MemberTaste = () => {
       })
   }
 
+  // Get the first name of the member
   const firstName = member?.full_name.split(" ")[0]
 
   return (
     <div>
       {member ? (
         <>
-          <div className='welcome-message-container'>
-            <h1 className='welcome-message'>Welcome back, {firstName}!</h1>
-          </div>
-          <div className='edit-taste-container'>
+          <h1 >Welcome back, {firstName}!</h1>
+          <div >
             <EditTaste
               memberId={member.id}
               currentTaste={member.taste}
