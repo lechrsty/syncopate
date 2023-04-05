@@ -37,9 +37,8 @@ main.siteHeader .siteHeader-leftPanel .siteHeader-leftPanelItems .siteHeader-lef
     align-items: center;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    /* padding: 8px 0; */
+    padding: 8px 0;
     box-sizing: border-box;
-    margin-top: 20px;
 }
 
 a {
@@ -181,8 +180,8 @@ main.siteHeader .siteHeader-leftPanel .siteHeader-leftPanelItems .siteHeader-lef
 .logout img {
     max-width: 100%;
     max-height: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 /* Begin styling for right panel */
@@ -342,8 +341,8 @@ main.siteHeader .siteHeader-tickerTop .siteHeader-tickerTopItem p {
 }
 
 .tickerSpan {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: 600;
 }
 

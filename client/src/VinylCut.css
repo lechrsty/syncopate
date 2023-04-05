@@ -15,3 +15,7 @@ body {
 main {
     display: block;
 }
+
+.content {
+    z-index: 100;
+}
