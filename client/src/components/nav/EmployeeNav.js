@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getTastes } from "../../managers/TasteManager"
+import "../../VinylCut.css"
+
 
 export const EmployeeNav = () => {
     const navigate = useNavigate()
@@ -15,7 +17,7 @@ export const EmployeeNav = () => {
     )
 
     return (
-        <nav>
+        <main className='siteHeader'>
             <ul>
 
                 <li>
@@ -42,6 +44,6 @@ export const EmployeeNav = () => {
                 }
 
             </ul>
-        </nav>
+        </main>
     )
 }
