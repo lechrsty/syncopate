@@ -71,8 +71,6 @@ export const MemberNav = () => {
                             </Link>
                         </li>
 
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
-
                     </div>
 
                     <div className="siteHeader-leftPanelItems-misc">
