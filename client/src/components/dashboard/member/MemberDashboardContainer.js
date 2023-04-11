@@ -46,7 +46,6 @@ export const MemberDashboardContainer = () => {
         setTaste(newTaste)
     }
 
-
     // Create hero image slider
 
     const IMAGES_LEFT = [
@@ -65,7 +64,7 @@ export const MemberDashboardContainer = () => {
 
     const IMAGES_RIGHT_DUPLICATED = Array.from({ length: 100 }, () => IMAGES_RIGHT).flat()
 
-    const [currentLeftImageIndex, setCurrentLeftImageIndex] = useState(0);
+    const [currentLeftImageIndex, setCurrentLeftImageIndex] = useState(0)
     const [currentRightImageIndex, setCurrentRightImageIndex] = useState(0);
 
     useEffect(() => {
@@ -73,12 +72,12 @@ export const MemberDashboardContainer = () => {
 
         // Cycle through the original IMAGES_LEFT array every 3 seconds (3000 milliseconds)
         const interval = setInterval(() => {
-            index = (index + 1) % IMAGES_LEFT_DUPLICATED.length;
-            setCurrentLeftImageIndex(index);
-            setCurrentRightImageIndex(index);
+            index = (index + 1) % IMAGES_LEFT_DUPLICATED.length
+            setCurrentLeftImageIndex(index)
+            setCurrentRightImageIndex(index)
         }, 3500);
 
-        return () => clearInterval(interval);
+        return () => clearInterval(interval)
     }, [])
 
     return (
