@@ -4,7 +4,7 @@ import { MemberContext } from '../dashboard/member/MemberDashboardContainer'
 import { TasteContext } from '../dashboard/member/MemberDashboardContainer'
 import { getAlbumsByTasteId } from "../../managers/AlbumManager"
 import { updateMember } from "../../managers/MemberManager"
-import Typography  from '@mui/material/Typography'
+import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
@@ -12,6 +12,8 @@ import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import { Link } from "react-router-dom"
+import '../../VinylCut.css'
+import "../dashboard/Dashboard.css"
 
 
 export const SelectionCard = ({ choice }) => {
@@ -96,23 +98,29 @@ export const SelectionCard = ({ choice }) => {
 
     return (
 
-        <div>
-            <a href={`/albums/${choice.id}`}>
-                <img
-                    src={choice?.image_url} />
-            </a>
-            <Link to={`/albums/${choice.id}`}>
-                <p>{choice.title}</p>
-            </Link>
-            <p> {choice?.artist} </p>
-            <p> {choice?.genre?.type} </p>
-            <div>
-                <button
-                    onClick={handleOpen}
-                >
+        <div className="selections-card">
+            <div className="image-container">
+                <img className="selections-image" src={choice?.image_url} />
+                <button className="button small card" onClick={handleOpen}>
                     Change
                 </button>
             </div>
+
+            <a href={`/albums/${choice.id}`}>
+                {choice.title.length > 25 ? (
+                    <div className="marquee-container" style={{ paddingTop: "20px" }}>
+                        <marquee direction="up" scrollamount="2" height="50px" scrollDelay="0">
+                            {[...Array(50)].map((_, i) => (
+                                <p className="selections-title" style={{ marginTop: '10px' }} key={i}>{choice.title}</p>
+                            ))}
+                        </marquee>
+                    </div>
+                ) : (
+                    <p className="selections-title">{choice.title}</p>
+                )}
+            </a>
+
+            <p className="selections-artist">{choice?.artist}</p>
 
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
@@ -147,7 +155,7 @@ export const SelectionCard = ({ choice }) => {
                             onClick={handleSave}
                             disabled={!selectedAlbumId}
                         >
-                            Choose this one 
+                            Choose this one
                         </button>
                     </FormControl>
                 </Box>

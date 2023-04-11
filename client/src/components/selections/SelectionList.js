@@ -12,6 +12,8 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
+import '../../VinylCut.css'
+import "../dashboard/Dashboard.css"
 
 export const SelectionList = () => {
     const member = useContext(MemberContext)
@@ -96,6 +98,7 @@ export const SelectionList = () => {
 
 
     const modalStyle = {
+        fontFamily: "'DM Sans', sans-serif",
         position: "absolute",
         top: "50%",
         left: "50%",
@@ -104,77 +107,83 @@ export const SelectionList = () => {
         bgcolor: "background.paper",
         boxShadow: 24,
         p: 4,
+        borderRadius: '8px',
     }
 
 
     return (
-        <div>
-            {member?.choice_one ? (
-                <MemberContext.Provider value={member}>
-                    <SelectionCard choice={member.choice_one} />
-                </MemberContext.Provider>
-            ) : (
-                <button
-                    onClick={handleOpen}>Make a selection</button>
-            )}
-            {member?.choice_two ? (
-                <MemberContext.Provider value={member}>
-                    <SelectionCard choice={member.choice_two} />
-                </MemberContext.Provider>
-            ) : (
-                <button
-                    onClick={handleOpen}>Make a selection</button>
-            )}
-            {member?.choice_three ? (
-                <MemberContext.Provider value={member}>
-                    <SelectionCard choice={member.choice_three} />
-                </MemberContext.Provider>
-            ) : (
-                <button
-                    onClick={handleOpen}>Make a selection</button>
-            )}
-            <Modal open={open} onClose={handleClose}>
-                <Box sx={modalStyle}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Switch Album
-                    </Typography>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Album</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={selectedAlbumId}
-                            label="Album"
-                            onChange={handleSelectAlbum}
-                        >
-                            {dropdownAlbums
-                                .filter((album) => {
-                                    return (
-                                        album.id !== choices.choice_one?.id &&
-                                        album.id !== choices.choice_two?.id &&
-                                        album.id !== choices.choice_three?.id
-                                    );
-                                })
-                                .map((album) => (
-                                    <MenuItem key={album.id} value={album.id}>
-                                        {album.title} - {album.artist}
-                                    </MenuItem>
-                                ))}
-                        </Select>
+        <>
+            <h2 className='selections-header'> Selections </h2>
+                <div className="selections-objects">
+                    {member?.choice_one ? (
+                        <MemberContext.Provider value={member}>
+                            <SelectionCard choice={member.choice_one} />
+                        </MemberContext.Provider>
+                    ) : (
+                        <div className="selections-object">
+                            <button className="button small"
+                                onClick={handleOpen}>Make a selection</button> </div>
+                    )}
+                    {member?.choice_two ? (
+                        <MemberContext.Provider value={member}>
+                            <SelectionCard choice={member.choice_two} />
+                        </MemberContext.Provider>
+                    ) : (
+                        <div className="selections-object">
+                            <button className="button small"
+                                onClick={handleOpen}>Make a selection</button> </div>
+                    )}
+                    {member?.choice_three ? (
+                        <MemberContext.Provider value={member}>
+                            <SelectionCard choice={member.choice_three} />
+                        </MemberContext.Provider>
+                    ) : (
+                        <div className="selections-object">
+                            <button className="button small"
+                                onClick={handleOpen}>Make a selection</button> </div>
+                    )}
 
-                        <div>
-                            <button
-                                onClick={handleSave}
-                                disabled={!selectedAlbumId}
-                            >
-                                Choose this one
-                            </button>
-                        </div>
+                    <Modal open={open} onClose={handleClose}>
+                        <Box sx={modalStyle}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Album</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={selectedAlbumId}
+                                    label="Album"
+                                    onChange={handleSelectAlbum}
+                                >
+                                    {dropdownAlbums
+                                        .filter((album) => {
+                                            return (
+                                                album.id !== choices.choice_one?.id &&
+                                                album.id !== choices.choice_two?.id &&
+                                                album.id !== choices.choice_three?.id
+                                            );
+                                        })
+                                        .map((album) => (
+                                            <MenuItem key={album.id} value={album.id}>
+                                                {album.title} - {album.artist}
+                                            </MenuItem>
+                                        ))}
+                                </Select>
 
-                    </FormControl>
-                </Box>
-            </Modal>
-        </div>
+                                <div>
+                                    <button className="button small modal"
+                                        onClick={handleSave}
+                                        disabled={!selectedAlbumId}
+                                    >
+                                        Select album
+                                    </button>
+                                </div>
+
+                            </FormControl>
+                        </Box>
+                    </Modal>
+
+                </div>
+        </>
     )
 }
 

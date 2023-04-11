@@ -21,7 +21,7 @@ export const VinylCut = () => {
 			<Authorized>
 				<>
 					<NavBar />
-					<ApplicationViews />
+					<ApplicationViews/>
 				</>
 			</Authorized>
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { ReviewList } from "../reviews/ReviewList"
 import { FilterMembers } from "../reviews/FilterMembers"
 import { ReviewSearch } from "../reviews/ReviewSearch"
+import "../../VinylCut.css"
 
 export const ReviewContainer = () => {
     const navigate = useNavigate()
@@ -11,7 +12,7 @@ export const ReviewContainer = () => {
 
     return (
         <>
-            <div>
+            <div className="content">
                 <div>
                     <ReviewSearch setterFunction={setSearchTerms} />
                 </div>

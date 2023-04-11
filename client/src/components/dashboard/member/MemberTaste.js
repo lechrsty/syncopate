@@ -2,7 +2,10 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { getMemberById } from '../../../managers/MemberManager'
 import { getTastes, updateTaste } from '../../../managers/TasteManager'
+import { updateMember } from "../../../managers/MemberManager"
 import { EditTaste } from './EditTaste'
+import "../Dashboard.css"
+import '../../../VinylCut.css'
 
 export const MemberTaste = () => {
 
@@ -41,10 +44,11 @@ export const MemberTaste = () => {
   const firstName = member?.full_name.split(" ")[0]
 
   return (
-    <div>
+    <>
       {member ? (
         <>
-          <h1 >Welcome back, {firstName}!</h1>
+          {/* <h1 >Welcome back, {firstName}!</h1> */}
+
           <div >
             <EditTaste
               memberId={member.id}
@@ -57,6 +61,6 @@ export const MemberTaste = () => {
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </>
   )
 }
