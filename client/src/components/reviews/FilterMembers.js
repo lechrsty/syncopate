@@ -11,7 +11,6 @@ export const FilterMembers = ({ setMemberSelection }) => {
     return (
         <>
             <section>
-                <h2>Search by member</h2>
                 <select onChange={(event) => { setMemberSelection(parseInt(event.target.value)) }}>
                     <option value="0" name="member_id" >All members</option>
                     {members.map(member => (

@@ -55,7 +55,7 @@ export const MemberDashboardContainer = () => {
     ]
 
     const IMAGES_RIGHT = [
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747842/pexels-photo-48592_pr7tbd.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747846/pexels-photo-9062566_syty0r.jpg',
         'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747819/pexels-photo-1238941_m3c2zf.jpg',
         'https://res.cloudinary.com/dmilofp0z/image/upload/v1680749689/pexels-photo-3550240_ufghzf.webp',
     ]

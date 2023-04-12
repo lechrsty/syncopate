@@ -1,39 +1,30 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { ReviewList } from "../reviews/ReviewList"
 import { FilterMembers } from "../reviews/FilterMembers"
 import { ReviewSearch } from "../reviews/ReviewSearch"
 import "../../VinylCut.css"
+import "./Review.css"
 
 export const ReviewContainer = () => {
-    const navigate = useNavigate()
     const [memberSelection, setMemberSelection] = useState()
     const [searchTerms, setSearchTerms] = useState("")
 
     return (
         <>
-            <div className="content">
-                <div>
-                    <ReviewSearch setterFunction={setSearchTerms} />
-                </div>
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> Reviews</h2>
+            </main>
 
-                <div>
-                    <button
-                        onClick={() => {
-                            navigate(`/reviews/create`)
-                        }}
-                    >Drop a review
-                    </button>
-                </div>
-
-                <div>
+            <div className="review-wrapper">
+                <div className="review-filter">
                     <FilterMembers setMemberSelection={setMemberSelection} />
                 </div>
+                <div className="review-search">
+                <ReviewSearch setterFunction={setSearchTerms} />
+                </div>
             </div>
 
-            <div>
-                <ReviewList memberSelection={memberSelection} searchTermState={searchTerms} />
-            </div>
+            <ReviewList memberSelection={memberSelection} searchTermState={searchTerms} />
         </>
     )
 }

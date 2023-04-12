@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteAlbum, getAlbumsByTasteId } from '../../managers/AlbumManager'
 import { Album } from './Album'
+import "./Albums.css"
 
 export const TasteAlbumList = ({ tasteId }) => {
 
@@ -26,13 +27,16 @@ export const TasteAlbumList = ({ tasteId }) => {
 
     return (
         <>
-            <article>
-                {albums.reverse().map((album) => {
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> Tasties</h2>
+            </main>
+            <div className='list-container'>
+                {albums.map((album) => {
                     return (
                         <Album onDelete={handleDelete} album={album} key={`album--${album.id}`} />
                     )
                 })}
-            </article>
+            </div>
         </>
     )
 }

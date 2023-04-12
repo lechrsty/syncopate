@@ -9,7 +9,15 @@ body {
     font-size: 20px;
     color: #333;
     overflow-x: hidden;
-    background-color: #EBDEC7;
+}
+
+html,
+body {
+    overscroll-behavior: none;
+}
+
+:root {
+    background-color: #ffffff;
 }
 
 .content {
@@ -22,7 +30,7 @@ body {
 
 .content-container {
     z-index: 1;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 .content-wrapper {
@@ -38,7 +46,8 @@ body {
     align-items: center;
 }
 
-p, h2 {
+p,
+h2 {
     text-align: center;
 }
 
@@ -48,16 +57,17 @@ p, h2 {
     align-content: center;
 }
 
-/* a {
+.button-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+    justify-content: space-between;
+    width: 350px;
+    padding-bottom: 20px;
+}
 
 .button {
     font-family: 'DM Sans', sans-serif;
     background-color: #292828;
-    border:  none;
+    border: none;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -86,3 +96,89 @@ p, h2 {
     height: 40px;
 }
 
+.button.small.modal {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 150px;
+    height: 60px;
+    padding: 10px;
+}
+
+.button.small.modal-open {
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+.button.small.modal-open-choose {
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 200px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+}
+
+/* Image rotate */
+
+.rotate {
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Image pulse */
+
+.pulse {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Style select box */
+
+select {
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #555;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M4 5L0.8 0.7999999999999998H7.2L4 5Z' fill='%23555'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 3px #ffffff;
+}
+
+option {
+    background-color: #fff;
+    color: #555;
+}

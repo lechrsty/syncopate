@@ -17,16 +17,28 @@ export const Album = ({ album, onDelete }) => {
     const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
     return (
-        <div key={`album--${album.id}`}>
+        <div className='tasty-card' key={`album--${album.id}`}>
             <a href={`/albums/${album.id}`}>
-                <img
+                <img className='tasty-image'
                     src={album?.image_url} />
             </a>
-            <Link to={`/albums/${album.id}`}>
-                <p>{album.title}</p>
-            </Link>
-            <p> {album?.artist} </p>
-            <p> {album?.genre?.type} </p>
+            <p className='tasty-title'>
+                {album.title.length > 30 ? (
+                    <div className="marquee-container">
+                        <marquee direction="up" scrollamount="2" height="50px" scrollDelay="0">
+                            {[...Array(50)].map((_, i) => (
+                                <p className="tasty-title" key={i}>{album.title}</p>
+                            ))}
+                        </marquee>
+                    </div>
+                ) : (
+                    <p className="tasty-title">{album.title}</p>
+                )}
+            </p>
+            <div className='artist-genre-wrapper'>
+                <p className='tasty-artist'> {album?.artist} </p>
+                <p className='tasty-genre'> {album?.genre?.type} </p>
+            </div>
             <div>
                 <div>
                     {vinylCutUserObject?.staff === true && (
