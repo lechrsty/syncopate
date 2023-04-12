@@ -11,7 +11,6 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
-import { Link } from "react-router-dom"
 import '../../VinylCut.css'
 import "../dashboard/Dashboard.css"
 
@@ -94,6 +93,7 @@ export const SelectionCard = ({ choice }) => {
         bgcolor: "background.paper",
         boxShadow: 24,
         p: 4,
+        borderRadius: '8px'
     }
 
     return (
@@ -124,9 +124,6 @@ export const SelectionCard = ({ choice }) => {
 
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Switch
-                    </Typography>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Album</InputLabel>
                         <Select
@@ -151,7 +148,7 @@ export const SelectionCard = ({ choice }) => {
                                 ))}
                         </Select>
 
-                        <button
+                        <button className="button small modal-open-choose"
                             onClick={handleSave}
                             disabled={!selectedAlbumId}
                         >

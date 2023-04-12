@@ -67,7 +67,7 @@ a {
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
     text-orientation: upright;
-    color: #FCF0ED;
+    color: #ffffff;
     font-size: 15px;
     font-style: italic;
     line-height: 1.2em;
@@ -192,7 +192,7 @@ main.siteHeader .siteHeader-rightPanel {
     width: 46px;
     height: 100vh;
     z-index: 10;
-    background-color: #5A7A5C;
+    background-color:rgb(211, 156, 60);
     border-right: 12px solid #f9eedc;
     border-bottom: 4px solid #292828;
 }
@@ -245,7 +245,7 @@ main.siteHeader .siteHeader-rightPanel .siteHeader-rightPanelItems .dashboard {
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
     text-orientation: upright;
-    color: #FCF0ED;
+    color: #ffffff;
     line-height: 1.2em;
 }
 
@@ -254,7 +254,7 @@ main.siteHeader .siteHeader-rightPanel .siteHeader-rightPanelItems .dashboard {
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
     text-orientation: upright;
-    color: #FCF0ED;
+    color: #ffffff;
     font-size: 15px;
     font-style: italic;
     line-height: 1.2em;
@@ -288,7 +288,7 @@ main.siteHeader .siteHeader-rightPanel .siteHeader-rightPanelItems .profile {
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
     text-orientation: upright;
-    color: #FCF0ED;
+    color: #ffffff;
     line-height: 1.2em;
 }
 
@@ -297,7 +297,7 @@ main.siteHeader .siteHeader-rightPanel .siteHeader-rightPanelItems .profile {
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
     text-orientation: upright;
-    color: #FCF0ED;
+    color: #ffffff;
     font-size: 15px;
     font-style: italic;
     line-height: 1.2em;

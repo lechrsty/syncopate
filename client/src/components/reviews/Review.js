@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import "./Review.css"
 
 export const Review = ({ review, onDelete }) => {
     const navigate = useNavigate()
@@ -14,34 +15,60 @@ export const Review = ({ review, onDelete }) => {
 
     return (
 
-        <div key={`review--${review.id}`}>
+        <div className='review-card' key={`review--${review.id}`}>
 
             <a href={`/reviews/${review.id}`}>
-                <img
+                <img className='review-image'
                     src={review?.image_url} />
             </a>
-            <Link to={`/reviews/${review.id}`} >
-                <p>{review.title}</p>
-            </Link>
-            <p> {review?.artist} </p>
-            <p> {review?.genre?.type} </p>
-            <p> {review?.description.slice(0, 600)}... </p>
-            <Link to={`/profile/member/${review.member.id}`}>
-                <p className='username'>{review.member.username}</p>
-            </Link>
-            <p> {review?.rating?.rating}</p>
 
+            <div className='review-title'>
+                {review.title.length > 35 ? (
+                    <div className="marquee-container">
+                        <marquee direction="up" scrollamount="2" height="50px" scrollDelay="0">
+                            {[...Array(50)].map((_, i) => (
+                                <Link to={`/reviews/${review.id}`}>
+                                    <p className="review-title" key={i}>{review.title}</p>
+                                </Link>
+                            ))}
+                        </marquee>
+                    </div>
+                ) : (
+                    <p className="review-title">{review.title}</p>
+                )}
+            </div>
+
+            <div className='artist-genre-wrapper'>
+                <p className='review-artist'> {review?.artist} </p>
+                <p className='review-genre'> {review?.genre?.type} </p>
+            </div>
+
+            <div className='username-rating-wrapper'>
+                <Link to={`/profile/member/${review.member.id}`}>
+                    <p className='review-username'>{review.member.username}</p>
+                </Link>
+                <p className='review-rating'> {review?.rating?.rating}
+                    <span style={{ marginLeft: '2px' }}>/</span>
+                    <span className='rating-text'>5</span>
+                </p>
+            </div>
+
+            <p className='review-description'> {review?.description.slice(0, 1000)}... </p>
             <div>
                 {
                     review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member
                         ?
                         <>
-                            <button onClick={() => {
-                                navigate(`/reviews/edit/${review.id}`)
-                            }}>Edit</button>
-                            <button
-                                onClick={handleDelete}
-                            >Delete</button>
+                            <div className='button-container'>
+                                <button
+                                    className="button small"
+                                    onClick={() => {
+                                        navigate(`/reviews/edit/${review.id}`)
+                                    }}>Edit</button>
+                                <button className="button small"
+                                    onClick={handleDelete}
+                                >Delete</button>
+                            </div>
                         </>
                         :
                         ""

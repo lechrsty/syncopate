@@ -2,11 +2,10 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getSingleAlbum } from "../../managers/AlbumManager"
 import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import * as React from 'react'
+import "./Albums.css"
 
 export const AlbumDetails = () => {
-    const navigate = useNavigate()
 
     const { albumId } = useParams()
 
@@ -18,17 +17,20 @@ export const AlbumDetails = () => {
 
 
     return (
-        <div key={`album--${album.id}`}>
-            <a href={`/albums/${album.id}`}>
-                <img
-                    src={album?.image_url} />
-            </a>
-            <Link to={`/albums/${album.id}`}>
-                <p>{album.title}</p>
-            </Link>
-            <p> {album?.artist} </p>
-            <p> {album?.genre?.type} </p>
-            <p> {album?.description} </p>
-        </div>
+        <>
+            <div className='detail-content-container' key={`album--${album.id}`}>
+                <div className='detail-wrapper'>
+
+                    <img className='detail-image'
+                        src={album?.image_url} />
+                    <p className='detail-title'> {album?.title} </p>
+                    <p className='detail-artist'>{album.artist}</p>
+                    <p className='detail-genre'> {album?.genre?.type} </p>
+                </div>
+                <div className='description-wrapper'>
+                    <p className='detail-description'> {album?.description} </p>
+                </div>
+            </div>
+        </>
     )
 }

@@ -121,8 +121,11 @@ export const SelectionList = () => {
                         </MemberContext.Provider>
                     ) : (
                         <div className="selections-object">
-                            <button className="button small"
-                                onClick={handleOpen}>Make a selection</button> </div>
+                            <div className="modal-container">
+                            <button className="button small modal open"
+                                onClick={handleOpen}>Make a selection</button> 
+                            </div>
+                            </div>
                     )}
                     {member?.choice_two ? (
                         <MemberContext.Provider value={member}>
@@ -130,7 +133,7 @@ export const SelectionList = () => {
                         </MemberContext.Provider>
                     ) : (
                         <div className="selections-object">
-                            <button className="button small"
+                            <button className="button small modal"
                                 onClick={handleOpen}>Make a selection</button> </div>
                     )}
                     {member?.choice_three ? (
@@ -139,7 +142,7 @@ export const SelectionList = () => {
                         </MemberContext.Provider>
                     ) : (
                         <div className="selections-object">
-                            <button className="button small"
+                            <button className="button small modal"
                                 onClick={handleOpen}>Make a selection</button> </div>
                     )}
 
@@ -170,7 +173,7 @@ export const SelectionList = () => {
                                 </Select>
 
                                 <div>
-                                    <button className="button small modal"
+                                    <button className="button small modal-open"
                                         onClick={handleSave}
                                         disabled={!selectedAlbumId}
                                     >

@@ -63,7 +63,7 @@ export const MemberNav = () => {
                             </Link>
                         </li>
 
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
 
                         <li className="menuItem">
                             <Link to={`/reviews`}>
@@ -100,7 +100,7 @@ export const MemberNav = () => {
             <div className="siteHeader-rightPanel">
                 <div className="siteHeader-rightPanelItems">
                     <div className="dashboard">
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680852/noun-record-8845-FCF0ED_3_hgoktl.svg" alt="record-icon" />
+                        <img className="rotate" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680852/noun-record-8845-FCF0ED_3_hgoktl.svg" alt="record-icon" />
 
                         <li className="dashboardItem">
                             <Link to={`/dashboard`}>
@@ -108,11 +108,11 @@ export const MemberNav = () => {
                             </Link>
                         </li>
 
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680755/noun-record-8845-FCF0ED_1_iyeuwo.svg" alt="record-icon" />
+                        <img className="rotate" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680755/noun-record-8845-FCF0ED_1_iyeuwo.svg" alt="record-icon" />
                     </div>
 
                     <div className="profile">
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
 
                         <li className="profileItem">
                             <Link to={`/profile`}>
@@ -120,7 +120,7 @@ export const MemberNav = () => {
                             </Link>
                         </li>
 
-                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
                     </div>
                 </div>
             </div>

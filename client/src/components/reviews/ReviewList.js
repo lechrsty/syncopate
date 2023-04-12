@@ -51,8 +51,8 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
 
     return (
         <>
-            <div>
 
+            <div className='review-list-container'>
                 {
                     filteredReviews.map((review) => {
                         return <Review
