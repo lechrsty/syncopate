@@ -19,8 +19,10 @@ export const CommentListContainer = () => {
 
     return <article>
         <>
+        <div className='review-detail-wrapper'>
             <CreateComment reviewId={reviewId} setReview = {setReview} setComments={setComments} />
             <Comments review = {review} setReview = {setReview} reviewId = {reviewId} comments = {comments} setComments = {setComments}/>
+            </div>
         </>
     </article>
 }

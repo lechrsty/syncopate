@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getSingleAlbum } from "../../managers/AlbumManager"
-import { useNavigate } from 'react-router-dom'
 import * as React from 'react'
 import "./Albums.css"
 
 export const AlbumDetails = () => {
 
     const { albumId } = useParams()
-
     const [album, setAlbum] = useState({})
 
     useEffect(() => {
         getSingleAlbum(albumId).then((data) => setAlbum(data))
     }, [albumId])
-
 
     return (
         <>

@@ -40,34 +40,39 @@ export const CreateComment = ({ reviewId, setReview, setComments }) => {
 
 
     return (
-        <div>
-            <a href={`/reviews/${reviewimg.id}`}>
-                <img
-                    src={reviewimg?.image_url} />
-            </a>
-            <h2>Leave a comment </h2>
-            <TextareaAutosize
-                name="comment" id="comment" required autoFocus
-                aria-label="empty textarea"
-                placeholder="Your most gut-wrechingly honest opinion?"
-                style={{ width: 300 }}
-                minRows={3}
-                value={comment.body}
-                onChange={
-                    (evt) => {
-                        const copy = { ...comment }
-                        copy.body = evt.target.value
-                        setComment(copy)
+        <div className='comment-container'>
+            <div className='comment-wrapper'>
+                <p className='space-above'> </p>
+                <a href={`/reviews/${reviewimg.id}`}>
+                    <img className='detail-image'
+                        src={reviewimg?.image_url} />
+                </a>
+                <p className='space-above'> </p>
+                <p className='comment-header'>Leave a comment </p>
+                <TextareaAutosize
+                    name="comment" id="comment" required autoFocus
+                    aria-label="empty textarea"
+                    placeholder=""
+                    style={{ minWidth: 300, maxWidth: 400 }}
+                    minRows={3}
+                    value={comment.body}
+                    onChange={
+                        (evt) => {
+                            const copy = { ...comment }
+                            copy.body = evt.target.value
+                            setComment(copy)
+                        }
                     }
-                }
-            />
-            <div>
-                <button type="submit"
-                    onClick={handleSubmit}>
-                    Submit comment
-                </button >
+                />
+                <div className='space-above'>
+                    <button
+                        className='button-form'
+                        type="submit"
+                        onClick={handleSubmit}>
+                        Submit comment
+                    </button >
+                </div>
             </div>
         </div>
-
     )
 }

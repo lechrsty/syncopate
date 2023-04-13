@@ -137,28 +137,6 @@ img.tasty-image {
     align-items: center;
 }
 
-/* .album-detail-header {
-    font-family: 'DM Sans', sans-serif;
-    -webkit-text-stroke: 2px #292828;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-    font-size: 50px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
-
-.album-detail-content-wrapper {
-    z-index: 1;
-    background-color: #c1523c;
-    border-bottom: 4px solid #292828;
-    padding-left: 120px;
-    padding-right: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 /* Begin styling album details */
 
 .detail-content-container {
@@ -169,6 +147,7 @@ img.tasty-image {
 .detail-image {
     height: 300px;
     width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .detail-wrapper {
@@ -218,6 +197,8 @@ img.tasty-image {
     font-size: 20px;
     text-align: right;
     margin: 0px;
+    width: 100vh;
+
 }
 
 .detail-genre {

@@ -5,8 +5,7 @@ export const ReviewDetailsContainer = () => {
 
     return (
         <>
-            <div>
-
+            <div className='detail-container space-between'>
                 <div>
                     <ReviewDetails />
                 </div>
@@ -14,7 +13,6 @@ export const ReviewDetailsContainer = () => {
                 <div>
                     <CommentListContainer />
                 </div>
-
             </div>
         </>
     )

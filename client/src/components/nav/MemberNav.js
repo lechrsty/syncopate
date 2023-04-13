@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { getMemberById } from "../../managers/MemberManager"
+import { CreateReview } from "../reviews/CreateReview"
 import "../../VinylCut.css"
 import "./NavBar.css"
 
@@ -22,6 +23,12 @@ export const MemberNav = () => {
             })
         }
     }, [])
+
+    // Handle modal for Create review
+
+    const [showModal, setShowModal] = useState(false)
+
+    const handleModal = () => setShowModal(!showModal)
 
     return (
         <main className='siteHeader'>
@@ -75,14 +82,22 @@ export const MemberNav = () => {
 
                     <div className="siteHeader-leftPanelItems-misc">
                         <div className="review">
-                            <a href={`/reviews/create`}>
-                                <div className="reviewImage rsp-image-module responsive-image fit-cover">
-                                    <div>
-                                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680676775/noun-idea-1332738-B7412A_fgkbdg.svg" alt="hands-icon" />
-                                    </div>
+                            <a href="#" onClick={handleModal}>                                <div className="reviewImage rsp-image-module responsive-image fit-cover">
+                                <div>
+                                    <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680676775/noun-idea-1332738-B7412A_fgkbdg.svg" alt="hands-icon" />
                                 </div>
+                            </div>
                                 <p>Drop a review</p>
                             </a>
+
+                            {showModal && (
+                                <div className={`modal ${showModal ? 'active' : ''}`}>
+                                    <span className="close" onClick={handleModal}>&times;</span>
+                                    <div className="modal-content">
+                                        <CreateReview handleModal={handleModal} />
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         <div className="logout">

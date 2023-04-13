@@ -52,89 +52,94 @@ export const EditReview = () => {
 
 
     return (
-        <article>
+        <>
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> Edit Review</h2>
+            </main>
 
-            <h2>Edit a review</h2>
+            <div className='edit-wrapper'>
 
-            <div>
-                <label htmlFor="title">Album Title: </label>
-                <input type="text" name="title" required autoFocus className="form-control"
-                    defaultValue={review.title}
-                    onChange={handleInputChange}
-                />
-            </div>
-
-
-            <div>
-                <label htmlFor="artist">Album Artist: </label>
-                <input type="text" name="artist" required autoFocus className="form-control"
-                    defaultValue={review.artist}
-                    onChange={handleInputChange}
-                />
-            </div>
+                <div>
+                    <label className="detail-artist padding-right-27 " htmlFor="title">Title </label>
+                    <input type="text" name="title" required autoFocus className="form-control"
+                        defaultValue={review.title}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
 
-            <div>
-                <textarea
-                    name="description"
-                    id="description"
-                    required
-                    autoFocus
-                    placeholder="A gut-wrenchingly honest opinion?"
-                    defaultValue={review.description}
-                    onChange={handleInputChange}
-                />
-            </div>
+                <div>
+                    <label className="detail-artist padding-right-10" htmlFor="artist">Artist </label>
+                    <input type="text" name="artist" required autoFocus className="form-control"
+                        defaultValue={review.artist}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
 
-            <div>
-                <label htmlFor="genre">Genre </label>
-                <select
-                    className="form-style"
-                    onChange={(evt) => {
-                        const copy = { ...review };
-                        copy.genre = { id: parseInt(evt.target.value) };
-                        setReview(copy);
-                    }}
-                >
-                    <option value="">{review?.genre?.type}</option>
-                    {genreDropdown.map((genre) => (
-                        <option key={`genre--${genre.id}`} value={genre.id}>
-                            {genre.type}
+                <div>
+                    <div className='space-above'></div>
+                    <textarea
+                        name="description"
+                        id="description"
+                        required
+                        autoFocus
+                        placeholder="A gut-wrenchingly honest opinion?"
+                        defaultValue={review.description}
+                        onChange={handleInputChange}
+                    />
+                </div>
+
+
+                <div>
+                    <div className='space-above'></div>
+                    <label className="detail-artist" htmlFor="genre">Genre </label>
+                    <select
+                        className="form-style select-genre background-grey"
+                        onChange={(evt) => {
+                            const copy = { ...review };
+                            copy.genre = { id: parseInt(evt.target.value) };
+                            setReview(copy);
+                        }}
+                    >
+                        <option value="">{review?.genre?.type}</option>
+                        {genreDropdown.map((genre) => (
+                            <option key={`genre--${genre.id}`} value={genre.id}>
+                                {genre.type}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+
+                <div>
+                    <label className="detail-artist" htmlFor="rating">Rating </label>
+                    <select
+                        className="form-style select-rating background-grey"
+                        value={review?.rating?.id}
+                        onChange={(evt) => {
+                            const copy = { ...review };
+                            copy.rating = { id: parseInt(evt.target.value) };
+                            setReview(copy);
+                        }}
+                    >
+                        <option value="" disabled={!review?.rating}>
+                            {review?.rating?.rating}
                         </option>
-                    ))}
-                </select>
-            </div>
+                        {ratingDropdown.map((rating) => (
+                            <option key={`rating--${rating?.id}`} value={rating?.id}>
+                                {rating?.rating}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
-
-            <div>
-                <label htmlFor="rating">Rating </label>
-                <select
-                    className="form-style"
-                    value={review?.rating?.id}
-                    onChange={(evt) => {
-                        const copy = { ...review };
-                        copy.rating = { id: parseInt(evt.target.value) };
-                        setReview(copy);
-                    }}
+                <button type="submit"
+                    onClick={handleSubmit}
                 >
-                    <option value="" disabled={!review?.rating}>
-                        {review?.rating?.rating}
-                    </option>
-                    {ratingDropdown.map((rating) => (
-                        <option key={`rating--${rating?.id}`} value={rating?.id}>
-                            {rating?.rating}
-                        </option>
-                    ))}
-                </select>
+                    Submit
+                </button>
             </div>
-
-            <button type="submit"
-                onClick={handleSubmit}
-            >
-                Submit
-            </button>
-
-        </article>
+        </>
     )
 }

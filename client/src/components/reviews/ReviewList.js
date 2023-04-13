@@ -16,7 +16,7 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
         () => {
             getReviews().then(reviewData => setReviews(reviewData))
             setFilteredReviews(reviews)
-        }, [])
+        }, [reviews])
 
     useEffect(
         () => {

@@ -1,0 +1,96 @@
+/* Begin styling for sections */
+
+.profile-wrapper {
+    border-bottom: 4px solid #292828;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.profile-wrapper,
+.profile-image-container,
+.profile-taste-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.profile-bio-container {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+/* Image */
+
+.profile-image-container {
+    border-right: 4px solid #292828;
+    width: 200px;
+}
+
+img.profile-image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+/* Taste */
+
+.profile-taste-container {
+    background-color: #c3c3c3;
+    border-right: 4px solid #292828;
+    width: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.profile-taste {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-text-stroke: 1px #292828;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Bio */
+
+.profile-bio-container {
+    background-color: #3f3e3e;
+    border-right: 4px solid #292828;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-name {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-text-stroke: 1.5px #292828;
+    text-transform: uppercase;
+    text-align: left;
+    font-style: italic;
+    color: #e4e4e4;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    /* text-decoration: underline .5px;
+    text-decoration-color: #ebeaea;
+    text-underline-offset: 0.4em; */
+}
+
+.bio-description {
+    font-family: 'DM Sans', sans-serif;
+    text-align: left;
+    color: #ebeaea;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 22px;
+    margin-top: 10px;
+}
