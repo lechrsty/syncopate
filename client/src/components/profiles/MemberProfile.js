@@ -34,27 +34,37 @@ export const MemberProfile = () => {
 
     return (
         <div>
-            
-            <div>
-                <a href={`/reviews/${member.image_url}`}>
-                    <img
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> {member.username} </h2>
+            </main>
+
+            <div className="profile-wrapper">
+                <div className="profile-image-container">
+                    <img className="profile-image"
                         src={member.image_url} />
-                </a>
-                <p>{member.full_name} </p>
-                <p>{member.username}</p>
-                <p>{member.joined_on}</p>
-                <p>{member.bio}</p>
-                <Link to={`/${member?.taste?.id}`}>
-                    <p> {member?.taste?.type}</p>
-                </Link>
+                </div>
+
+                <div className="profile-bio-container">
+                    <p className="bio-name "> 
+                    {/* <img className='icon-small' src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681417235/noun-music-1111686-FFFFFF_fxz5dr.svg" />  */}
+                    {member.full_name} </p>
+                    <p className="bio-description">{member.bio}</p>
+                </div>
+
+                <div className="profile-taste-container">
+                    <Link to={`/${member?.taste?.id}`}>
+                        <p className="profile-taste"> {member?.taste?.type}</p>
+                    </Link>
+                </div>
             </div>
 
-            {
-                reviews.map(review => {
-                    return <Review onDelete={handleDelete} review={review} key={`review--${review.id}`} />
-                })
-            }
-
+            <div className="review-list-container">
+                {
+                    reviews.map(review => {
+                        return <Review onDelete={handleDelete} review={review} key={`review--${review.id}`} />
+                    })
+                }
+            </div>
         </div>
     )
 }

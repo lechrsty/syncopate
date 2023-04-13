@@ -16,39 +16,48 @@ export const ReviewDetails = () => {
   }, [reviewId])
 
   return (
-    <div key={`review--${review.id}`}>
+    <div className='review-detail-wrapper' key={`review--${review.id}`}>
+      <div className="title-genre-wrapper">
+        <p className='review-detail-title'> {review?.title} </p>
+        <p className='review-detail-rating'> {review?.rating?.rating}
+          <span style={{ marginLeft: '2px' }}>/</span>
+          <span className='review-detail-rating-text'>5</span>
+        </p>
+      </div>
+      <p className='review-detail-artist'> {review?.artist} </p>
+      <p className='review-detail-genre'> {review?.genre?.type} </p>
 
-      <p> {review?.rating?.rating}/5</p>
-      <p> {review?.title} </p>
-      <p> {review?.artist} </p>
-      <p> {review?.genre?.type} </p>
-
-      <div>
-        <p>Posted by</p>
+      <div className="username-genre-wrapper">
+        <p className='review-detail-genre' style={{ marginRight: '5px' }}>Posted by</p>
         <Link to={`/profile/member/${review?.member?.id}`}>
-          <p className='detail-link'>{review?.member?.username}</p>
+          <p className='review-username'> {review?.member?.username}</p>
         </Link>
       </div>
 
-      <p> {review?.description} </p>
+      <p className='review-detail-description'> {review?.description} </p>
 
       <div>
         {
           review.is_member
             ?
             <>
-              <button onClick={() => {
+            <div className="button-container">
+              <button 
+                className="button"
+                onClick={() => {
                 navigate(`/reviews/edit/${review.id}`)
               }}>Edit</button>
-              <button
+              <button 
+                className="button"
                 onClick={() => {
                   if (window.confirm("Are you sure you want to remove this review?")) {
-                    deleteReview(review.id).then(() => navigate("/reviews"));
+                    deleteReview(review.id).then(() => navigate("/reviews"))
                   }
                 }}
               >
                 Delete
               </button>
+              </div>
             </>
             :
             ""

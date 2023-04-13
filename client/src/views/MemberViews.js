@@ -38,7 +38,6 @@ export const MemberViews = () => {
                         <Route index element={<ReviewContainer />} />
                         <Route path=":reviewId" element={<ReviewDetailsContainer />} />
                         <Route path="edit/:reviewId" element={<EditReview />} /> 
-                        <Route path="create" element={<CreateReview />} />
                         <Route path=":reviewId/comments" element={< CommentListContainer />} />
                     </Route>
 
