@@ -34,9 +34,9 @@ export const MemberProfile = () => {
 
     return (
         <div>
-            <main className='tasty-content-wrapper'>
+            {/* <main className='tasty-content-wrapper'>
                 <h2 className='tasty-header'> {member.username} </h2>
-            </main>
+            </main> */}
 
             <div className="profile-wrapper">
                 <div className="profile-image-container">
@@ -47,7 +47,7 @@ export const MemberProfile = () => {
                 <div className="profile-bio-container">
                     <p className="bio-name "> 
                     {/* <img className='icon-small' src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681417235/noun-music-1111686-FFFFFF_fxz5dr.svg" />  */}
-                    {member.full_name} </p>
+                    {member.username} </p>
                     <p className="bio-description">{member.bio}</p>
                 </div>
 

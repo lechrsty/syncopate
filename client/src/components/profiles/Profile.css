@@ -4,6 +4,7 @@
     border-bottom: 4px solid #292828;
     padding-left: 50px;
     padding-right: 50px;
+    padding-top: 45px;
 }
 
 .profile-wrapper,
@@ -37,7 +38,7 @@ img.profile-image {
 /* Taste */
 
 .profile-taste-container {
-    background-color: #c3c3c3;
+    background-color: #c7c7c7;
     border-right: 4px solid #292828;
     width: 300px;
     padding-left: 20px;
