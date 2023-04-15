@@ -102,33 +102,38 @@ export const Aotm = ({ aotm }) => {
 
 
     return (
-        <div key={`aotm--${aotm.id}`}>
+        <div className='tasty-card' key={`aotm--${aotm.id}`}>
+            <h2 className='uppercase'> {aotm?.taste?.type} </h2>
 
-            <p>{aotm?.taste?.type}</p>
-            <a href={`/albums/${aotm?.album?.id}`}>
-                <img
-                    src={aotm?.album?.image_url} />
-            </a>
-            <Link to={`/albums/${aotm?.album?.id}`}>
-                <p>{aotm?.album?.title}</p>
-            </Link>
-            <p> {aotm?.album?.artist} </p>
-            <p> {aotm?.album?.genre?.type} </p>
-            <div>
+            <div className="image-container">
+                <img className="selections-image" src={aotm?.album?.image_url} />
                 {vinylCutUserObject?.staff === true && (
                     <>
-                        <button
-                            className="button"
-                            onClick={() => {
-                                setOpen(true);
-                            }}
-                        >
-                            Switch
-                        </button>
-                    </>
+                <button className="button small card" onClick={handleOpen}>
+                    Change
+                </button>
+                </>
+                )}
+            </div>
+            <div className='tasty-title'>
+                {aotm?.album?.title.length > 25 ? (
+                    <div className="marquee-container">
+                        <marquee direction="up" scrollamount="2" height="50px" >
+                            {[...Array(50)].map((_, i) => (
+                                <p className="tasty-title" key={i}>{aotm.album.title}</p>
+                            ))}
+                        </marquee>
+                    </div>
+                ) : (
+                    <p className="tasty-title">{aotm.album.title}</p>
                 )}
             </div>
 
+            <div className='artist-genre-wrapper'>
+                <p className='tasty-artist'> {aotm?.album?.artist} </p>
+                <p className='tasty-genre'> {aotm?.album?.genre?.type} </p>
+            </div>
+            <div className='space-above'></div>
 
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>

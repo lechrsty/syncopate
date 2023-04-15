@@ -74,6 +74,18 @@ a {
     text-transform: uppercase;
 }
 
+.siteHeader-leftPanelItems-menu li a .text-container-employee {
+    display: inline-block;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    text-orientation: upright;
+    color: #ffffff;
+    font-size: 10px;
+    font-style: italic;
+    line-height: 1.2em;
+    text-transform: uppercase;
+}
+
 .siteHeader-leftPanelItems-menu li a .text-container>* {
     display: block;
 }
@@ -81,6 +93,13 @@ a {
 .siteHeader-leftPanelItems-menu img {
     max-width: 60%;
     max-height: 60%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.siteHeader-leftPanelItems-menu img.employee {
+    max-width: 40%;
+    max-height: 40%;
     object-fit: contain;
     padding: 10px;
 }

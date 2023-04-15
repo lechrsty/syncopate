@@ -15,13 +15,19 @@ export const AotmList = (props) => {
 
     return (
         <>
-            {
-                aotms.map((aotm) => {
-                    return <Aotm
-                        aotm={aotm}
-                        key={`aotm--${aotm.id}`} />
-                })
-            }
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> Records of the month</h2>
+            </main>
+            <div className='list-container'>
+                {
+                    aotms.map((aotm) => {
+                        return <Aotm
+                            aotm={aotm}
+                            key={`aotm--${aotm.id}`} />
+                    })
+                }
+            </div>
+            <div className='space-above'></div>
         </>
     )
 }

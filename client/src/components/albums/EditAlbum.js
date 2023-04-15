@@ -53,82 +53,90 @@ export const EditAlbum = () => {
 
     return (
         <div>
-            <h2>Edit album</h2>
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> Edit Album</h2>
+            </main>
 
-            <div>
-                <label htmlFor="title">Album Title: </label>
-                <input type="text" name="title" required autoFocus
+            <div className='edit-wrapper'>
 
-                    defaultValue={album.title}
-                    onChange={handleInputChange}
-                />
-            </div>
+                <div>
+                    <label className="detail-artist padding-right-27 " htmlFor="title">Title </label>
+                    <input type="text" name="title" required autoFocus
 
-            <div>
-                <label htmlFor="artist">Album Artist: </label>
-                <input type="text" name="artist" required autoFocus
+                        defaultValue={album.title}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-                    defaultValue={album.artist}
-                    onChange={handleInputChange}
-                />
-            </div>
+                <div>
+                    <label className="detail-artist padding-right-10" htmlFor="artist">Artist </label>
+                    <input type="text" name="artist" required autoFocus
 
-            <div>
-                <textarea
-                    name="description"
-                    id="description"
-                    required
-                    autoFocus
-                    defaultValue={album.description}
-                    onChange={handleInputChange}
-                />
-            </div>
+                        defaultValue={album.artist}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-            <div>
-                <label htmlFor="genre">Genre </label>
-                <select
-                    className="form-style"
-                    onChange={(evt) => {
-                        const copy = { ...album };
-                        copy.genre = { id: parseInt(evt.target.value) };
-                        setAlbum(copy);
-                    }}
-                >
-                    <option value="">{album?.genre?.type}</option>
-                    {genreDropdown.map((genre) => (
-                        <option key={`genre--${genre.id}`} value={genre.id}>
-                            {genre.type}
+                <div>
+                    <div className='space-above'></div>
+                    <textarea
+                        name="description"
+                        id="description"
+                        required
+                        autoFocus
+                        defaultValue={album.description}
+                        onChange={handleInputChange}
+                    />
+                </div>
+
+                <div>
+                    <div className='space-above'></div>
+                    <label className="detail-artist" htmlFor="genre">Genre </label>
+                    <select
+                        className="form-style select-genre background-grey"
+                        onChange={(evt) => {
+                            const copy = { ...album };
+                            copy.genre = { id: parseInt(evt.target.value) };
+                            setAlbum(copy);
+                        }}
+                    >
+                        <option value="">{album?.genre?.type}</option>
+                        {genreDropdown.map((genre) => (
+                            <option key={`genre--${genre.id}`} value={genre.id}>
+                                {genre.type}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <div>
+                    <label className="detail-artist" htmlFor="taste">Taste </label>
+                    <select
+                        className="form-style select-genre background-grey"
+                        value={album?.taste?.id}
+                        onChange={(evt) => {
+                            const copy = { ...album };
+                            copy.taste = { id: parseInt(evt.target.value) };
+                            setAlbum(copy);
+                        }}
+                    >
+                        <option value="" disabled={!album?.taste}>
+                            {album?.taste?.type}
                         </option>
-                    ))}
-                </select>
-            </div>
+                        {tasteDropdown.map((taste) => (
+                            <option key={`taste--${taste?.id}`} value={taste?.id}>
+                                {taste?.type}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className='space-above'></div>
 
-            <div>
-                <label htmlFor="taste">Taste </label>
-                <select
-                    className="form-style"
-                    value={album?.taste?.id}
-                    onChange={(evt) => {
-                        const copy = { ...album };
-                        copy.taste = { id: parseInt(evt.target.value) };
-                        setAlbum(copy);
-                    }}
-                >
-                    <option value="" disabled={!album?.taste}>
-                        {album?.taste?.type}
-                    </option>
-                    {tasteDropdown.map((taste) => (
-                        <option key={`taste--${taste?.id}`} value={taste?.id}>
-                            {taste?.type}
-                        </option>
-                    ))}
-                </select>
+                <button type="submit"
+                    onClick={handleSubmit}
+                >Submit
+                </button>
             </div>
-
-            <button type="submit"
-                onClick={handleSubmit}
-            >Submit
-            </button>
         </div>
     )
 }
