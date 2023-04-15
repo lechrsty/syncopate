@@ -23,9 +23,9 @@ export const Album = ({ album, onDelete }) => {
                     src={album?.image_url} />
             </a>
             <p className='tasty-title'>
-                {album.title.length > 30 ? (
+                {album.title.length > 25 ? (
                     <div className="marquee-container">
-                        <marquee direction="up" scrollamount="2" height="50px" scrollDelay="0">
+                        <marquee direction="up" scrollamount="2" height="50px">
                             {[...Array(50)].map((_, i) => (
                                 <p className="tasty-title" key={i}>{album.title}</p>
                             ))}
@@ -35,21 +35,26 @@ export const Album = ({ album, onDelete }) => {
                     <p className="tasty-title">{album.title}</p>
                 )}
             </p>
+            
             <div className='artist-genre-wrapper'>
                 <p className='tasty-artist'> {album?.artist} </p>
                 <p className='tasty-genre'> {album?.genre?.type} </p>
             </div>
-            <div>
+            <div className='space-above'></div>
+            <div className='button-container'>
                 <div>
                     {vinylCutUserObject?.staff === true && (
-                        <button onClick={() => {
-                            navigate(`/edit/${album.id}`)
-                        }}>Edit</button>
+                        <button className='button small'
+                            onClick={() => {
+                                navigate(`/edit/${album.id}`)
+                            }}>Edit</button>
                     )}
                 </div>
                 <div>
                     {vinylCutUserObject?.staff === true && (
-                        <button onClick={handleDelete}>Delete</button>
+                        <button className='button small'
+                            onClick={handleDelete}
+                        >Delete</button>
                     )}
                 </div>
             </div>

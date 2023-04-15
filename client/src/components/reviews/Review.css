@@ -30,14 +30,14 @@
 /* Filter */
 
 .review-filter {
-    background-color: rgb(211, 156, 60);
+    background-color: #3f3e3e;
     border-right: 4px solid #292828;
 }
 
 /* Search */
 
 .review-search {
-    background-color: #3f3e3e;
+    background-color: #292828;
     padding-left: 200px;
     padding-right: 212px;
 }
@@ -115,9 +115,9 @@ img.review-image {
     text-transform: uppercase;
     font-family: 'DM Sans', sans-serif;
     text-align: left;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
     margin-bottom: auto;
     flex: 2;
 }
@@ -176,7 +176,7 @@ input.search {
     transition: transform 250ms ease-in-out;
     font-size: 18px;
     color: #ffffff;
-    border: 3px solid #3f3e3e;
+    border: 3px solid #292828;
     transition: all 250ms ease-in-out;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -260,7 +260,7 @@ input.search {
     text-transform: uppercase;
     font-family: 'DM Sans', sans-serif;
     text-align: left;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 2px;
 }
