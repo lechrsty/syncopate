@@ -313,7 +313,6 @@ textarea {
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
-    word-wrap: break-word;
 }
 
 input[type="text"],
@@ -341,11 +340,6 @@ input[type="file"] {
     height: 40px;
     padding: 0 20px;
     transition: background-color 0.3s ease-out;
-}
-
-.uppercase {
-    text-transform: uppercase;
-    margin-top: 0px;
 }
 
 /* File upload */

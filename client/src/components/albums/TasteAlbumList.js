@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { deleteAlbum, getAlbumsByTasteId } from '../../managers/AlbumManager'
 import { Album } from './Album'
 import "./Albums.css"
-import { getTastes } from '../../managers/TasteManager'
 
 export const TasteAlbumList = ({ tasteId }) => {
 
@@ -37,10 +36,6 @@ export const TasteAlbumList = ({ tasteId }) => {
                         <Album onDelete={handleDelete} album={album} key={`album--${album.id}`} />
                     )
                 })}
-            <div className='space-above'></div>
-            <div className='space-above'></div>
-            <div className='space-above'></div>
-
             </div>
         </>
     )

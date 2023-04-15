@@ -35,6 +35,9 @@ export const LoggedInProfile = () => {
 
     return (
         <div>
+            <main className='tasty-content-wrapper'>
+                <h2 className='tasty-header'> {member.username} </h2>
+            </main>
 
             <div className="profile-wrapper">
                 <div className="profile-image-container">

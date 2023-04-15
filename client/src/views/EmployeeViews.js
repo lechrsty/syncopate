@@ -21,7 +21,10 @@ export const EmployeeViews = () => {
                     </>
                 }>
 
-                    <Route path="/dashboard" element={<AotmList />} />
+                    <Route path="/dashboard" element={<EmployeeDashboard />} />
+
+                    <Route path="/aotms" element={<AotmList />} />
+
                     <Route path="/1" element={<ClassicsAlbumList />} />
                     <Route path="/2" element={<EssentialsAlbumList />} />
                     <Route path="/3" element={<WorldAlbumList />} />

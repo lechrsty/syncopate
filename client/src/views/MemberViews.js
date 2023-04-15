@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { EditReview } from "../components/reviews/EditReview"
+import { CreateReview } from "../components/reviews/CreateReview"
 import { LoggedInProfile } from "../components/profiles/LoggedInProfile"
 import { MemberProfile } from "../components/profiles/MemberProfile"
 import { CommentListContainer } from "../components/comments/CommentContainer"
