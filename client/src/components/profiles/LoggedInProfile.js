@@ -45,7 +45,7 @@ export const LoggedInProfile = () => {
                 <div className="profile-bio-container">
                     <p className="bio-name "> 
                     {/* <img className='icon-small' src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681417235/noun-music-1111686-FFFFFF_fxz5dr.svg" />  */}
-                    {member.full_name} </p>
+                    {member.username} </p>
                     <p className="bio-description">{member.bio}</p>
                 </div>
 

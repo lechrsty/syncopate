@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import "./Login.css"
 
 export const Login = ({ handleModal }) => {
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const existDialog = useRef()
     const navigate = useNavigate()
@@ -13,7 +13,7 @@ export const Login = ({ handleModal }) => {
         e.preventDefault();
         fetch(`http://localhost:8000/login`, {
             method: "POST",
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ username, password }),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -41,10 +41,10 @@ export const Login = ({ handleModal }) => {
                 <form onSubmit={handleLogin}>
                     <h2>Welcome back</h2>
                     <fieldset>
-                        <input type="email" id="inputEmail"
-                            value={email}
-                            onChange={evt => setEmail(evt.target.value)}
-                            placeholder="Email address"
+                        <input type="text" id="inputUsername"
+                            value={username}
+                            onChange={evt => setUsername(evt.target.value)}
+                            placeholder="Username"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
