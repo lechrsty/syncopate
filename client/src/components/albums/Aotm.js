@@ -109,10 +109,10 @@ export const Aotm = ({ aotm }) => {
                 <img className="selections-image" src={aotm?.album?.image_url} />
                 {vinylCutUserObject?.staff === true && (
                     <>
-                <button className="button small card" onClick={handleOpen}>
-                    Change
-                </button>
-                </>
+                        <button className="button small card" onClick={handleOpen}>
+                            Change
+                        </button>
+                    </>
                 )}
             </div>
             <div className='tasty-title'>
@@ -120,12 +120,16 @@ export const Aotm = ({ aotm }) => {
                     <div className="marquee-container">
                         <marquee direction="up" scrollamount="2" height="50px" >
                             {[...Array(50)].map((_, i) => (
-                                <p className="tasty-title" key={i}>{aotm.album.title}</p>
+                                <Link to={`/albums/${aotm.album.id}`} key={i}>
+                                    <p className="tasty-title">{aotm.album.title}</p>
+                                </Link>
                             ))}
                         </marquee>
                     </div>
                 ) : (
-                    <p className="tasty-title">{aotm.album.title}</p>
+                    <Link to={`/albums/${aotm.album.id}`}>
+                        <p className="tasty-title">{aotm.album.title}</p>
+                    </Link>
                 )}
             </div>
 

@@ -78,7 +78,7 @@ export const UnauthNav = () => {
                             <a href="/">
                                 <div className="reviewImage rsp-image-module responsive-image fit-cover">
                                     <div>
-                                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681589130/noun-home-5655721-B7412A_gia1jm.svg" alt="home-icon" />
+                                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681673457/noun-home-5655721-C28E35_cjq4cy.svg" alt="home-icon" />
                                     </div>
                                 </div>
                             </a>

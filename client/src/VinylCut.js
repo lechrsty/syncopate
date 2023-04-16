@@ -5,6 +5,7 @@ import { NavBar } from "./components/nav/NavBar"
 import { UnauthNav } from "./components/nav/UnauthNav"
 import { UnauthViews } from "./views/UnauthViews"
 import "./VinylCut.css"
+import { Home } from "./Home"
 
 export const VinylCut = () => {
     const localVinylCutUser = localStorage.getItem("vinylcut")
