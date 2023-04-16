@@ -1,30 +1,34 @@
 import { Route, Routes } from "react-router-dom"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
-import { Login } from "./components/auth/Login"
-import { Register } from "./components/auth/Register"
-import { EmployeeRegister } from "./components/auth/EmployeeRegister"
 import { NavBar } from "./components/nav/NavBar"
-import { AotmList } from "./components/albums/AotmList"
+import { UnauthNav } from "./components/nav/UnauthNav"
+import { UnauthViews } from "./views/UnauthViews"
 import "./VinylCut.css"
 
 export const VinylCut = () => {
+    const localVinylCutUser = localStorage.getItem("vinylcut")
+    const vinylCutUserObject = JSON.parse(localVinylCutUser)
 
-	return <Routes>
-		<Route path="/" element={<Login />} />
-		<Route path="/login" element={<Login />} />
-		<Route path="/registerMember" element={<Register />} />
-		<Route path="/registerEmployee" element={<EmployeeRegister />} />
-		<Route path="/aotms" element={<AotmList />} />
-
-		<Route path="*" element={
-			<Authorized>
-				<>
-					<NavBar />
-					<ApplicationViews/>
-				</>
-			</Authorized>
-
-		} />
-	</Routes>
+    return (
+        <Routes>
+            {vinylCutUserObject ? (
+                <Route path="*" element={
+                    <Authorized>
+                        <>
+                            <NavBar />
+                            <ApplicationViews />
+                        </>
+                    </Authorized>
+                } />
+            ) : (
+                <Route path="*" element={
+                    <>
+                        <UnauthNav />
+                        <UnauthViews />
+                    </>
+                } />
+            )}
+        </Routes>
+    )
 }

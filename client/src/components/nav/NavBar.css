@@ -415,3 +415,27 @@ main.siteHeader .siteHeader-tickerBottom .siteHeader-tickerBottomItem p {
 }
 
 }
+
+main.siteHeader .siteHeader-leftPanel .siteHeader-leftPanelItems .siteHeader-leftPanelItems-misc-home {
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    border: 4px solid #292828;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2px;
+}
+
+.siteHeader-rightPanelItems .dashboard div a span {
+    display: inline-block;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: #ffffff;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
