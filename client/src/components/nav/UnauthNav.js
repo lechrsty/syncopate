@@ -2,20 +2,11 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getTastes } from "../../managers/TasteManager"
 import "../../VinylCut.css"
-import { CreateAlbum } from "../albums/CreateAlbum"
+import { Login } from "../auth/Login"
 
-
-export const EmployeeNav = () => {
+export const UnauthNav = () => {
     const navigate = useNavigate()
-
-    // Initialize and set state for Taste dropdown
-    const [tastes, setTastes] = useState([])
-
-    useEffect(
-        () => { getTastes().then(setTastes) }, []
-    )
 
     // Handle modal for Create album
 
@@ -57,74 +48,45 @@ export const EmployeeNav = () => {
             <div className="siteHeader-leftPanel">
                 <div className="siteHeader-leftPanelItems">
                     <div className="siteHeader-leftPanelItems-menu">
+
                         <li className="menuItem">
-                            <Link to="/1">
-                                <span className="text-container-employee">classics</span>
+                            <Link to={`/about`}>
+                                <span className="text-container">About</span>
                             </Link>
                         </li>
 
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
 
-                        <li className="menuItem smaller">
-                            <Link to="/2">
-                                <span className="text-container-employee">essentials</span>
+                        <li className="menuItem">
+                            <Link to={`/club`}>
+                                <span className="text-container">Join club</span>
                             </Link>
                         </li>
 
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
 
                         <li className="menuItem">
-                            <Link to="/3">
-                                <span className="text-container-employee">WORLD</span>
-                            </Link>
-                        </li>
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
-
-                        <li className="menuItem">
-                            <Link to="/4">
-                                <span className="text-container-employee">HH </span>
-                            </Link>
-                        </li>
-
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
-
-                        <li className="menuItem">
-                            <Link to="/5">
-                                <span className="text-container-employee">HV</span>
-                            </Link>
-                        </li>
-
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680673420/noun-sparkle-1829144-FCF0ED_svcw2r.svg" alt="star-icon" />
-
-                        <li className="menuItem">
-                            <Link to="/6">
-                                <span className="text-container-employee">NR</span>
+                            <Link to={`/aotms`}>
+                                <span className="text-container">Staff picks</span>
                             </Link>
                         </li>
                     </div>
-                    <div className="siteHeader-leftPanelItems-misc">
 
+                    <div className="siteHeader-leftPanelItems-misc-home">
 
-                        {showModal && (
-                            <div className={`modal ${showModal ? 'active' : ''}`}>
-                                <span className="close" onClick={handleModal}>&times;</span>
-                                <div className="modal-content">
-                                    <CreateAlbum handleModal={handleModal} />
+                        <div className="review">
+                            <a href="/">
+                                <div className="reviewImage rsp-image-module responsive-image fit-cover">
+                                    <div>
+                                        <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1681589130/noun-home-5655721-B7412A_gia1jm.svg" alt="home-icon" />
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-
-                        <div className="logout">
-                            <a href="/" onClick={() => {
-                                localStorage.removeItem("vinylcut")
-                                navigate("/", { replace: true })
-                            }}>
-                                <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680677832/noun-log-out-5594485-B7412A_u96f9w.svg" alt="logout-icon" />
                             </a>
                         </div>
                     </div>
 
                 </div>
+
             </div>
 
             <div className="siteHeader-rightPanel">
@@ -132,25 +94,34 @@ export const EmployeeNav = () => {
                     <div className="dashboard">
                         <img className="rotate" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680852/noun-record-8845-FCF0ED_3_hgoktl.svg" alt="record-icon" />
 
-                        <li className="dashboardItem">
-                            <Link to={`/dashboard`}>
-                                <span className="text-container">Dashboard</span>
-                            </Link>
-                        </li>
+                        <div className="dashboardItem-li">
+                            <a href="#" onClick={handleModal}>
+                                <span className="text-container">Login</span>
+                            </a>
+
+                            {showModal && (
+                                <div className={`modal ${showModal ? 'active' : ''}`}>
+                                    <span className="close" onClick={handleModal}>&times;</span>
+                                    <div className="modal-content">
+                                        <Login handleModal={handleModal} />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
 
                         <img className="rotate" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680680755/noun-record-8845-FCF0ED_1_iyeuwo.svg" alt="record-icon" />
                     </div>
 
                     <div className="profile">
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
 
                         <li className="profileItem">
-                        <a href="#" onClick={handleModal}>      
-                                <span className="text-container">Upload Album</span>
-                            </a>
+                            <Link to={`/register`}>
+                                <span className="text-container">Register</span>
+                            </Link>
                         </li>
 
-                        <img className="employee pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
+                        <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
                     </div>
                 </div>
             </div>

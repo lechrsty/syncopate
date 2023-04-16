@@ -13,6 +13,5 @@ export const NavBar = () => {
     else if (vinylCutUserObject) {
         // Return member nav
         return <MemberNav />
-
     } 
 }

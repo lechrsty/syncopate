@@ -4,7 +4,6 @@ import { MemberContext } from '../dashboard/member/MemberDashboardContainer'
 import { TasteContext } from '../dashboard/member/MemberDashboardContainer'
 import { getAlbumsByTasteId } from "../../managers/AlbumManager"
 import { updateMember } from "../../managers/MemberManager"
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'

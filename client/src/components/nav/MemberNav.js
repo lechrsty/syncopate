@@ -101,9 +101,9 @@ export const MemberNav = () => {
                         </div>
 
                         <div className="logout">
-                            <a href="/logout" onClick={() => {
+                            <a href="/" onClick={() => {
                                 localStorage.removeItem("vinylcut")
-                                navigate("/login", { replace: true })
+                                navigate("/", { replace: true })
                             }}>
                                 <img src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680677832/noun-log-out-5594485-B7412A_u96f9w.svg" alt="logout-icon" />
                             </a>
