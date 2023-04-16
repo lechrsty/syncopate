@@ -101,6 +101,15 @@ img.icon-small {
     margin-top: -10px;
 }
 
+.margin-top-auto {
+    margin-top: auto;
+}
+
+.margin-right-50 {
+    margin-right: 50px;
+}
+
+
 /* Buttons */
 
 .button-container {
@@ -308,6 +317,8 @@ form {
 }
 
 input[type="text"],
+input[type="email"],
+input[type="password"],
 select,
 textarea {
     margin-bottom: 10px;
@@ -317,6 +328,8 @@ textarea {
 }
 
 input[type="text"],
+input[type="email"],
+input[type="password"],
 select {
     width: 300px;
 }

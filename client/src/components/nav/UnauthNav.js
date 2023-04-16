@@ -116,7 +116,7 @@ export const UnauthNav = () => {
                         <img className="pulse" src="https://res.cloudinary.com/dmilofp0z/image/upload/v1680682070/noun-sparkle-4613407-FCF0ED_euvffh.svg" alt="star-icon" />
 
                         <li className="profileItem">
-                            <Link to={`/aotms`}>
+                            <Link to={`/register`}>
                                 <span className="text-container">Register</span>
                             </Link>
                         </li>

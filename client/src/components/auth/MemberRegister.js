@@ -1,18 +1,31 @@
 import React, { useEffect, useRef, useState } from "react"
+import { registerTastes } from '../../managers/TasteManager'
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-export const EmployeeRegister = (props, { handleModal }) => {
-    const [employee, setEmployee] = useState({ "account_type": "employee" })
+export const MemberRegister = ({ handleModal }) => {
+
+    // Initialize and set state for new Member dropdown
+    const [member, setMember] = useState(
+        {
+            "account_type": "member",
+            "choice_one": null,
+            "choice_two": null,
+            "choice_three": null,
+            "taste": null
+        }
+    )
+
     const [serverFeedback, setFeedback] = useState("")
     const conflictDialog = useRef()
     const navigate = useNavigate()
 
-    // State for Employee code
-    const [expectedCode, setExpectedCode] = useState("123")
+    // Initialize and set state for Taste dropdown
+    const [tasteDropdown, setTasteDropdown] = useState([])
 
-    // State for entered Employee code
-    const [employeeCode, setEmployeeCode] = useState("")
+    useEffect(
+        () => { registerTastes().then(setTasteDropdown) }, []
+    )
 
     // State to hide "upload" button if clicked
     const [uploadClicked, setUploadClicked] = useState(false)
@@ -28,7 +41,6 @@ export const EmployeeRegister = (props, { handleModal }) => {
         formData.append("upload_preset", "vinylcut")
         setLoading(true)
 
-
         // Make Axios post request
         axios
             .post("https://api.cloudinary.com/v1_1/dmilofp0z/image/upload", formData)
@@ -38,24 +50,19 @@ export const EmployeeRegister = (props, { handleModal }) => {
             })
     }
 
+
     const handleRegister = (e) => {
         e.preventDefault()
+        // Add the "image_url" value to the member object
+        const updatedMember = { ...member, image_url: image }
 
-        // Check to see if inputted code is correct
-        if (employeeCode.toLowerCase() !== expectedCode.toLowerCase()) {
-            setFeedback("Invalid code. Please enter the correct code to register.")
-            return
-        }
-
-        const updatedEmployee = { ...employee, image_url: image }
-
+        console.log("Registering with data: ", updatedMember)
         fetch("http://localhost:8000/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(updatedEmployee)
-
+            body: JSON.stringify(updatedMember)
         })
             .then(res => {
                 if (res.status === 200) {
@@ -63,7 +70,7 @@ export const EmployeeRegister = (props, { handleModal }) => {
                 }
                 return res.json().then((json) => {
                     throw new Error(JSON.stringify(json))
-                });
+                })
             })
             .then(createdUser => {
                 localStorage.setItem("vinylcut", JSON.stringify(createdUser))
@@ -81,27 +88,29 @@ export const EmployeeRegister = (props, { handleModal }) => {
         }
     }, [serverFeedback])
 
-    const updateEmployee = (evt) => {
-        const copy = { ...employee }
+    const updateMember = (evt) => {
+        const copy = { ...member }
         copy[evt.target.id] = evt.target.value
-        setEmployee(copy)
+        setMember(copy)
     }
-
 
     return (
         <main>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>{serverFeedback}</div>
                 <button className="button--close"
-                    onClick={e => conflictDialog.current.close()}>Close</button>
+                    onClick={e => {
+                        conflictDialog.current.close()
+                        setFeedback("")
+                    }}>Close</button>
             </dialog>
 
             <form onSubmit={handleRegister}>
-                <h1>Welcome to the team</h1>
+                <h1>Register Member</h1>
 
                 <fieldset>
-                <div>
-                {(!uploadClicked && !image) ? (
+                    <div>
+                    {(!uploadClicked && !image) ? (
                     null // show nothing
                 ) : (
                     (!uploadClicked && image) ? (
@@ -137,40 +146,41 @@ export const EmployeeRegister = (props, { handleModal }) => {
                 {!uploadClicked && (
                     <button className="button small" onClick={uploadImage}>Upload image</button>
                 )}
-            </div>
+                    </div>
                 </fieldset>
 
                 <fieldset>
-                    <input onChange={updateEmployee}
+                    <input onChange={updateMember}
                         type="text" id="first_name"
-                        placeholder="First name" required autoFocus />
+                        placeholder="First name"
+                        required autoFocus />
                 </fieldset>
+
                 <fieldset>
-                    <input onChange={updateEmployee}
+                    <input onChange={updateMember}
                         type="text" id="last_name"
-                        placeholder="Last name" required />
+                        placeholder="Last name"
+                        required />
                 </fieldset>
+
                 <fieldset>
-                    <input onChange={updateEmployee}
-                        type="text" id="username"
-                        placeholder="Username" required />
-                </fieldset>
-                <fieldset>
-                    <textarea onChange={updateEmployee}
-                        className="bio"
+                    <input onChange={updateMember}
                         type="text"
-                        id="bio"
-                        placeholder="A short bio" required />
+                        id="username"
+                        placeholder="Username"
+                        required />
                 </fieldset>
+
                 <fieldset>
-                    <input onChange={updateEmployee}
+                    <input onChange={updateMember}
                         type="email"
                         id="email"
-                        placeholder="Email address" required />
+                        placeholder="Email"
+                        required />
                 </fieldset>
 
                 <fieldset>
-                    <input onChange={updateEmployee}
+                    <input onChange={updateMember}
                         type="password"
                         id="password"
                         placeholder="Password"
@@ -178,11 +188,32 @@ export const EmployeeRegister = (props, { handleModal }) => {
                 </fieldset>
 
                 <fieldset>
-                    <input type="text" id="employeeCode" placeholder="Employee code" required value={employeeCode} onChange={(e) => setEmployeeCode(e.target.value.trim())} />
+                    <textarea onChange={updateMember}
+                        aria-label="empty textarea"
+                        placeholder="A short bio"
+                        type="text"
+                        id="bio"
+                        className="bio"
+                        required />
                 </fieldset>
 
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <div className="form-group">
+                        <select name="taste" id="taste" onChange={updateMember} >
+                            <option value="0">Taste Category</option>
+                            {tasteDropdown.map(taste => (
+                                <option key={`taste--${taste.id}`} value={taste.id}>
+                                    {taste?.type}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <button type="submit" >
+                        Register
+                    </button>
                 </fieldset>
             </form>
         </main>

@@ -122,7 +122,7 @@ export const SelectionList = () => {
                     ) : (
                         <div className="selections-object">
                             <div className="modal-container">
-                            <button className="button small modal open"
+                            <button className="button small margin-right-50"
                                 onClick={handleOpen}>Make a selection</button> 
                             </div>
                             </div>
@@ -133,8 +133,11 @@ export const SelectionList = () => {
                         </MemberContext.Provider>
                     ) : (
                         <div className="selections-object">
-                            <button className="button small modal"
-                                onClick={handleOpen}>Make a selection</button> </div>
+                        <div className="modal-container">
+                        <button className="button small margin-right-50"
+                            onClick={handleOpen}>Make a selection</button> 
+                        </div>
+                        </div>
                     )}
                     {member?.choice_three ? (
                         <MemberContext.Provider value={member}>
@@ -142,8 +145,11 @@ export const SelectionList = () => {
                         </MemberContext.Provider>
                     ) : (
                         <div className="selections-object">
-                            <button className="button small modal"
-                                onClick={handleOpen}>Make a selection</button> </div>
+                        <div className="modal-container">
+                        <button className="button small margin-right-50"
+                            onClick={handleOpen}>Make a selection</button> 
+                        </div>
+                        </div>
                     )}
 
                     <Modal open={open} onClose={handleClose}>

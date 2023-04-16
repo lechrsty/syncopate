@@ -14,32 +14,34 @@ export const ReviewList = ({ memberSelection, searchTermState }) => {
     // Get reviews and set state for filtered review list, which will be displayed
     useEffect(
         () => {
-            getReviews().then(reviewData => setReviews(reviewData))
-            setFilteredReviews(reviews)
+            getReviews().then(reviewData => {
+                setReviews(reviewData)
+                setFilteredReviews(reviewData)
+            })
         }, [reviews])
 
     useEffect(
-        () => {
-            if (memberSelection === 0) {
-                setFilteredReviews(reviews)
-            }
-            else {
-                const filteredCopy = reviews.filter(review => review.member.id === parseInt(memberSelection))
-                setFilteredReviews(filteredCopy)
-            }
-        },
-        [reviews, memberSelection]
-    )
+            () => {
+                if (memberSelection === 0) {
+                    setFilteredReviews(reviews)
+                }
+                else {
+                    const filteredCopy = reviews.filter(review => review.member.id === parseInt(memberSelection))
+                    setFilteredReviews(filteredCopy)
+                }
+            },
+            [reviews, memberSelection]
+        )
 
     useEffect(
-        () => {
-            const searchedReviews = reviews.filter(review => {
-                return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.genre?.type.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.member?.username.toLowerCase().includes(searchTermState.toLowerCase())
-            })
-            setFilteredReviews(searchedReviews)
-        },
-        [reviews, searchTermState]
-    )
+            () => {
+                const searchedReviews = reviews.filter(review => {
+                    return review?.title?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.genre?.type.toLowerCase().includes(searchTermState.toLowerCase()) || review?.artist?.toLowerCase().includes(searchTermState.toLowerCase()) || review?.member?.username.toLowerCase().includes(searchTermState.toLowerCase())
+                })
+                setFilteredReviews(searchedReviews)
+            },
+            [reviews, searchTermState]
+        )
 
     // Handle delete for review
     const handleDelete = (id) => {

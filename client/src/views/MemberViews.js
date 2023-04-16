@@ -16,9 +16,6 @@ import { ReviewDetailsContainer } from "../components/reviews/ReviewDetailsConta
 
 export const MemberViews = () => {
 
-    console.log("Rendered")
-
-
     return (
             <Routes>
                 <Route path="/" element={
