@@ -18,7 +18,8 @@
 .left-panel img,
 .right-panel img {
     height: 100vh;
-    width: 50vw;
+    width: 100vh;
+    object-fit: cover;
 }
 
 .content-dashboard {
