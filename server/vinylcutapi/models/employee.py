@@ -17,3 +17,7 @@ class Employee(models.Model):
     @property
     def username(self):
         return f'{self.user.username}'
+    
+    @property
+    def first_name(self):
+        return f'{self.user.first_name}'
