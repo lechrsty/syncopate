@@ -20,14 +20,20 @@ export const EmployeeDashboard = () => {
 
     const IMAGES_LEFT = [
         'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747819/pexels-photo-1238941_m3c2zf.jpg',
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680749689/pexels-photo-3550240_ufghzf.webp',
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747846/pexels-photo-9062566_syty0r.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681781584/pexels-photo-6069095_rmw33f.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681781602/pexels-photo-15447298_jsm3l5.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681780543/pexels-photo-6827397_h1x1pm.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681783853/pexels-photo-9050184_qtqpxx.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681328646/fahumkdbn6gd8cxsbcc5.jpg',
     ]
 
     const IMAGES_RIGHT = [
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747846/pexels-photo-9062566_syty0r.jpg',
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680747819/pexels-photo-1238941_m3c2zf.jpg',
-        'https://res.cloudinary.com/dmilofp0z/image/upload/v1680749689/pexels-photo-3550240_ufghzf.webp',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681783851/pexels-photo-9786210_rmvout.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681781596/pexels-photo-6862369_hzvbmh.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681780544/pexels-photo-11256773_adytap.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681780543/pexels-photo-6827298_nwz0on.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681783573/pexels-koolshooters-6621701_ixzdfp.jpg',
+        'https://res.cloudinary.com/dmilofp0z/image/upload/v1681783828/pexels-photo-9050159_ytcln1.jpg',
     ]
 
     const IMAGES_LEFT_DUPLICATED = Array.from({ length: 100 }, () => IMAGES_LEFT).flat()
