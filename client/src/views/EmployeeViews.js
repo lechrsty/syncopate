@@ -7,12 +7,11 @@ import { HipHopAlbumList } from "../components/albums/HipHopAlbumList"
 import { HighVoltageAlbumList } from "../components/albums/HighVoltageAlbumList"
 import { NewReleasesAlbumList } from "../components/albums/NewReleasesAlbumList"
 import { EditAlbum } from "../components/albums/EditAlbum"
-import { AotmList } from "../components/albums/AotmList"
 import { AlbumDetails } from "../components/albums/AlbumDetails"
 import { EmployeeDashboard } from "../components/dashboard/employee/EmployeeDashboard"
 
 export const EmployeeViews = () => {
-    
+
     return (
             <Routes>
                 <Route path="/" element={
@@ -21,7 +20,7 @@ export const EmployeeViews = () => {
                     </>
                 }>
 
-                    <Route path="/dashboard" element={<AotmList />} />
+                    <Route path="/dashboard" element={<EmployeeDashboard />} />
                     <Route path="/1" element={<ClassicsAlbumList />} />
                     <Route path="/2" element={<EssentialsAlbumList />} />
                     <Route path="/3" element={<WorldAlbumList />} />

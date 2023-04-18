@@ -22,7 +22,7 @@ export const Album = ({ album, onDelete }) => {
                 <img className='tasty-image'
                     src={album?.image_url} />
             </a>
-            <p className='tasty-title'>
+            <div className='tasty-title'>
                 {album.title.length > 25 ? (
                     <div className="marquee-container">
                         <marquee direction="up" scrollamount="2" height="50px">
@@ -34,7 +34,7 @@ export const Album = ({ album, onDelete }) => {
                 ) : (
                     <p className="tasty-title">{album.title}</p>
                 )}
-            </p>
+            </div>
             
             <div className='artist-genre-wrapper'>
                 <p className='tasty-artist'> {album?.artist} </p>

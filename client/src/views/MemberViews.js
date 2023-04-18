@@ -17,37 +17,32 @@ import { ReviewDetailsContainer } from "../components/reviews/ReviewDetailsConta
 export const MemberViews = () => {
 
     return (
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <Outlet />
-                    </>
-                }>
+        <Routes>
+            <Route path="/" element={<MemberDashboardContainer />} />
 
-                    <Route path="/dashboard" element={<MemberDashboardContainer />} />
+            <Route path="/dashboard" element={<MemberDashboardContainer />} />
 
-                    <Route path="/1" element={<ClassicsAlbumList />} />
-                    <Route path="/2" element={<EssentialsAlbumList />} />
-                    <Route path="/3" element={<WorldAlbumList />} />
-                    <Route path="/4" element={<HipHopAlbumList />} />
-                    <Route path="/5" element={<HighVoltageAlbumList />} />
-                    <Route path="/6" element={<NewReleasesAlbumList />} />
+            <Route path="/1" element={<ClassicsAlbumList />} />
+            <Route path="/2" element={<EssentialsAlbumList />} />
+            <Route path="/3" element={<WorldAlbumList />} />
+            <Route path="/4" element={<HipHopAlbumList />} />
+            <Route path="/5" element={<HighVoltageAlbumList />} />
+            <Route path="/6" element={<NewReleasesAlbumList />} />
 
-                    <Route path="/reviews">
-                        <Route index element={<ReviewContainer />} />
-                        <Route path=":reviewId" element={<ReviewDetailsContainer />} />
-                        <Route path="edit/:reviewId" element={<EditReview />} /> 
-                        <Route path=":reviewId/comments" element={< CommentListContainer />} />
-                    </Route>
+            <Route path="/reviews">
+                <Route index element={<ReviewContainer />} />
+                <Route path=":reviewId" element={<ReviewDetailsContainer />} />
+                <Route path="edit/:reviewId" element={<EditReview />} />
+                <Route path=":reviewId/comments" element={< CommentListContainer />} />
+            </Route>
 
-                    <Route path="/profile">
-                        <Route index element={<LoggedInProfile />} />
-                        <Route path="member/:memberId" element={<MemberProfile />} />
-                    </Route>
+            <Route path="/profile">
+                <Route index element={<LoggedInProfile />} />
+                <Route path="member/:memberId" element={<MemberProfile />} />
+            </Route>
 
-                    <Route path="/albums/:albumId" element={<AlbumDetails />} />
-                </Route>
+            <Route path="/albums/:albumId" element={<AlbumDetails />} />
 
-            </Routes>
+            </Routes >
     )
 }

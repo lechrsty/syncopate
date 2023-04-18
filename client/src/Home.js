@@ -71,6 +71,9 @@ export const Home = () => {
                         ))}
                     </div>
                 </div>
+                <div className="overlay-text">
+                    <h1>VINYL CUT</h1>
+                </div>
             </div>
         </main>
 

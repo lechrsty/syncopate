@@ -15,8 +15,8 @@ export const AotmList = (props) => {
 
     return (
         <>
-            <main className='tasty-content-wrapper'>
-                <h2 className='tasty-header'> Records of the month</h2>
+        <main className='aotm-content-wrapper border-bottom margin-top-40'>
+                <h2 className='aotm-header'> Records of the month</h2>
             </main>
             <div className='list-container'>
                 {
