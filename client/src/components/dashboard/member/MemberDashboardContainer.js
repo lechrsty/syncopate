@@ -132,6 +132,10 @@ export const MemberDashboardContainer = () => {
                             <SelectionList />
                         </div>
                     </div>
+                    <div className="overlay-text margin-top-hero">
+                        <h1><span className='welcome' >Welcome back,</span> {member.first_name}</h1>
+
+                    </div>
                 </AOTMContext.Provider>
             </TasteContext.Provider>
         </MemberContext.Provider >

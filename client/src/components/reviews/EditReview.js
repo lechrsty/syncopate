@@ -50,7 +50,6 @@ export const EditReview = () => {
             .then(() => navigate(`/reviews`))
     }
 
-
     return (
         <>
             <main className='tasty-content-wrapper'>

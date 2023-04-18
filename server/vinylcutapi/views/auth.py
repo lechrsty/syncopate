@@ -35,12 +35,20 @@ def login_user(request):
         except Member.DoesNotExist:
             member_id = None
 
+        try:
+            employee = Employee.objects.get(user=authenticated_user)
+            employee_id = employee.id
+        except Employee.DoesNotExist:
+            employee_id = None
+
         data = {
             'valid': True,
             'token': token.key,
             'staff': authenticated_user.is_staff,
             'user': token.user.id,
-            'member': member_id
+            'member': member_id,
+            'employee':employee_id
+
         }
         return Response(data)
     else:
