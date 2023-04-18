@@ -13,29 +13,23 @@ import { EmployeeDashboard } from "../components/dashboard/employee/EmployeeDash
 export const EmployeeViews = () => {
 
     return (
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <Outlet />
-                    </>
-                }>
+        <Routes>
+            <Route path="/" element={<EmployeeDashboard />} />
+            
+            <Route path="/dashboard" element={<EmployeeDashboard />} />
+            <Route path="/1" element={<ClassicsAlbumList />} />
+            <Route path="/2" element={<EssentialsAlbumList />} />
+            <Route path="/3" element={<WorldAlbumList />} />
+            <Route path="/4" element={<HipHopAlbumList />} />
+            <Route path="/5" element={<HighVoltageAlbumList />} />
+            <Route path="/6" element={<NewReleasesAlbumList />} />
 
-                    <Route path="/dashboard" element={<EmployeeDashboard />} />
-                    <Route path="/1" element={<ClassicsAlbumList />} />
-                    <Route path="/2" element={<EssentialsAlbumList />} />
-                    <Route path="/3" element={<WorldAlbumList />} />
-                    <Route path="/4" element={<HipHopAlbumList />} />
-                    <Route path="/5" element={<HighVoltageAlbumList />} />
-                    <Route path="/6" element={<NewReleasesAlbumList />} />
+            <Route path="/albums/:albumId" element={<AlbumDetails />} />
 
-                    <Route path="/albums/:albumId" element={<AlbumDetails />} />
-
-                    <Route path="/upload">
-                        <Route index element={<CreateAlbum />} />
-                    </Route>
-                    <Route path="/edit/:albumId" element={<EditAlbum />} />
-
-                </Route>
-            </Routes>
+            <Route path="/upload">
+                <Route index element={<CreateAlbum />} />
+            </Route>
+            <Route path="/edit/:albumId" element={<EditAlbum />} />
+        </Routes>
     )
 }
