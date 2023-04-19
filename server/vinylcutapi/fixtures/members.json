@@ -5,7 +5,7 @@
         "fields": {
             "user": 1,
             "bio": "As a DJ and avid record collector, my obsession with vinyl goes beyond the sheer enjoyment of the music. I am constantly on the hunt for new tracks and sounds to incorporate into my sets, and I collect records from different countries and genres to expand my musical repertoire. When not spinning records or organizing vinyl swap meets, I am always looking for new ways to creatively blend my collection in unique ways.", 
-            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1681838583/IMG_5256_qlab2x.jpg",
             "taste": 1,
             "choice_one": 1,
             "choice_two": 2,
@@ -18,7 +18,7 @@
         "fields": {
             "user": 3,
             "bio": "As a music historian and collector, I am driven by a deep desire to preserve the legacy of different genres and movements through vinyl records. My collection is comprised of sought-after first pressings and limited editions, and I am always on the lookout for hidden gems. When I'm not cataloging my collection or organizing listening parties, I love to research and learn more about the history behind the music.", 
-            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1681838614/IMG_5255_ya1m9s.jpg",
             "taste": 2,
             "choice_one": 16,
             "choice_two": 15,
@@ -29,9 +29,9 @@
         "model": "vinylcutapi.member",
         "pk": 3,
         "fields": {
-            "user": 5,
+            "user": 6,
             "bio": "I find great pleasure in exploring the rich sound and tactile experience of analog recordings. My collection spans across different eras and styles, and I take great pride in discovering new records to add to my collection. In my free time, I am passionate about restoring and maintaining vintage turntables.", 
-            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1672206103/zv5i9l72siawpwdf0l0i.png",
+            "image_url": "https://res.cloudinary.com/dmilofp0z/image/upload/v1681838593/IMG_5254_vbtoqg.jpg",
             "taste": 3,
             "choice_one": 17,
             "choice_two": null,

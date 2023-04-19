@@ -12,13 +12,13 @@
 .right-panel {
     display: flex;
     height: 100vh;
-    
+    width: 50vw;
 }
 
 .left-panel img,
 .right-panel img {
     height: 100vh;
-    width: 100vh;
+    width: 50vw;
     object-fit: cover;
 }
 
