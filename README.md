@@ -16,43 +16,43 @@
 * [Installation Instructions](#installation-instructions)
 
 # Landing Page Features
-## Image Slider
+### Image Slider
 https://user-images.githubusercontent.com/111799280/232988925-4551af42-a228-40e6-b6da-d887dadde9ab.mp4
-## View Staff Picks and Album Details
+### View Staff Picks and Album Details
 https://user-images.githubusercontent.com/111799280/232992849-98383cc1-5bcf-41ef-a562-47efb008d220.mp4
 
 # Employee Features
-## Register as an Employee
+### Register as an Employee
 https://user-images.githubusercontent.com/111799280/232995305-ca99cc24-39f2-401f-bcd2-047b1b40d3cf.mp4
-## Update a Record of the Month
+### Update a Record of the Month
 https://user-images.githubusercontent.com/111799280/232996771-2edf5752-6303-41ca-af8e-3093ed5f6e60.mp4
-## Create an Album
+### Create an Album
 https://user-images.githubusercontent.com/111799280/233000489-40c2ef87-4550-47a5-b058-6e5fea17181a.mp4
-## Edit an Album
+### Edit an Album
 https://user-images.githubusercontent.com/111799280/233001396-a7a8c0ce-cde1-48a8-8e41-f8ffa28fc34e.mp4
-## Delete an Album
+### Delete an Album
 https://user-images.githubusercontent.com/111799280/233000919-877c3f20-be2b-4d7e-9914-4763dd490b31.mp4
 
 # Member Features
-## Register as a Member
+### Register as a Member
 https://user-images.githubusercontent.com/111799280/233005822-daef9bbe-40ac-4d00-a031-e2de075fde25.mp4
-## Edit Taste Subscription
+### Edit Taste Subscription
 https://user-images.githubusercontent.com/111799280/233005850-8946f933-6006-4b8f-9052-b87439350e66.mp4
-## Select Records for Subscription
+### Select Records for Subscription
 https://user-images.githubusercontent.com/111799280/233007304-482eaa35-2273-474e-bbb8-fdf1bbe7166c.mp4
-## Update Records for Subscription
+### Update Records for Subscription
 https://user-images.githubusercontent.com/111799280/233007332-f2904341-0207-48d5-83eb-b4882d11b945.mp4
-## View Albums
+### View Albums
 https://user-images.githubusercontent.com/111799280/233006383-9b66edb0-5c87-48c8-a26f-5ea013193f69.mp4
-## View and Filter Reviews
+### View and Filter Reviews
 https://user-images.githubusercontent.com/111799280/233008072-59d65871-c7eb-476f-913e-c421aa1ebe5d.mp4
-## Create, Edit, and Delete a Review
+### Create, Edit, and Delete a Review
 https://user-images.githubusercontent.com/111799280/233008882-39ae1c73-bfc7-439e-a0a4-641660a0a16d.mp4
-## Add and Delete a Comment
+### Add and Delete a Comment
 https://user-images.githubusercontent.com/111799280/233010758-afa90ab6-a7ca-48d2-bda4-038dd35c0ad6.mp4
-## View Logged-in Member's Profile 
+### View Logged-in Member's Profile 
 https://user-images.githubusercontent.com/111799280/233009685-1941133b-0561-4f98-b206-43b442051be3.mp4
-## View Other Members' Profiles and Taste Subscriptions
+### View Other Members' Profiles and Taste Subscriptions
 https://user-images.githubusercontent.com/111799280/233010236-0d626c2c-7219-44fd-8980-6aebe9cde341.mp4
 
 # ERD
