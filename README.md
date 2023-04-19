@@ -12,7 +12,7 @@ Members can upload reviews of albums they've loved, loathed, or felt lukewarm ab
 Employees can upload, edit, and delete albums for a specific category. They can also select which album they would like to highlight as the Record of the Month.
 
 
-# Landing Page
+# Landing Page Features
 https://user-images.githubusercontent.com/111799280/232988925-4551af42-a228-40e6-b6da-d887dadde9ab.mp4
 ## View Staff Picks and Album Details
 https://user-images.githubusercontent.com/111799280/232992849-98383cc1-5bcf-41ef-a562-47efb008d220.mp4
