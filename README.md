@@ -17,10 +17,22 @@ https://user-images.githubusercontent.com/111799280/232988925-4551af42-a228-40e6
 ## View Staff Picks and Album Details
 https://user-images.githubusercontent.com/111799280/232992849-98383cc1-5bcf-41ef-a562-47efb008d220.mp4
 
-
+# Employee Features
+https://user-images.githubusercontent.com/111799280/232995305-ca99cc24-39f2-401f-bcd2-047b1b40d3cf.mp4
+## Update a Record of the Month
+https://user-images.githubusercontent.com/111799280/232996771-2edf5752-6303-41ca-af8e-3093ed5f6e60.mp4
+## Create an Album
+https://user-images.githubusercontent.com/111799280/233000489-40c2ef87-4550-47a5-b058-6e5fea17181a.mp4
+## Edit an Album
+https://user-images.githubusercontent.com/111799280/233001396-a7a8c0ce-cde1-48a8-8e41-f8ffa28fc34e.mp4
+## Delete an Album
+https://user-images.githubusercontent.com/111799280/233000919-877c3f20-be2b-4d7e-9914-4763dd490b31.mp4
 
 
 # Member Features
+
+## Register as a Member
+
 [Member Dashboard](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#member-dashboard)
 
 [Select records for your subscription box ](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
