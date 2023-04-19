@@ -62,4 +62,5 @@ https://user-images.githubusercontent.com/111799280/233010236-0d626c2c-7219-44fd
 [Link to Miro board](https://miro.com/app/board/uXjVMfDdGls=/?share_link_id=896910926347)
 
 # Installation Instructions
+![GMP_TW9yZUdMMDE=](https://user-images.githubusercontent.com/111799280/233033609-9a14e6c3-2f43-4e1e-a376-f22fe47d19f9.gif)
 
