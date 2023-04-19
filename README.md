@@ -13,11 +13,13 @@ Employees can upload, edit, and delete albums for a specific category. They can 
 
 
 # Landing Page Features
+## Image Slider
 https://user-images.githubusercontent.com/111799280/232988925-4551af42-a228-40e6-b6da-d887dadde9ab.mp4
 ## View Staff Picks and Album Details
 https://user-images.githubusercontent.com/111799280/232992849-98383cc1-5bcf-41ef-a562-47efb008d220.mp4
 
 # Employee Features
+## Register as an Employee
 https://user-images.githubusercontent.com/111799280/232995305-ca99cc24-39f2-401f-bcd2-047b1b40d3cf.mp4
 ## Update a Record of the Month
 https://user-images.githubusercontent.com/111799280/232996771-2edf5752-6303-41ca-af8e-3093ed5f6e60.mp4
