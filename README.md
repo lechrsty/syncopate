@@ -62,3 +62,7 @@ https://user-images.githubusercontent.com/111799280/233010236-0d626c2c-7219-44fd
 [Link to Miro board](https://miro.com/app/board/uXjVMfDdGls=/?share_link_id=896910926347)
 
 # Installation Instructions
+
+<video src="https://res.cloudinary.com/dmilofp0z/video/upload/v1681897305/9c8774f728ec701726e61ef51ef7fdf6_4_zvryfb.mp4" width="640" height="360" controls>
+  Your browser does not support the video tag.
+</video>
