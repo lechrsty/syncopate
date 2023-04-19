@@ -2,10 +2,9 @@
 
 ### _Vinyl Cut is a full-stack CRUD application for a record store that provides a vinyl subscription service, as well as a platform for dedicated music lovers to share what albums they've been digging (or not)._ 
 
-Members who subscribe to the vinyl club will be recommended a handful of records each month, curated and uploaded by employees of the record store, based off of a plan that they select upon registration. Once registered, they are able to view the Record of the Month associated with their plan, change their plan, and navigate to a view that displays all of the employee recommendations associated with their plan for the month. In their dashboard, they can select which albums they would like to receive in their subscription box. Members can upload reviews of albums they've loved, loathed, or felt lukewarm about. They can also edit and delete them. If they want to intereact with another member's review, they can post a comment on that review.
+*  Members who subscribe to the vinyl club will be recommended a handful of records each month, curated and uploaded by employees of the record store, based off of a plan that they select upon registration. Once registered, they are able to view the Record of the Month associated with their plan, change their plan, and navigate to a view that displays all of the employee recommendations associated with their plan. In their dashboard, they can select which albums they would like to receive in their subscription box. Members can upload reviews of albums they've loved, loathed, or felt lukewarm about. They can also edit and delete them. Members can interact with each other by posting comments on reviews.
 
-
-Employees can upload, edit, and delete albums for a specific category. They can also select which album they would like to highlight as the Record of the Month.
+*  Employees can upload, edit, and delete albums for a specific category. They can also select which album they would like to highlight as the Record of the Month.
 
 ## Table of Contents
 
