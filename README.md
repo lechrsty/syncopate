@@ -2,8 +2,6 @@
 
 ### _Vinyl Cut is a full-stack web application for a record store that provides a vinyl subscription service, as well as a platform for dedicated music lovers to share what albums they've been digging (or not)._ 
 
-Searching for music that you connect with has become somewhat of a burdensome task in an age where people have access to millions of new sounds at their fingertips. The average listener may find that it requires more effort than ever in order to find the gems. This process can be overwhelming when you’re not sure where to start. Listeners who have been in the crate-digging game for decades may feel as if they’ve plateaued, and the experience of finding something new and refreshing has dissolved into an elusive and rare occasion. My application seeks to reinvigorate and simplify the user’s journey by helping them discover new music through various selections of hand-curated records. In addition, it aims to foster a community of music lovers who can share their passion through user reviews and reactions. 
-
 ## Member Overview
 
 Members who subscribe to the vinyl club will be recommended a handful of records each month, curated and uploaded by employees of the record store, based off of a plan that they select upon registration. Once registered, they are able to view the Record of the Month associated with their plan, change their plan, and navigate to a view that displays all of the employee recommendations associated with their plan for the month. In their dashboard, they can select which albums they would like to receive in their subscription box. 
@@ -13,11 +11,13 @@ Members can upload reviews of albums they've loved, loathed, or felt lukewarm ab
 ## Employee Overview
 Employees can upload, edit, and delete albums for a specific category. They can also select which album they would like to highlight as the Record of the Month.
 
-# ERD
-![alt text](https://res.cloudinary.com/dmilofp0z/image/upload/v1679785158/Screen_Shot_2023-03-25_at_3.48.31_PM_xqeohl.png)
 
-# Wireframe
-[Link to Miro board](https://miro.com/app/board/uXjVMfDdGls=/?share_link_id=896910926347)
+# Landing Page
+https://user-images.githubusercontent.com/111799280/232988925-4551af42-a228-40e6-b6da-d887dadde9ab.mp4
+## View Staff Picks and Album Details
+https://user-images.githubusercontent.com/111799280/232992849-98383cc1-5bcf-41ef-a562-47efb008d220.mp4
+
+
 
 
 # Member Features
@@ -56,4 +56,8 @@ Employees can upload, edit, and delete albums for a specific category. They can 
 [Change the "Record of the Month"](https://github.com/lechrsty/vinyl-cut/blob/main/README.md#)
 
 
+# ERD
+![alt text](https://res.cloudinary.com/dmilofp0z/image/upload/v1679785158/Screen_Shot_2023-03-25_at_3.48.31_PM_xqeohl.png)
 
+# Wireframe
+[Link to Miro board](https://miro.com/app/board/uXjVMfDdGls=/?share_link_id=896910926347)
