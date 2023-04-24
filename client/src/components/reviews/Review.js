@@ -53,7 +53,7 @@ export const Review = ({ review, onDelete }) => {
                 </p>
             </div>
 
-            <p className='review-description'> {review?.description.slice(0, 1000)}... </p>
+            <p className='review-description'> {review?.description.slice(0, 400)}... </p>
             <div>
                 {
                     review.member.id === JSON.parse(localStorage.getItem('vinylcut')).member

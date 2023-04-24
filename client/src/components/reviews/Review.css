@@ -2,7 +2,7 @@
 
 .review-list-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 0px;
     grid-column-gap: 0px;
     background-color: #ffffff;
@@ -62,7 +62,7 @@
     border-bottom: 1px dashed #292828;
     box-sizing: border-box;
     /* include border in element's dimensions */
-    width: 450px;
+    width: 500px;
     padding-top: 60px;
 }
 
