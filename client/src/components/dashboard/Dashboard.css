@@ -59,6 +59,7 @@
     font-weight: 700;
     font-style: italic;
     max-width: 30%;
+    word-wrap: break-word;
 }
 
 .album-genre {
